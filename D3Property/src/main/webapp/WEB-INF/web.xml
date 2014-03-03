@@ -6,7 +6,42 @@
             30
         </session-timeout>
     </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        </welcome-file-list>
-    </web-app>
+    
+    <welcome-file-list><!--Poner aqui la pagina principal, la que pongo es provisional-->
+        <welcome-file>/TestPages/redirect.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!--Esto es del prof estrada :3_____________________________________________________-->
+    <!-- Archivos de configuraciÃ³n-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name> <!-- apllicaciton context-->
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    
+    <!-- Filtros -->    
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>   
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern> <!--mapea todos los elementos-->
+    </filter-mapping>
+    
+    <!-- Listeners -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    
+    <!-- PÃ¡ginas con Error  ejemplos-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errores/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/errores/sysError.jsp</location>
+    </error-page>
+    <!--Esto es del prof estrada :3_____________________________________________________-->
+</web-app>
