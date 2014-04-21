@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="com.oima.project.DDDProperty.model.dto.Propiedad" table="propiedad">
+        <id name="idPropiedad" type="java.lang.Long" >
+            <column name="ID_PROPIEDAD" not-null="true"/>
+            <generator class="identity"/>
+        </id>
+        <property column="NOMBRE" name="nombre" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="DESCRIPCION" name="descripcion" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="EXTENSION" name="extension" not-null="false" type="java.lang.Integer">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="NO_BANIOS" name="noBanios" not-null="false" type="java.lang.Integer">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="NO_HABITACIONES" name="noHabitaciones" not-null="false" type="java.lang.Integer">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="NO_PISOS" name="noPisos" not-null="false" type="java.lang.Integer">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="COLOR_1" name="color1" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="COLOR_2" name="color2" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="FECHA_CONSTRUCCION" name="fechaConstruccion" not-null="false" type="java.util.Date">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="TIPO_FACHADA" name="tipoFachada" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="CALLE" name="calle" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="NO_EXTERIOR" name="noExterior" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="NO_INTERIOR" name="noInterior" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <many-to-one class="com.oima.project.DDDProperty.model.dto.Colonia" insert="true" update="true" lazy="false" name="idColonia">
+            <column name="ID_COLONIA"/>
+        </many-to-one>
+        <many-to-one class="com.oima.project.DDDProperty.model.dto.Categoria" insert="true" update="true" lazy="false" name="idCategoria">
+            <column name="ID_CATEGORIA"/>
+        </many-to-one>
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+    </class>
+    
+</hibernate-mapping>

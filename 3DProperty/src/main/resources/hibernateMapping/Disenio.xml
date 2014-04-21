@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="com.oima.project.DDDProperty.model.dto.Disenio" table="disenio">
+        <id name="idDisenio" type="java.lang.Long" >
+            <column name="ID_DISENIO" not-null="true"/>
+            <generator class="identity"/>
+        </id>
+        <property column="RUTA" name="ruta" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <property column="RUTA_SKYBOX" name="rutaSkyBox" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+        <many-to-one class="com.oima.project.DDDProperty.model.dto.Usuario" insert="true" update="true" lazy="false" name="idUsuario">
+            <column name="ID_USUARIO"/>
+        </many-to-one>
+        <many-to-one class="com.oima.project.DDDProperty.model.dto.Propiedad" insert="true" update="true" lazy="false" name="idPropiedad">
+            <column name="ID_PROPIEDAD"/>
+        </many-to-one>
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
+    </class>
+    
+</hibernate-mapping>

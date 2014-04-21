@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>3DProperty</display-name>
+    <session-config><!-- tiempo de sesion-->
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <welcome-file-list><!-- pagina de inicio-->
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!--    Spring security-->
+      <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:applicationContext.xml
+            /WEB-INF/spring-security.xml
+            /WEB-INF/spring-beans.xml
+        </param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <!-- Archivos de configuraciÃ³n-->
+<!--    <context-param>
+        <param-name>contextConfigLocation</param-name>  apllicaciton context
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>-->
+    
+    <!-- Filtros -->    
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>   
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern> <!--mapea todos los elementos-->
+    </filter-mapping>
+    
+    <!-- Listeners -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    
+    <!-- PÃ¡ginas con Error -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errores/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/errores/sysError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/Errores/Error403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/Errores/Error403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>503</error-code>
+        <location>/errores/sysError.jsp</location>
+    </error-page>
+    
+     
+</web-app>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="myPackage" extends="struts-default" namespace="/">
+
+<!-- =====================================================================================================================================
+				INTERCEPTOR PARA LA SESIÓN
+=======================================================================================================================================-->
+
+        <interceptors>
+            <interceptor name="sessionInterceptor" class="sessionInterceptor" />            
+            <interceptor-stack name="validarsesion">
+                <interceptor-ref name="sessionInterceptor" />
+                <interceptor-ref name="defaultStack" />                
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="validarsesion" />
+        
+        <global-results>
+            <result name="loginSesionNull">/views/index.jsp</result>
+        </global-results>
+
+<!-- =====================================================================================================================================
+				FIN DEL INTERCEPTOR PARA LA SESIÓN
+=======================================================================================================================================-->
+
+        
+                        
+        <action name="login" class="login" method="validar_usuario">
+            <result>/views/principal.jsp</result>
+            <result name="nopasa">/views/index.jsp</result>
+            <result name="INPUT">/views/index.jsp</result>
+        </action>
+        
+        <action name="cerrarsesion" class="login" method="salir">
+            <result>/views/index.jsp</result>
+        </action>
+        
+        <!-- Navegación -->
+        <action name="inicio" class="Navega" method="enlace">
+            <result>/views/principal.jsp</result>
+        </action>
+        
+        <action name="otra" class="Navega" method="enlace">
+            <result>/views/otra.jsp</result>
+        </action>
+        
+        
+
+        
+    </package>
+    
+    
+</struts>

@@ -1,0 +1,33 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
+
+    <http auto-config="true">
+<!--        <intercept-url pattern="/Hogar.action" access="ROLE_ADMINISTRADOR" />
+        <intercept-url pattern="/Historia.action" access="ROLE_USUARIO,ROLE_ADMINISTRADOR" />
+        <intercept-url pattern="/Turismo.action" access="ROLE_ADMINISTRADOR" />-->
+        <intercept-url pattern="/Examen.action" access="ROLE_ADMINISTRADOR" filters="none" />
+        <anonymous username="Invitado" granted-authority="ROLE_ADMINISTRADOR"></anonymous>
+
+
+        <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/Examen.action"
+                    authentication-failure-url="/IndexError.action" />
+        <logout logout-success-url="/Index.action" />
+    </http>
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service 
+                data-source-ref="dataSource"
+                users-by-username-query="select nombre_usuario as username, contrasenia as password, status from usuario where nombre_usuario=? "
+                authorities-by-username-query="select nombre_usuario as username, tipo_usuario as authority from usuario where nombre_usuario=? "
+                
+            />               
+            <!--role-prefix="ROLE_"-->
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

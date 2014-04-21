@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<!--
+ Ejecutamos los siguientes comandos para crear la tabla en la base de datos de Oracle (Mysql si es su caso)
+ CREATE TABLE USUARIOS
+   (	
+         ID_USUARIO NUMBER(6) NOT NULL, 
+	 USUARIO VARCHAR2(20), 
+	 PASS VARCHAR2(20), 
+	 ROL NUMBER(1), 
+	 NOMBRE VARCHAR2(50), 
+	 PATERNO VARCHAR2(50), 
+	 MATERNO VARCHAR2(50), 
+	 CONSTRAINT USUARIOS_PK PRIMARY KEY (ID_USUARIO)
+   );
+
+   CREATE SEQUENCE SEQ_ID_USUARIO  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+   
+   INSERT INTO USUARIOS (ID_USUARIO,USUARIO,PASS,ROL,NOMBRE,PATERNO,MATERNO)
+   VALUES(SEQ_ID_USUARIO.NEXTVAL,'luis','pwd123',1,'Ing. Luis','Estrada','Manuel');
+   
+   INSERT INTO USUARIOS (ID_USUARIO,USUARIO,PASS,ROL,NOMBRE,PATERNO,MATERNO)
+   VALUES(SEQ_ID_USUARIO.NEXTVAL,'usu1','pwd123',2,'Usuario 2','Paterno','Materno');
+   
+   commit;
+    -->
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="ingluis.tecweb.sesiones.modelo.dto.UsuariosDTO" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="USUARIOS">
+    <id column="ID_USUARIO" name="id_usuario" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <generator class="sequence">
+        <param name="sequence">SEQ_ID_USUARIO</param>
+      </generator>
+    </id>
+    <property column="USUARIO" name="usuario" not-null="false" type="java.lang.String">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>
+    <property column="PASS" name="pass" not-null="false" type="java.lang.String">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>
+    <property column="ROL" name="rol" not-null="false" type="java.lang.Integer">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>
+    <property column="NOMBRE" name="nombre" not-null="false" type="java.lang.String">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>
+    <property column="PATERNO" name="paterno" not-null="false" type="java.lang.String">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>
+    <property column="MATERNO" name="materno" not-null="false" type="java.lang.String">
+      <meta attribute="use-in-tostring">true</meta>
+      <meta attribute="use-in-equals">true</meta>
+    </property>    
+  </class>
+</hibernate-mapping>
