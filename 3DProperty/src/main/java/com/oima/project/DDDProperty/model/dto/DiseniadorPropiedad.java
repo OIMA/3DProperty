@@ -40,6 +40,8 @@ public class DiseniadorPropiedad implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID_DISENIO")
     private Disenio idDisenio;
+    @Column(name = "STATUS")
+    private Boolean status;
 
     public DiseniadorPropiedad() {
     }
@@ -101,6 +103,20 @@ public class DiseniadorPropiedad implements Serializable {
     @Override
     public String toString() {
         return "com.oima.project.DDDProperty.model.dto.DiseniadorPropiedad[ idDiseniadorPropiedad=" + idDiseniadorPropiedad + " ]";
+    }
+
+    /**
+     * @return the status
+     */
+    public Boolean getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
     
 }

@@ -1,43 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-        
-<package name="tablaCatalogoFotos" extends="struts-default"></package>
-    <package name="tablaCategoria" extends="struts-default"></package>
-    <package name="tablaCodigoPostal" extends="struts-default"></package>
-    <package name="tablaColonia" extends="struts-default"></package>
-    <package name="tablaContrato" extends="struts-default"></package>
-    <package name="tablaDiseniadorPropiedad" extends="struts-default"></package>
-    <package name="tablaDisenio" extends="struts-default"></package>
-    <package name="tablaEstado" extends="struts-default, json-default">
-        <action name="Estado" class="Estado" method="consultarPaises">
-            <result>/test/FormularioEstado.jsp</result>
-        </action>
-        <action name="InsertarEstado" class="Estado" method="guardar">
-            <result>/test/FormularioEstado.jsp</result>
-        </action>
-        <action name="ConsultarEstados" class="Estado" method="consultarTodos">
-            <result>/test/ConsultarEstados.jsp</result>
-        </action>
-        <action name="EliminarEstado" class="Estado" method="eliminar">
-            <result type="json"></result>
-        </action>
-    </package>
-    <package name="tablaFavorito" extends="struts-default"></package>
-    <package name="tablaHistorial" extends="struts-default"></package>
-    <package name="tablaLocalidad" extends="struts-default"></package>
-    <package name="tablaMensaje" extends="struts-default"></package>
-    <package name="tablaPago" extends="struts-default"></package>
-    <package name="tablaPais" extends="struts-default">
-        <action name="Pais" class="Navegacion" method="index">
-            <result>/test/FormularioPais.jsp</result>
-        </action>
-        <action name="InsertarPais" class="Pais" method="guardar">
-            <result>/test/FormularioPais.jsp</result>
-        </action>
-    </package>
-    <package name="tablaPropiedad" extends="struts-default"></package>
-    <package name="tablaRegistroPago" extends="struts-default"></package>
-    <package name="tablaUsuario" extends="struts-default">
-        <action name="Registro" class="Pais" method="consultarTodos">
-            <result>/roles/UsuarioGeneral/Registro.jsp</result>
-        </action>
-    </package>
+<package name="tablaCatalogoFotos" extends="struts-default">
+<!--    <action name="TestCatalogoFotos" class="" method="consultarPaises">
+        <result>/test/FormularioEstado.jsp</result>
+    </action>-->
+</package>
+<package name="tablaCategoria" extends="struts-default">
+    
+</package>
+<package name="tablaCodigoPostal" extends="struts-default">
+    
+</package>
+<package name="tablaColonia" extends="struts-default">
+    
+</package>
+<package name="tablaContrato" extends="struts-default">
+    
+</package>
+<package name="tablaDiseniadorPropiedad" extends="struts-default">
+    
+</package>
+<package name="tablaDisenio" extends="struts-default">
+    
+</package>
+<package name="tablaEstado" extends="struts-default, json-default">
+    <action name="Estado" class="Estado" method="consultarPaises">
+        <result>/test/FormularioEstado.jsp</result>
+    </action>
+    <action name="InsertarEstado" class="Estado" method="guardar">
+        <result>/test/FormularioEstado.jsp</result>
+    </action>
+    <action name="ConsultarEstados" class="Estado" method="consultarTodos">
+        <result>/test/ConsultarEstados.jsp</result>
+    </action>
+    <action name="EliminarEstado" class="Estado" method="eliminar">
+        <result type="json"></result>
+    </action>
+</package>
+<package name="tablaFavorito" extends="struts-default">
+    
+</package>
+<package name="tablaHistorial" extends="struts-default">
+    
+</package>
+<package name="tablaLocalidad" extends="struts-default">
+    
+</package>
+<package name="tablaMensaje" extends="struts-default">
+    
+</package>
+<package name="tablaPago" extends="struts-default">
+    
+</package>
+<package name="tablaPais" extends="struts-default">
+    <action name="Pais" class="Navegacion" method="index">
+        <result>/test/FormularioPais.jsp</result>
+    </action>
+    <action name="InsertarPais" class="Pais" method="guardar">
+        <result>/test/FormularioPais.jsp</result>
+    </action>
+</package>
+<package name="tablaPropiedad" extends="struts-default">
+    
+</package>
+<package name="tablaRegistroPago" extends="struts-default">
+    
+</package>
+<package name="tablaUsuario" extends="struts-default">
+    <action name="Registro" class="Pais" method="consultarTodos">
+        <result>/roles/UsuarioGeneral/Registro.jsp</result>
+    </action>
+</package>
+<package name="utileriasSolosimpi" extends="struts-default">
+    <action name="MenuCatalogo" class="Navegacion" method="index">
+        <result>/test/MenuCatalogos.jsp</result>
+    </action>
+</package>

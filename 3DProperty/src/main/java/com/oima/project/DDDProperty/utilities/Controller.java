@@ -29,23 +29,23 @@ import com.oima.project.DDDProperty.services.impl.ServicioUsuario;
  * @author OIMA
  */
 public abstract class Controller {
-    private ServicioCatalogoFotos servicioCatalogoFotos;
-    private ServicioCategoria servicioCategoria;
-    private ServicioCodigoPostal servicioCP;
-    private ServicioColonia servicioColonia;
-    private ServicioContrato servicioContrato;
-    private ServicioDiseniadorPropiedad servicioDiseniadorPropiedad;
-    private ServicioDisenio servicioDisenio;
-    private ServicioEstado servicioEstado;
-    private ServicioFavorito servicioFavorito;
-    private ServicioHistorial servicioHistorial;
-    private ServicioLocalidad servicioLocalidad;
-    private ServicioMensaje servicioMensaje;
-    private ServicioPago servicioPago;
-    private ServicioPais servicioPais;
-    private ServicioPropiedad servicioPropiedad;
-    private ServicioRegistroPago servicioRegistroPago;
-    private ServicioUsuario servicioUsuario;
+    public ServicioCatalogoFotos servicioCatalogoFotos;
+    public ServicioCategoria servicioCategoria;
+    public ServicioCodigoPostal servicioCP;
+    public ServicioColonia servicioColonia;
+    public ServicioContrato servicioContrato;
+    public ServicioDiseniadorPropiedad servicioDiseniadorPropiedad;
+    public ServicioDisenio servicioDisenio;
+    public ServicioEstado servicioEstado;
+    public ServicioFavorito servicioFavorito;
+    public ServicioHistorial servicioHistorial;
+    public ServicioLocalidad servicioLocalidad;
+    public ServicioMensaje servicioMensaje;
+    public ServicioPago servicioPago;
+    public ServicioPais servicioPais;
+    public ServicioPropiedad servicioPropiedad;
+    public ServicioRegistroPago servicioRegistroPago;
+    public ServicioUsuario servicioUsuario;
 
     public ServicioCatalogoFotos getServicioCatalogoFotos() {
         return servicioCatalogoFotos;

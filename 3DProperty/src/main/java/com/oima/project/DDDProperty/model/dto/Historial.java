@@ -48,6 +48,8 @@ public class Historial implements Serializable {
     @Column(name = "FECHA")
     @Temporal(TemporalType.DATE)
     private Date fecha;
+    @Column(name = "STATUS")
+    private Boolean status;
 
     public Historial() {
     }
@@ -118,6 +120,20 @@ public class Historial implements Serializable {
     @Override
     public String toString() {
         return "com.oima.project.DDDProperty.model.dto.Historial[ idHistorial=" + idHistorial + " ]";
+    }
+
+    /**
+     * @return the status
+     */
+    public Boolean getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
     
 }

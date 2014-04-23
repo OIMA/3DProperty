@@ -40,7 +40,7 @@ public class DisenioPublicidad implements Serializable {
     @Column(name = "ID_PUBLICIDAD")
     private Publicidad idPublicidad;
     @Column(name = "STATUS")
-    private String status;
+    private Boolean status;
 
     public DisenioPublicidad() {
     }
@@ -73,11 +73,11 @@ public class DisenioPublicidad implements Serializable {
         this.idPublicidad = idPublicidad;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

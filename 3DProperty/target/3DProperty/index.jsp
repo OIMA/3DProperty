@@ -45,6 +45,9 @@
                                 <li class="">
                                     <a href="Pais.action">Pais</a>
                                 </li>
+                                <li class="">
+                                    <a href="MenuCatalogo.action">Catalogos</a>
+                                </li>
                                 <!--                                <li class="">
                                                                     <a href="Examen.action">Examen</a>
                                                                 </li>-->

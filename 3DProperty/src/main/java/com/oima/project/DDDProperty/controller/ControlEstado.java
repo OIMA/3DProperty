@@ -3,48 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.oima.project.DDDProperty.controller;
 
 import com.oima.project.DDDProperty.model.dto.Estado;
 import com.oima.project.DDDProperty.model.dto.Pais;
-import com.oima.project.DDDProperty.services.impl.ServicioEstado;
-import com.oima.project.DDDProperty.services.impl.ServicioPais;
 import com.oima.project.DDDProperty.utilities.Controller;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author OIMA
  */
-public class ControlEstado extends Controller{
+public class ControlEstado extends Controller {
+
     private Estado estado;
     private List<Estado> listaEstados;
     private List<Pais> listaPaises;
     private Long idEstado;
-    
+
 //    private ServicioPais servicioPais;
 //    private ServicioEstado servicioEstado;
-    
     private String mensajeRetorno;
-    
-     public String guardar() {
-         estado.setStatus(Boolean.TRUE);
-        try {
-            getServicioEstado().guardar(getEstado());
-        } catch (Exception ex) {
-            Logger.getLogger(ControlPais.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public String guardar() throws Exception {
+        estado.setStatus(Boolean.TRUE);
+        servicioEstado.guardar(estado);
         return SUCCESS;
     }
 
     public String eliminar() throws Exception {
-        
-        getServicioEstado().eliminar(idEstado);
-        setMensajeRetorno("Eliminacion exitosa");
+        servicioEstado.eliminar(idEstado);
+        mensajeRetorno="Eliminacion exitosa";
         borrarServicios();
         return SUCCESS;
     }
@@ -53,15 +43,15 @@ public class ControlEstado extends Controller{
     }
 
     public String consultarTodos() throws Exception {
-        listaEstados = getServicioEstado().consultarTodos(Estado.class);
+        listaEstados = servicioEstado.consultarTodos(Estado.class);
         return SUCCESS;
     }
 
     public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
         return null;
     }
-    
-    public String consultarPaises() throws Exception{
+
+    public String consultarPaises() throws Exception {
         listaPaises = getServicioPais().consultarTodos(Pais.class);
         return SUCCESS;
     }
