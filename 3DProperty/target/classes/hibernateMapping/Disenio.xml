@@ -11,13 +11,11 @@
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
-        <property column="RUTA_SKYBOX" name="rutaSkyBox" not-null="false" type="java.lang.String">
+        <property column="RUTA_SKYBOX" name="rutaSkybox" not-null="false" type="java.lang.String">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
-        <many-to-one class="com.oima.project.DDDProperty.model.dto.Usuario" insert="true" update="true" lazy="false" name="idUsuario">
-            <column name="ID_USUARIO"/>
-        </many-to-one>
+
         <many-to-one class="com.oima.project.DDDProperty.model.dto.Propiedad" insert="true" update="true" lazy="false" name="idPropiedad">
             <column name="ID_PROPIEDAD"/>
         </many-to-one>

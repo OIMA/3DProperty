@@ -6,7 +6,7 @@
 
 package com.oima.project.DDDProperty.services.impl;
 
-import com.oima.project.DDDProperty.model.dao.QueryDAO;
+import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.services.Servicio;
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @author OIMA
  */
 public class ServicioCatalogoFotos implements Servicio{
-    private QueryDAO query;
+    private DAO query;
 
     public void guardar(Object objeto) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -29,7 +29,7 @@ public class ServicioCatalogoFotos implements Servicio{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public List consultar(Class clase) throws Exception {
+    public List consultarTodos(Class clase) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

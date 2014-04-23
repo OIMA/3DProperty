@@ -69,26 +69,40 @@
 
 
     <!--============================================================================================================================================
-                                            ACTIONS
+                                            CONTROLES
     =============================================================================================================================================-->
     <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">
-        <property name="servicioPago" ref="ctrolPago"/>
+        <property name="servicioPago" ref="servicioPago"/>
     </bean>
     
+    <bean id="Pais" class="com.oima.project.DDDProperty.controller.ControlPais" scope="prototype">
+        <property name="servicioPais" ref="servicioPais"/>
+    </bean>
+    
+    <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
+        <property name="servicioPais" ref="servicioPais"/>
+        <property name="servicioEstado" ref="servicioEstado"/>
+    </bean>
     <!--============================================================================================================================================
-                                            CONTROL
+                                            SERVICIOS
     =============================================================================================================================================-->
     
-    <bean id="ctrolPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
-        <property name="query" ref="QueryDAO"/>
-    </bean>     
+    <bean id="servicioPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioPais" class="com.oima.project.DDDProperty.services.impl.ServicioPais">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioEstado" class="com.oima.project.DDDProperty.services.impl.ServicioEstado">
+        <property name="query" ref="DAO"/>
+    </bean>
        
     
     <!--============================================================================================================================================
                                             MODELO - DAO's
     =============================================================================================================================================-->
              
-    <bean id="QueryDAO" class="com.oima.project.DDDProperty.model.dao.impl.QueryDAOImpl">
+    <bean id="DAO" class="com.oima.project.DDDProperty.model.dao.impl.DAOImpl">
         <property name="sessionFactory"  ref="sessionFactory"/>    
     </bean>
         

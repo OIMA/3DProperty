@@ -6,7 +6,7 @@
 
 package com.oima.project.DDDProperty.services.impl;
 
-import com.oima.project.DDDProperty.model.dao.QueryDAO;
+import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.services.Servicio;
 import java.util.List;
 
@@ -15,26 +15,34 @@ import java.util.List;
  * @author OIMA
  */
 public class ServicioPais implements Servicio{
-    private QueryDAO query;
+    private DAO query;
 
     public void guardar(Object objeto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.guardar(objeto);
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.eliminar(primaryKey);
     }
 
     public void editar(Object object) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.editar(object);
     }
 
-    public List consultar(Class clase) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List consultarTodos(Class clase) throws Exception {
+        return query.consultarTodos(clase);
     }
 
     public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return query.consultarUnico(primaryKey, clase, tabla);
+    }
+
+    public DAO getQuery() {
+        return query;
+    }
+
+    public void setQuery(DAO query) {
+        this.query = query;
     }
     
 }

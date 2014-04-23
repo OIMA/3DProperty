@@ -5,23 +5,11 @@
  */
 package com.oima.project.DDDProperty.services;
 
-import com.oima.project.DDDProperty.model.dao.QueryDAO;
-import com.oima.project.DDDProperty.model.dto.Pago;
-import java.util.List;
-
+import com.oima.project.DDDProperty.model.dao.DAO;
 /**
  *
  * @author Jesus
  */
-public interface Servicio extends QueryDAO{
+public interface Servicio extends DAO{
 
-//    public void guardarPago(Pago pago) throws Exception;
-//
-//    public List<Pago> consultaPagos() throws Exception;
-//
-//    public void eliminarPago(int idPago) throws Exception;
-//
-//    public void editarEstado(Pago pago) throws Exception;
-//
-//    public Pago consultaPago(int idPago) throws Exception;
 }

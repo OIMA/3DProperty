@@ -26,7 +26,7 @@ public class ControlPago extends ActionSupport {
 
     public String guardaPago() {
         try {
-            pagoObj.setStatus(Byte.parseByte("1"));
+            pagoObj.setStatus(true);
             getServicioPago().guardar(pagoObj);
         } catch (Exception ex) {
             System.out.println("ERROR " + ex.getMessage());
@@ -37,7 +37,7 @@ public class ControlPago extends ActionSupport {
 
     public String consultaPagos() {
         try {
-            pagoLista = getServicioPago().consultar(Pago.class);
+            pagoLista = getServicioPago().consultarTodos(Pago.class);
         } catch (Exception ex) {
             System.out.println("ERROR " + ex.getMessage());
             Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);

@@ -8,15 +8,14 @@
     <constant name="struts.devMode" value="false" />
     <constant name="struts.configuration.xml.reload" value="true" />
     <package name="global" extends="struts-default">
-        <action name="registro" class="Navegacion" method="index">
-            <result>/roles/UsuarioGeneral/Registro.jsp</result>
-        </action>
+        
         <action name="buscarPorCategoria" class="Navegacion" method="index">
             <result>/roles/UsuarioGeneral/PorCategoria.jsp</result>
         </action>
-<!--        Aciones para Pago _________________________________________________________________    
-        <action name="pagoAdmin" class="Pago" method="consultaPagos">name la accion, class la accion declarada en struts, method el metodo de la clase en java
-            <result>/Formulario/PagosAdmin.jsp</result>Pagina a redirigir
+<!--        Aciones para Pago _________________________________________________________________    -->
+        <action name="pagoAdmin" class="Pago" method="consultaPagos">
+            <!--name la accion, class la accion declarada en struts, method el metodo de la clase en java-->
+            <result>/Formulario/PagosAdmin.jsp</result>
         </action>
         <action name="guardarPago" class="Pago" method="guardaPago">
             <result type="redirectAction">pagoAdmin</result>
@@ -30,7 +29,7 @@
         <action name="editarPago" class="Pago" method="editarPago">
             <result type="redirectAction">pagoAdmin</result>
         </action>
-        Para login
+<!--        Para login-->
         <action name="Login" class="Navegacion" method="index">
             <result>index.jsp</result>
         </action>
@@ -54,6 +53,9 @@
         </action>
         <action name="Examen" class="Navegacion" method="index">
             <result>/test/examen.jsp</result>
+        </action>
+<!--        <action name="Index" class="Navegacion" method="index">
+            <result>index.jsp</result>
         </action>-->
     </package>
     <package name="tablaCatalogoFotos" extends="struts-default"></package>
@@ -63,15 +65,40 @@
     <package name="tablaContrato" extends="struts-default"></package>
     <package name="tablaDiseniadorPropiedad" extends="struts-default"></package>
     <package name="tablaDisenio" extends="struts-default"></package>
-    <package name="tablaEstado" extends="struts-default"></package>
+    <package name="tablaEstado" extends="struts-default, json-default">
+        <action name="Estado" class="Estado" method="consultarPaises">
+            <result>/test/FormularioEstado.jsp</result>
+        </action>
+        <action name="InsertarEstado" class="Estado" method="guardar">
+            <result>/test/FormularioEstado.jsp</result>
+        </action>
+        <action name="ConsultarEstados" class="Estado" method="consultarTodos">
+            <result>/test/ConsultarEstados.jsp</result>
+        </action>
+        <action name="EliminarEstado" class="Estado" method="eliminar">
+            <result type="json"></result>
+        </action>
+    </package>
     <package name="tablaFavorito" extends="struts-default"></package>
     <package name="tablaHistorial" extends="struts-default"></package>
     <package name="tablaLocalidad" extends="struts-default"></package>
     <package name="tablaMensaje" extends="struts-default"></package>
     <package name="tablaPago" extends="struts-default"></package>
-    <package name="tablaPais" extends="struts-default"></package>
+    <package name="tablaPais" extends="struts-default">
+        <action name="Pais" class="Navegacion" method="index">
+            <result>/test/FormularioPais.jsp</result>
+        </action>
+        <action name="InsertarPais" class="Pais" method="guardar">
+            <result>/test/FormularioPais.jsp</result>
+        </action>
+    </package>
     <package name="tablaPropiedad" extends="struts-default"></package>
     <package name="tablaRegistroPago" extends="struts-default"></package>
-    <package name="tablaUsuario" extends="struts-default"></package>
+    <package name="tablaUsuario" extends="struts-default">
+        <action name="Registro" class="Pais" method="consultarTodos">
+            <result>/roles/UsuarioGeneral/Registro.jsp</result>
+        </action>
+            
+    </package>
 
 </struts>
