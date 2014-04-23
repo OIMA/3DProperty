@@ -26,6 +26,8 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext.xml
+            classpath:Contextos/ContextoSolosimpi.xml
+            classpath:Contextos/ContextoOima.xml
             /WEB-INF/spring-security.xml
             /WEB-INF/spring-beans.xml
         </param-value>
