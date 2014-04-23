@@ -25,5 +25,7 @@
     <mapping resource="hibernateMapping/Favorito.xml"/>
     <mapping resource="hibernateMapping/Historial.xml"/>
     <mapping resource="hibernateMapping/CatalogoFotos.xml"/>
+    <mapping resource="hibernateMapping/Publicidad.xml"/>
+    <mapping resource="hibernateMapping/DisenioPublicidad.xml"/>
   </session-factory>
 </hibernate-configuration>
