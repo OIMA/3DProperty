@@ -8,9 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <title>JSP Page</title>
         <%@include file="../inc/jstl.jsp" %>
+        
     </head>
     <body>
         <h1>Hello World!</h1>

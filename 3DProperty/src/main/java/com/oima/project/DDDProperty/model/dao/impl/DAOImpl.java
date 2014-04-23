@@ -11,6 +11,7 @@ import com.oima.project.DDDProperty.model.dao.DAO;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
@@ -90,4 +91,46 @@ public class DAOImpl extends DaoSupport implements DAO{
         }
     }
 
+    /**
+     * Metodo que devuelve una lista, consulta los elementos
+     * @param campo el campo a consultar
+     * @param contenido ¿Que debe de tener? 1 o 2  "gato" o perro
+     * @param predicado equal, lower o greater
+     * @param clase ¿Que clase es?
+     * @param orderBy arreglo de dos posiciones [1 asc o desc] [2 campo]
+     * @return List, que es el resultado de la consulta OJO!!! puede devolver un vacio
+     * @throws Exception 
+     */
+    public List consultaPorCampoEspecifico(String campo, Object contenido, String predicado, Class clase, String[] orderBy) throws Exception {
+        Session session = null;
+        session = this.getSession();
+        try {
+            Criteria criterio = session.createCriteria(clase);
+
+            if (predicado.equals("equal")) {
+                criterio.add(Restrictions.eq(campo, contenido));
+            } else if (predicado.equals("lower")) {
+                criterio.add(Restrictions.lt(campo, contenido));
+            } else if (predicado.equals("greater")) {
+                criterio.add(Restrictions.gt(campo, contenido));
+            }
+            
+            if (orderBy != null) {
+                if (orderBy[0].equals("asc")) {
+                    criterio.addOrder(Order.asc(orderBy[1]));
+                } else {
+                    criterio.addOrder(Order.desc(orderBy[1]));
+                }
+            }
+            
+            criterio.add(Restrictions.eq("status", true));
+            
+            return criterio.list();
+        } catch (Exception e) {
+            System.out.println("Error de consulta " + e.getMessage());
+            throw e;
+        } finally {
+            this.releaseSession(session);
+        }
+    }
 }

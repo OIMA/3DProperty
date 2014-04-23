@@ -10,6 +10,6 @@ import com.oima.project.DDDProperty.model.dao.DAO;
  *
  * @author Jesus
  */
-public interface Servicio extends DAO{
+public interface Servicio {
 
 }

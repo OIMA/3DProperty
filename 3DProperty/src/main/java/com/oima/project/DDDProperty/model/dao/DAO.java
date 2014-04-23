@@ -24,4 +24,6 @@ public interface DAO {
 
     public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception;
     
+    public List consultaPorCampoEspecifico(String campo, Object contenido, String predicado, Class clase, String[] orderBy) throws Exception;
+    
 }
