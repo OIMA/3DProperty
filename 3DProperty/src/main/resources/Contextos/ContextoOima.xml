@@ -21,11 +21,5 @@
         <property name="servicioPago" ref="servicioPago"/>
     </bean>-->
     
-    <!--============================================================================================================================================
-                                            SERVICIOS
-    =============================================================================================================================================-->
     
-<!--    <bean id="servicioPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
-        <property name="query" ref="DAO"/>
-    </bean>-->
 </beans>

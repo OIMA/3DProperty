@@ -7,14 +7,13 @@ package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.Pago;
-import com.oima.project.DDDProperty.services.Servicio;
 import java.util.List;
 
 /**
  *
  * @author Jesus
  */
-public class ServicioPago implements Servicio {
+public class ServicioPago {
 
     private DAO query;
 

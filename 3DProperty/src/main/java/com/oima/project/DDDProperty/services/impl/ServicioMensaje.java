@@ -7,34 +7,52 @@
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
-import com.oima.project.DDDProperty.services.Servicio;
+import com.oima.project.DDDProperty.model.dto.Mensaje;
 import java.util.List;
 
 /**
  *
  * @author OIMA
  */
-public class ServicioMensaje implements Servicio{
+public class ServicioMensaje {
     private DAO query;
 
-    public void guardar(Object objeto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void guardar(Object o) throws Exception {
+        Mensaje mensaje = (Mensaje) o;
+        query.guardar(mensaje);
     }
 
-    public void eliminar(Long primaryKey) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Mensaje> consultarTodos(Class c) throws Exception {
+        return query.consultarTodos(c);
     }
 
-    public void editar(Object object) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminar(Long id) throws Exception {
+        Mensaje mensaje = (Mensaje) query.consultarUnico(id, Mensaje.class, "Mensaje");
+        mensaje.setStatus(false);
+        query.editar(mensaje);
     }
 
-    public List consultarTodos(Class clase) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editar(Object o) throws Exception {
+        Mensaje mensaje = (Mensaje) o;
+        query.editar(mensaje);
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Mensaje consultarUnico(Long id, Class c, String tabla) throws Exception {
+        return (Mensaje) query.consultarUnico(id, c, "Mensaje");
+    }
+
+    /**
+     * @return the query
+     */
+    public DAO getQuery() {
+        return query;
+    }
+
+    /**
+     * @param query the query to set
+     */
+    public void setQuery(DAO query) {
+        this.query = query;
     }
     
 }

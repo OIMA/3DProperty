@@ -7,14 +7,14 @@
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
-import com.oima.project.DDDProperty.services.Servicio;
+import com.oima.project.DDDProperty.model.dto.Pais;
 import java.util.List;
 
 /**
  *
  * @author OIMA
  */
-public class ServicioPais implements Servicio{
+public class ServicioPais {
     private DAO query;
 
     public void guardar(Object objeto) throws Exception {
@@ -22,7 +22,9 @@ public class ServicioPais implements Servicio{
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-        query.eliminar(primaryKey);
+        Pais pais = (Pais)consultarUnico(primaryKey);
+        pais.setStatus(Boolean.FALSE);
+        editar(pais);
     }
 
     public void editar(Object object) throws Exception {
@@ -30,12 +32,11 @@ public class ServicioPais implements Servicio{
     }
 
     public List consultarTodos(Class clase) throws Exception {
-        System.out.println("va a consultar por nombre");
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        return query.consultarUnico(primaryKey, clase, tabla);
+    public Object consultarUnico(Long primaryKey) throws Exception {
+        return query.consultarUnico(primaryKey, Pais.class, "Pais");
     }
 
     public DAO getQuery() {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+       xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                                http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+                                http://jax-ws.dev.java.net/spring/core http://jax-ws.dev.java.net/spring/core.xsd
+                                http://jax-ws.dev.java.net/spring/servlet http://jax-ws.dev.java.net/spring/servlet.xsd">
+    
+    <!--============================================================================================================================================
+                                            SERVICIOS
+    =============================================================================================================================================-->
+    
+<!--    <bean id="servicioPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
+        <property name="query" ref="DAO"/>
+    </bean>-->
+    
+    <bean id="servicioCatalogoFotos" class="com.oima.project.DDDProperty.services.impl.ServicioCatalogoFotos">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioCategoria" class="com.oima.project.DDDProperty.services.impl.ServicioCategoria">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioCodigoPostal" class="com.oima.project.DDDProperty.services.impl.ServicioCodigoPostal">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioColonia" class="com.oima.project.DDDProperty.services.impl.ServicioColonia">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioContrato" class="com.oima.project.DDDProperty.services.impl.ServicioContrato">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioDiseniadorPropiedad" class="com.oima.project.DDDProperty.services.impl.ServicioDiseniadorPropiedad">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioDisenio" class="com.oima.project.DDDProperty.services.impl.ServicioDisenio">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioDisenioPublicidad" class="com.oima.project.DDDProperty.services.impl.ServicioDisenioPublicidad">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioEstado" class="com.oima.project.DDDProperty.services.impl.ServicioEstado">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioFavorito" class="com.oima.project.DDDProperty.services.impl.ServicioFavorito">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioHistorial" class="com.oima.project.DDDProperty.services.impl.ServicioHistorial">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioLocalidad" class="com.oima.project.DDDProperty.services.impl.ServicioLocalidad">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioMensaje" class="com.oima.project.DDDProperty.services.impl.ServicioMensaje">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioPais" class="com.oima.project.DDDProperty.services.impl.ServicioPais">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioPropiedad" class="com.oima.project.DDDProperty.services.impl.ServicioPropiedad">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioPublicidad" class="com.oima.project.DDDProperty.services.impl.ServicioPublicidad">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioRegistroPago" class="com.oima.project.DDDProperty.services.impl.ServicioRegistroPago">
+        <property name="query" ref="DAO"/>
+    </bean>
+    <bean id="servicioUsuario" class="com.oima.project.DDDProperty.services.impl.ServicioUsuario">
+        <property name="query" ref="DAO"/>
+    </bean>
+</beans>

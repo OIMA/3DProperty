@@ -29,17 +29,4 @@
         <property name="servicioEstado" ref="servicioEstado"/>
     </bean>
     
-    <!--============================================================================================================================================
-                                            SERVICIOS
-    =============================================================================================================================================-->
-    
-    <bean id="servicioPago" class="com.oima.project.DDDProperty.services.impl.ServicioPago" scope="prototype">
-        <property name="query" ref="DAO"/>
-    </bean>
-    <bean id="servicioPais" class="com.oima.project.DDDProperty.services.impl.ServicioPais">
-        <property name="query" ref="DAO"/>
-    </bean>
-    <bean id="servicioEstado" class="com.oima.project.DDDProperty.services.impl.ServicioEstado">
-        <property name="query" ref="DAO"/>
-    </bean>
 </beans>

@@ -7,34 +7,45 @@
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
-import com.oima.project.DDDProperty.services.Servicio;
+import com.oima.project.DDDProperty.model.dto.DiseniadorPropiedad;
 import java.util.List;
 
 /**
  *
  * @author OIMA
  */
-public class ServicioDiseniadorPropiedad implements Servicio{
+public class ServicioDiseniadorPropiedad {
     private DAO query;
 
     public void guardar(Object objeto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.guardar(objeto);
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        DiseniadorPropiedad diseniadorPropiedad = (DiseniadorPropiedad)consultarUnico(primaryKey);
+//        diseniadorPropiedad.setStatus(Boolean.FALSE);
+//        editar(diseniadorPropiedad);
     }
 
     public void editar(Object object) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.editar(object);
     }
 
     public List consultarTodos(Class clase) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("va a consultar por nombre");
+        return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object consultarUnico(Long primaryKey) throws Exception {
+        return query.consultarUnico(primaryKey, DiseniadorPropiedad.class, "DiseniadorPropiedad");
+    }
+
+    public DAO getQuery() {
+        return query;
+    }
+
+    public void setQuery(DAO query) {
+        this.query = query;
     }
     
 }

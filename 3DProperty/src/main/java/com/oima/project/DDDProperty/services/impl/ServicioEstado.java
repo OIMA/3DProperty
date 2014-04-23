@@ -8,14 +8,13 @@ package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.Estado;
-import com.oima.project.DDDProperty.services.Servicio;
 import java.util.List;
 
 /**
  *
  * @author OIMA
  */
-public class ServicioEstado implements Servicio{
+public class ServicioEstado {
     private DAO query;
 
     public void guardar(Object objeto) throws Exception {
@@ -23,21 +22,22 @@ public class ServicioEstado implements Servicio{
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-        Estado e = (Estado)query.consultarUnico(primaryKey, Estado.class, "Estado");
-        e.setStatus(Boolean.FALSE);
-        query.editar(e);
+        Estado estado = (Estado)consultarUnico(primaryKey);
+        estado.setStatus(Boolean.FALSE);
+        editar(estado);
     }
 
     public void editar(Object object) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query.editar(object);
     }
 
     public List consultarTodos(Class clase) throws Exception {
+        System.out.println("va a consultar por nombre");
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Object consultarUnico(Long primaryKey) throws Exception {
+        return query.consultarUnico(primaryKey, Estado.class, "Estado");
     }
 
     public DAO getQuery() {

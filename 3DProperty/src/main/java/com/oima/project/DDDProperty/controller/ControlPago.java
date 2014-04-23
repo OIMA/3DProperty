@@ -6,7 +6,6 @@
 package com.oima.project.DDDProperty.controller;
 
 import com.oima.project.DDDProperty.model.dto.Pago;
-import com.oima.project.DDDProperty.services.Servicio;
 import com.oima.project.DDDProperty.services.impl.ServicioPago;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
