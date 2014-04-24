@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="tablaCatalogoFotos" extends="struts-default">
-<!--    <action name="TestCatalogoFotos" class="" method="consultarPaises">
+    <!--    <action name="TestCatalogoFotos" class="" method="consultarPaises">
         <result>/test/FormularioEstado.jsp</result>
     </action>-->
 </package>
@@ -48,9 +48,25 @@
 <package name="tablaMensaje" extends="struts-default">
     
 </package>
+
 <package name="tablaPago" extends="struts-default">
-    
+    <action name="testPago" class="Pago" method="consultarTodos">
+        <result>/test/TestPago.jsp</result>
+    </action>
+    <action name="eliminarPago" class="Pago" method="eliminar">
+        <result type="redirectAction">testPago</result>
+    </action>
+    <action name="consultarPago" class="Pago" method="consultarUnico">
+        <result >/test/TestPago.jsp</result>
+    </action>
+    <action name="guardarPago" class="Pago" method="guardar">
+        <result type="redirectAction">testPago</result>
+    </action>
+    <action name="editarPago" class="Pago" method="editar">
+        <result type="redirectAction">testPago</result>
+    </action>
 </package>
+
 <package name="tablaPais" extends="struts-default">
     <action name="Pais" class="Navegacion" method="index">
         <result>/test/FormularioPais.jsp</result>

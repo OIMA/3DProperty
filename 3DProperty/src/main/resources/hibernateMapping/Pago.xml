@@ -14,7 +14,7 @@
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
-        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Boolean">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>

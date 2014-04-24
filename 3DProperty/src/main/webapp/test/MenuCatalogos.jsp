@@ -26,7 +26,7 @@
             <li><a href="HistorialTest.action">Tabla Historial</a></li>
             <li><a href="LocalidadTest.action">Tabla Localidad</a></li>
             <li><a href="MensajeTest.action">Tabla Mensaje</a></li>
-            <li><a href="PagoTest.action">Tabla Pago</a></li>
+            <li><a href="testPago.action">Tabla Pago</a></li>
             <li><a href="PaisTest.action">Tabla Pais</a></li>
             <li><a href="PropiedadTest.action">Tabla Propiedad</a></li>
             <li><a href="PublicidadTest.action">Tabla Publicidad</a></li>

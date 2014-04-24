@@ -6,127 +6,69 @@
 package com.oima.project.DDDProperty.controller;
 
 import com.oima.project.DDDProperty.model.dto.Pago;
-import com.oima.project.DDDProperty.services.impl.ServicioPago;
-import com.opensymphony.xwork2.ActionSupport;
+import com.oima.project.DDDProperty.utilities.Controller;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Jesus
+ * @author OIMA
  */
-public class ControlPago extends ActionSupport {
-
-    private ServicioPago servicioPago;
-    private Pago pagoObj;
-    private List<Pago> pagoLista;
+public class ControlPago extends Controller{
+    
+    private Pago pago;
+    private List<Pago> listaPago;
     private Long idPago;
 
-    public String guardaPago() {
-        try {
-            pagoObj.setStatus(true);
-            getServicioPago().guardar(pagoObj);
-        } catch (Exception ex) {
-            System.out.println("ERROR " + ex.getMessage());
-            Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String guardar() throws Exception {
+        pago.setStatus(Boolean.TRUE);
+        servicioPago.guardar(pago);
         return SUCCESS;
     }
 
-    public String consultaPagos() {
-        try {
-            pagoLista = getServicioPago().consultarTodos(Pago.class);
-        } catch (Exception ex) {
-            System.out.println("ERROR " + ex.getMessage());
-            Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String eliminar() throws Exception {
+        servicioPago.eliminar(idPago);
         return SUCCESS;
     }
 
-    public String consultaPago() {
-        try {
-            pagoObj = getServicioPago().consultarUnico(idPago, Pago.class, "Pago");
-        } catch (Exception ex) {
-            System.out.println("ERROR " + ex.getMessage());
-            Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String editar() throws Exception {
+        servicioPago.editar(pago);
         return SUCCESS;
     }
 
-    public String editarPago() {
-        try {
-            getServicioPago().editar(pagoObj);
-        } catch (Exception ex) {
-            System.out.println("ERROR " + ex.getMessage());
-            Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String consultarTodos() throws Exception {
+        listaPago = servicioPago.consultarTodos(Pago.class);
         return SUCCESS;
     }
 
-    public String eliminarPago() {
-        try {
-            getServicioPago().eliminar(idPago);
-        } catch (Exception ex) {
-            System.out.println("ERROR " + ex.getMessage());
-            Logger.getLogger(ControlPago.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String consultarUnico() throws Exception {
+        pago = servicioPago.consultarUnico(idPago);
+        consultarTodos();
         return SUCCESS;
     }
 
-    /**
-     * @return the PagoObj
-     */
-    public Pago getPagoObj() {
-        return pagoObj;
+    public Pago getPago() {
+        return pago;
     }
 
-    /**
-     * @param pagoObj
-     */
-    public void setPagoObj(Pago pagoObj) {
-        this.pagoObj = pagoObj;
+    public void setPago(Pago pago) {
+        this.pago = pago;
     }
 
-    /**
-     * @return the PagoLista
-     */
-    public List<Pago> getPagoLista() {
-        return pagoLista;
+    public List<Pago> getListaPago() {
+        return listaPago;
     }
 
-    /**
-     * @param pagoLista
-     */
-    public void setPagoLista(List<Pago> pagoLista) {
-        this.pagoLista = pagoLista;
+    public void setListaPago(List<Pago> listaPago) {
+        this.listaPago = listaPago;
     }
 
-    /**
-     * @return the idPago
-     */
     public Long getIdPago() {
         return idPago;
     }
 
-    /**
-     * @param idPago the idPago to set
-     */
     public void setIdPago(Long idPago) {
         this.idPago = idPago;
     }
 
-    /**
-     * @return the servicioPago
-     */
-    public ServicioPago getServicioPago() {
-        return servicioPago;
-    }
-
-    /**
-     * @param servicioPago the servicioPago to set
-     */
-    public void setServicioPago(ServicioPago servicioPago) {
-        this.servicioPago = servicioPago;
-    }
 }

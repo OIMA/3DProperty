@@ -16,17 +16,18 @@
     <!--============================================================================================================================================
                                             CONTROLES
     =============================================================================================================================================-->
+    
+    <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
+        <property name="servicioPais" ref="servicioPais"/>
+        <property name="servicioEstado" ref="servicioEstado"/>
+    </bean>
+    
     <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">
         <property name="servicioPago" ref="servicioPago"/>
     </bean>
     
     <bean id="Pais" class="com.oima.project.DDDProperty.controller.ControlPais" scope="prototype">
         <property name="servicioPais" ref="servicioPais"/>
-    </bean>
-    
-    <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
-        <property name="servicioPais" ref="servicioPais"/>
-        <property name="servicioEstado" ref="servicioEstado"/>
     </bean>
     
 </beans>

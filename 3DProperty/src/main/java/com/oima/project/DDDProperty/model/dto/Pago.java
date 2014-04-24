@@ -45,7 +45,7 @@ public class Pago implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @Column(name = "MONTO")
-    private BigDecimal monto;
+    private Double monto;
     @Basic(optional = false)
     @Column(name = "STATUS")
     private boolean status;
@@ -57,7 +57,7 @@ public class Pago implements Serializable {
         this.idPago = idPago;
     }
 
-    public Pago(Long idPago, String descripcion, BigDecimal monto, boolean status) {
+    public Pago(Long idPago, String descripcion, Double monto, boolean status) {
         this.idPago = idPago;
         this.descripcion = descripcion;
         this.monto = monto;
@@ -80,11 +80,11 @@ public class Pago implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public BigDecimal getMonto() {
+    public Double getMonto() {
         return monto;
     }
 
-    public void setMonto(BigDecimal monto) {
+    public void setMonto(Double monto) {
         this.monto = monto;
     }
 
@@ -118,7 +118,7 @@ public class Pago implements Serializable {
 
     @Override
     public String toString() {
-        return "com.oima.project.DDDProperty.model.dto.Pago[ idPago=" + idPago + " ]";
+        return "com.oima.project.DDDProperty.model.dto.Pago[ idPago=" + idPago + " descripcion="+descripcion+" monto="+monto+" ]";
     }
     
 }

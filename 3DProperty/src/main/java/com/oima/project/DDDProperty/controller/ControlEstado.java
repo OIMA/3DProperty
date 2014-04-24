@@ -29,12 +29,12 @@ public class ControlEstado extends Controller {
     public String guardar() throws Exception {
         estado.setStatus(Boolean.TRUE);
         servicioEstado.guardar(estado);
+        borrarServicios();
         return SUCCESS;
     }
 
     public String eliminar() throws Exception {
         servicioEstado.eliminar(idEstado);
-        mensajeRetorno="Eliminacion exitosa";
         borrarServicios();
         return SUCCESS;
     }
@@ -44,6 +44,7 @@ public class ControlEstado extends Controller {
 
     public String consultarTodos() throws Exception {
         listaEstados = servicioEstado.consultarTodos(Estado.class);
+        borrarServicios();
         return SUCCESS;
     }
 
@@ -53,6 +54,7 @@ public class ControlEstado extends Controller {
 
     public String consultarPaises() throws Exception {
         listaPaises = getServicioPais().consultarTodos(Pais.class);
+        borrarServicios();
         return SUCCESS;
     }
 
