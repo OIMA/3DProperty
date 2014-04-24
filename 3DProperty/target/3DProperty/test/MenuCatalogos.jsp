@@ -29,7 +29,7 @@
             <li><a href="testPago.action">Tabla Pago</a></li>
             <li><a href="PaisTest.action">Tabla Pais</a></li>
             <li><a href="PropiedadTest.action">Tabla Propiedad</a></li>
-            <li><a href="PublicidadTest.action">Tabla Publicidad</a></li>
+            <li><a href="testPublicidad.action">Tabla Publicidad</a></li>
             <li><a href="RegistroPagoTest.action">Tabla Registro Pago</a></li>
             <li><a href="UsuarioTest.action">Tabla Usuario</a></li>
         </ol>

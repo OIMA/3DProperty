@@ -78,9 +78,44 @@
 <package name="tablaPropiedad" extends="struts-default">
     
 </package>
-<package name="tablaRegistroPago" extends="struts-default">
-    
+
+<package name="tablaPublicidad" extends="struts-default">
+    <action name="testPublicidad" class="Publicidad" method="consultarTodos">
+        <result>/test/TestPublicidad.jsp</result>
+    </action>
+    <action name="eliminarPublicidad" class="Publicidad" method="eliminar">
+        <result type="redirectAction">testPublicidad</result>
+    </action>
+    <action name="consultarPublicidad" class="Publicidad" method="consultarUnico">
+        <result >/test/TestPublicidad.jsp</result>
+    </action>
+    <action name="guardarPublicidad" class="Publicidad" method="guardar">
+<!--        <interceptor-ref name="exception"/>
+        <interceptor-ref name="i18n"/>
+        <interceptor-ref name="fileUpload">
+            <param name="allowedTypes">text/plain</param>
+            <param name="maximumSize">10240</param>
+        </interceptor-ref> 
+        <interceptor-ref name="params">
+            <param name="excludeParams">dojo\..*,^struts\..*</param>
+        </interceptor-ref>
+        <interceptor-ref name="validation">
+            <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow">
+            <param name="excludeMethods">input,back,cancel,browse</param>
+        </interceptor-ref>-->
+            
+        <result>/test/TestPublicidad.jsp</result>
+    </action>
+    <action name="editarPublicidad" class="Publicidad" method="editar">
+        <result type="redirectAction">testPublicidad</result>
+    </action>
 </package>
+
+<package name="tablaRegistroPago" extends="struts-default">    
+</package>
+
 <package name="tablaUsuario" extends="struts-default">
     <action name="Registro" class="Pais" method="consultarTodos">
         <result>/roles/UsuarioGeneral/Registro.jsp</result>
@@ -91,3 +126,4 @@
         <result>/test/MenuCatalogos.jsp</result>
     </action>
 </package>
+

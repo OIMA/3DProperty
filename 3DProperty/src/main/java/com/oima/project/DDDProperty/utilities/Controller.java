@@ -21,6 +21,7 @@ import com.oima.project.DDDProperty.services.impl.ServicioMensaje;
 import com.oima.project.DDDProperty.services.impl.ServicioPago;
 import com.oima.project.DDDProperty.services.impl.ServicioPais;
 import com.oima.project.DDDProperty.services.impl.ServicioPropiedad;
+import com.oima.project.DDDProperty.services.impl.ServicioPublicidad;
 import com.oima.project.DDDProperty.services.impl.ServicioRegistroPago;
 import com.oima.project.DDDProperty.services.impl.ServicioUsuario;
 
@@ -41,6 +42,7 @@ public abstract class Controller {
     public ServicioHistorial servicioHistorial;
     public ServicioLocalidad servicioLocalidad;
     public ServicioMensaje servicioMensaje;
+    public ServicioPublicidad servicioPublicidad;
     public ServicioPago servicioPago;
     public ServicioPais servicioPais;
     public ServicioPropiedad servicioPropiedad;
@@ -202,5 +204,19 @@ public abstract class Controller {
         setServicioPropiedad(null);
         setServicioRegistroPago(null);
         setServicioUsuario(null);
+    }
+
+    /**
+     * @return the servicioPublicidad
+     */
+    public ServicioPublicidad getServicioPublicidad() {
+        return servicioPublicidad;
+    }
+
+    /**
+     * @param servicioPublicidad the servicioPublicidad to set
+     */
+    public void setServicioPublicidad(ServicioPublicidad servicioPublicidad) {
+        this.servicioPublicidad = servicioPublicidad;
     }
 }
