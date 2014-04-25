@@ -35,8 +35,8 @@ public class ServicioCodigoPostal {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, CodigoPostal.class, "CodigoPostal");
+    public CodigoPostal consultarUnico(Long primaryKey) throws Exception {
+        return (CodigoPostal)query.consultarUnico(primaryKey, CodigoPostal.class, "CodigoPostal");
     }
 
     public DAO getQuery() {

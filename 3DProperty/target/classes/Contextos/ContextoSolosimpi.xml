@@ -20,9 +20,19 @@
         <property name="servicioCategoria" ref="servicioCategoria"/>
     </bean>
     
+    <bean id="CodigoPostal" class="com.oima.project.DDDProperty.controller.ControlCodigoPostal" scope="prototype">
+        <property name="servicioLocalidad" ref="servicioLocalidad"/>
+        <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
+    </bean>
+    
     <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
         <property name="servicioPais" ref="servicioPais"/>
         <property name="servicioEstado" ref="servicioEstado"/>
+    </bean>
+    
+    <bean id="Localidad" class="com.oima.project.DDDProperty.controller.ControlLocalidad" scope="prototype">
+        <property name="servicioEstado" ref="servicioEstado"/>
+        <property name="servicioLocalidad" ref="servicioLocalidad"/>
     </bean>
     
     <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">

@@ -61,9 +61,25 @@
 <package name="tablaHistorial" extends="struts-default">
     
 </package>
+
 <package name="tablaLocalidad" extends="struts-default">
-    
+    <action name="testCodigoPostal" class="CodigoPostal" method="consultarTodos">
+        <result>/test/TestCodigoPostal.jsp</result>
+    </action>
+    <action name="eliminarCodigoPostal" class="CodigoPostal" method="eliminar">
+        <result type="redirectAction">testCodigoPostal</result>
+    </action>
+    <action name="consultarCodigoPostal" class="CodigoPostal" method="consultarUnico">
+        <result >/test/TestCodigoPostal.jsp</result>
+    </action>
+    <action name="guardarCodigoPostal" class="CodigoPostal" method="guardar">
+        <result type="redirectAction">testCodigoPostal</result>
+    </action>
+    <action name="editarCodigoPostal" class="CodigoPostal" method="editar">
+        <result type="redirectAction">testCodigoPostal</result>
+    </action>
 </package>
+
 <package name="tablaMensaje" extends="struts-default">
     
 </package>
