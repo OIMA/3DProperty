@@ -5,12 +5,12 @@
     <result>/Vistas/Formularios/CatalogoConsultasAdmin.jsp</result>Pagina a redirigir
 </action>-->
 <package name="navegacion1" extends="struts-default">
-    <action name="buscarPorCategoria" class="Navegacion" method="index">
+<!--    <action name="buscarPorCategoria" class="Navegacion" method="index">
         <result>/roles/UsuarioGeneral/PorCategoria.jsp</result>
     </action>
-    <!--        Aciones para Pago _________________________________________________________________    -->
+            Aciones para Pago _________________________________________________________________    
     <action name="pagoAdmin" class="Pago" method="consultaPagos">
-        <!--name la accion, class la accion declarada en struts, method el metodo de la clase en java-->
+        name la accion, class la accion declarada en struts, method el metodo de la clase en java
         <result>/Formulario/PagosAdmin.jsp</result>
     </action>
     <action name="guardarPago" class="Pago" method="guardaPago">
@@ -25,7 +25,7 @@
     <action name="editarPago" class="Pago" method="editarPago">
         <result type="redirectAction">pagoAdmin</result>
     </action>
-    <!--        Para login-->
+            Para login
     <action name="Login" class="Navegacion" method="index">
         <result>index.jsp</result>
     </action>
@@ -49,5 +49,11 @@
     </action>
     <action name="Examen" class="Navegacion" method="index">
         <result>/test/examen.jsp</result>
+    </action>-->
+    <action name="OIMA" class="Navegacion" method="index">
+        <result>/test/MenuOIMA.jsp</result>
+    </action>
+    <action name="PorCategoria" class="Navegacion" method="index">
+        <result>/test/PorCategoria.jsp</result>
     </action>
 </package>
