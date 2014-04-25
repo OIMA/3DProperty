@@ -20,7 +20,7 @@ public class ControlPropiedad extends Controller {
     private Propiedad propiedad;
     private List<Propiedad> listaPropiedades;
     private Long idPropiedad;
-    private Long idCategoria;
+    private String idCategoria;
 
     private String mensajeRetorno;
 
@@ -52,8 +52,9 @@ public class ControlPropiedad extends Controller {
     }
 
     public String buscarPorCategoria() throws Exception {
-        Categoria categoria = servicioCategoria.consultarUnico(idCategoria);
-        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria, "equal", Categoria.class, null));
+        System.out.println(idCategoria);
+        Categoria categoria = servicioCategoria.consultarUnico(Long.valueOf(idCategoria));
+        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria.getIdCategoria(), "equal", Categoria.class, null));
         borrarServicios();
         return SUCCESS;
     }
@@ -82,11 +83,11 @@ public class ControlPropiedad extends Controller {
         this.idPropiedad = idPropiedad;
     }
 
-    public Long getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Long idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 

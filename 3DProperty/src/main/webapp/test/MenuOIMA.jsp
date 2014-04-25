@@ -14,8 +14,8 @@
     <body>
         <h1>Propiedad</h1>
         <ul type="circle">
-            <li><a href="VistaPorCategoria.action">Buscar por categoria</a></li>
-            <li><a href="VistaPropietario.action">Vista propietario</a></li>
+            <li><a href="PropiedadPorCategoria.action?idCategoria=1">Buscar por categoria</a></li>
+            <li><a href="PropiedadPorPropietario.action">Vista propietario</a></li>
             <li><a href="PanelUsuario.action">Perfil usuario</a></li>
             <li><a href="PanelAdministrador.action">Menu Administrador</a></li>
             <li><a href="VerDisenio.action">Ver disenio</a></li>
