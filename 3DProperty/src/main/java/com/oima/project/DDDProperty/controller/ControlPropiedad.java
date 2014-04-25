@@ -32,7 +32,7 @@ public class ControlPropiedad extends Controller {
     }
 
     public String eliminar() throws Exception {
-        servicioEstado.eliminar(getIdPropiedad());
+        servicioPropiedad.eliminar(getIdPropiedad());
         borrarServicios();
         return SUCCESS;
     }
@@ -42,7 +42,7 @@ public class ControlPropiedad extends Controller {
     }
 
     public String consultarTodos() throws Exception {
-        setListaPropiedades((List<Propiedad>) servicioEstado.consultarTodos(Propiedad.class));
+        setListaPropiedades((List<Propiedad>) servicioPropiedad.consultarTodos(Propiedad.class));
         borrarServicios();
         return SUCCESS;
     }
@@ -52,8 +52,8 @@ public class ControlPropiedad extends Controller {
     }
 
     public String buscarPorCategoria() throws Exception {
-        Categoria categoria = getServicioCategoria().consultarUnico(idCategoria);
-        setListaPropiedades(getServicioPropiedad().consultaPorCampoEspecifico("idCategoria", categoria, "asc", Categoria.class, null));
+        Categoria categoria = servicioCategoria.consultarUnico(idCategoria);
+        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria, "equal", Categoria.class, null));
         borrarServicios();
         return SUCCESS;
     }

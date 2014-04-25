@@ -17,9 +17,12 @@
     <!--============================================================================================================================================
                                             CONTROLES
     =============================================================================================================================================-->
-<!--    <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">
+    <!--    <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">
         <property name="servicioPago" ref="servicioPago"/>
     </bean>-->
-    
+    <bean id="Propiedad" class="com.oima.project.DDDProperty.controller.ControlPropiedad" scope="prototype">
+        <property name="servicioPropiedad" ref="servicioPropiedad"/>
+        <property name="servicioCategoria" ref="servicioCategoria"/>
+    </bean>
     
 </beans>

@@ -13,11 +13,12 @@
     </head>
     <body>
         <h1>Propiedad</h1>
-        <a href="VistaPorCategoria.action">Buscar por categoria</a>
-        <a href="VistaPropietario.action">Vista propietario</a>
-        <a href="PanelUsuario.action">Perfil usuario</a>
-        <a href="PanelAdministrador.action">Menu Administrador</a>
-        <a href="VerDisenio.action">Ver disenio</a>
-        
+        <ul type="circle">
+            <li><a href="VistaPorCategoria.action">Buscar por categoria</a></li>
+            <li><a href="VistaPropietario.action">Vista propietario</a></li>
+            <li><a href="PanelUsuario.action">Perfil usuario</a></li>
+            <li><a href="PanelAdministrador.action">Menu Administrador</a></li>
+            <li><a href="VerDisenio.action">Ver disenio</a></li>
+        </ul>
     </body>
 </html>

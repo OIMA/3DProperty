@@ -53,7 +53,7 @@
     <action name="OIMA" class="Navegacion" method="index">
         <result>/test/MenuOIMA.jsp</result>
     </action>
-    <action name="PorCategoria" class="Navegacion" method="index">
+    <action name="Propiedad" class="ControlPropiedad" method="buscarPorCategoria">
         <result>/test/PorCategoria.jsp</result>
     </action>
 </package>
