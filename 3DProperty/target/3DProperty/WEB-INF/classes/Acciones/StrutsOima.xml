@@ -4,7 +4,7 @@
 <!--<action name="catalogoConsultaAdmin" class="CatalogoConsulta" method="consultaCatalogosConsulta">name la accion, class la accion declarada en struts, method el metodo de la clase en java
     <result>/Vistas/Formularios/CatalogoConsultasAdmin.jsp</result>Pagina a redirigir
 </action>-->
-<package name="navegacion1" extends="struts-default">
+<package name="test" extends="struts-default">
 <!--    <action name="buscarPorCategoria" class="Navegacion" method="index">
         <result>/roles/UsuarioGeneral/PorCategoria.jsp</result>
     </action>

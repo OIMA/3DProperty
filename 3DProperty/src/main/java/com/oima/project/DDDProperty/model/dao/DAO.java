@@ -23,7 +23,16 @@ public interface DAO {
     public List consultarTodos(Class clase) throws Exception;
 
     public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception;
-    
+    /**
+     * Metodo que devuelve una lista, consulta los elementos
+     * @param campo el campo a consultar
+     * @param contenido ¿Que debe de tener? 1 o 2  "gato" o perro
+     * @param predicado equal, lower o greater
+     * @param clase ¿Que clase es?
+     * @param orderBy arreglo de dos posiciones [1 asc o desc] [2 campo]
+     * @return List, que es el resultado de la consulta OJO!!! puede devolver un vacio
+     * @throws Exception 
+     */
     public List consultaPorCampoEspecifico(String campo, Object contenido, String predicado, Class clase, String[] orderBy) throws Exception;
     
 }

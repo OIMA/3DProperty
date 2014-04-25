@@ -12,7 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1></h1>
-        <a href="PorCategoria.action">Buscar por categoria</a>
+        <h1>Propiedad</h1>
+        <a href="VistaPorCategoria.action">Buscar por categoria</a>
+        <a href="VistaPropietario.action">Vista propietario</a>
+        <a href="PanelUsuario.action">Perfil usuario</a>
+        <a href="PanelAdministrador.action">Menu Administrador</a>
+        <a href="VerDisenio.action">Ver disenio</a>
+        
     </body>
 </html>

@@ -38,6 +38,10 @@ public class ServicioPropiedad {
     public Object consultarUnico(Long primaryKey) throws Exception {
         return query.consultarUnico(primaryKey, Propiedad.class, "Propiedad");
     }
+    
+    public List<Propiedad> consultaPorCampoEspecifico(String campo, Object contenido, String predicado, Class clase, String[] orderBy) throws Exception{
+        return query.consultaPorCampoEspecifico(campo, contenido, predicado, clase, orderBy);
+    }
 
     public DAO getQuery() {
         return query;
