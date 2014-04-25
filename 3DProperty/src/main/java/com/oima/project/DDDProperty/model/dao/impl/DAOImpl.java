@@ -21,6 +21,7 @@ import org.hibernate.criterion.Restrictions;
  */
 public class DAOImpl extends DaoSupport implements DAO{
 
+    public Boolean oneToMany=false;
     public void guardar(Object objeto) throws Exception {
         Session session = null;
         session = this.getSession();
@@ -33,7 +34,9 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            this.releaseSession(session);
+            if (oneToMany) {
+                this.releaseSession(session);
+            }
         }
     }
 
@@ -53,7 +56,9 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         }
         finally {
-            this.releaseSession(session);
+            if (oneToMany) {
+                this.releaseSession(session);
+            }
         }
     }
 
@@ -70,7 +75,9 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            this.releaseSession(session);
+            if (oneToMany) {
+                this.releaseSession(session);
+            }
         }
     }
 
@@ -87,7 +94,9 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            this.releaseSession(session);
+            if (oneToMany) {
+                this.releaseSession(session);
+            }
         }
     }
 
@@ -130,7 +139,9 @@ public class DAOImpl extends DaoSupport implements DAO{
             System.out.println("Error de consulta " + e.getMessage());
             throw e;
         } finally {
-            this.releaseSession(session);
+            if (oneToMany) {
+                this.releaseSession(session);
+            }
         }
     }
 }

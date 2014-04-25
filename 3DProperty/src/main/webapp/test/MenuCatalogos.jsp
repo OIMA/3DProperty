@@ -21,7 +21,7 @@
             <li><a href="DiseniadorPropiedadTest.action">Tabla Diseñador Propiedad</a></li>
             <li><a href="DisenioTest.action">Tabla Diseño</a></li>
             <li><a href="DisenioPublicidadTest.action">Tabla Diseño Publicidad</a></li>
-            <li><a href="EstadoTest.action">Tabla Estado</a></li>
+            <li><a href="testEstado.action">Tabla Estado</a></li>
             <li><a href="FavoritoTest.action">Tabla Favorito</a></li>
             <li><a href="HistorialTest.action">Tabla Historial</a></li>
             <li><a href="LocalidadTest.action">Tabla Localidad</a></li>

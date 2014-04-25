@@ -32,12 +32,12 @@ public class ServicioEstado {
     }
 
     public List consultarTodos(Class clase) throws Exception {
-        System.out.println("va a consultar por nombre");
+        System.out.println("CONSULTA LOS ESTADOS");
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, Estado.class, "Estado");
+    public Estado consultarUnico(Long primaryKey) throws Exception {
+        return (Estado)query.consultarUnico(primaryKey, Estado.class, "Estado");
     }
 
     public DAO getQuery() {

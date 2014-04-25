@@ -39,17 +39,20 @@
     
 </package>
 <package name="tablaEstado" extends="struts-default, json-default">
-    <action name="Estado" class="Estado" method="consultarPaises">
-        <result>/test/FormularioEstado.jsp</result>
+    <action name="testEstado" class="Estado" method="consultarTodos">
+        <result>/test/TestEstado.jsp</result>
     </action>
-    <action name="InsertarEstado" class="Estado" method="guardar">
-        <result>/test/FormularioEstado.jsp</result>
+    <action name="eliminarEstado" class="Estado" method="eliminar">
+        <result type="redirectAction">testEstado</result>
     </action>
-    <action name="ConsultarEstados" class="Estado" method="consultarTodos">
-        <result>/test/ConsultarEstados.jsp</result>
+    <action name="consultarEstado" class="Estado" method="consultarUnico">
+        <result >/test/TestEstado.jsp</result>
     </action>
-    <action name="EliminarEstado" class="Estado" method="eliminar">
-        <result type="json"></result>
+    <action name="guardarEstado" class="Estado" method="guardar">
+        <result type="redirectAction">testEstado</result>
+    </action>
+    <action name="editarEstado" class="Estado" method="editar">
+        <result type="redirectAction">testEstado</result>
     </action>
 </package>
 <package name="tablaFavorito" extends="struts-default">
@@ -116,7 +119,7 @@
         <result >/test/TestPublicidad.jsp</result>
     </action>
     <action name="guardarPublicidad" class="Publicidad" method="guardar">
-<!--        <interceptor-ref name="exception"/>
+        <!--        <interceptor-ref name="exception"/>
         <interceptor-ref name="i18n"/>
         <interceptor-ref name="fileUpload">
             <param name="allowedTypes">text/plain</param>
