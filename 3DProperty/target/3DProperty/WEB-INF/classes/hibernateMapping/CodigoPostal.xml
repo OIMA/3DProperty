@@ -14,7 +14,7 @@
         <many-to-one class="com.oima.project.DDDProperty.model.dto.Localidad" insert="true" update="true" lazy="false" name="idLocalidad">
             <column name="ID_LOCALIDAD"/>
         </many-to-one>
-        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Boolean">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>

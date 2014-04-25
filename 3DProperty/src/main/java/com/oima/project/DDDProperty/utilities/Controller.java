@@ -32,7 +32,7 @@ import com.oima.project.DDDProperty.services.impl.ServicioUsuario;
 public abstract class Controller {
     public ServicioCatalogoFotos servicioCatalogoFotos;
     public ServicioCategoria servicioCategoria;
-    public ServicioCodigoPostal servicioCP;
+    public ServicioCodigoPostal servicioCodigoPostal;
     public ServicioColonia servicioColonia;
     public ServicioContrato servicioContrato;
     public ServicioDiseniadorPropiedad servicioDiseniadorPropiedad;
@@ -65,12 +65,12 @@ public abstract class Controller {
         this.servicioCategoria = servicioCategoria;
     }
 
-    public ServicioCodigoPostal getServicioCP() {
-        return servicioCP;
+    public ServicioCodigoPostal getServicioCodigoPostal() {
+        return servicioCodigoPostal;
     }
 
-    public void setServicioCP(ServicioCodigoPostal servicioCP) {
-        this.servicioCP = servicioCP;
+    public void setServicioCodigoPostal(ServicioCodigoPostal servicioCodigoPostal) {
+        this.servicioCodigoPostal = servicioCodigoPostal;
     }
 
     public ServicioColonia getServicioColonia() {
@@ -186,7 +186,7 @@ public abstract class Controller {
     }
     
     public void borrarServicios(){
-        setServicioCP(null);
+        setServicioCodigoPostal(null);
         setServicioCatalogoFotos(null);
         setServicioCategoria(null);
         setServicioColonia(null);
