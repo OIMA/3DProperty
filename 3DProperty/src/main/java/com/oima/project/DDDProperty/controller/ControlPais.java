@@ -6,7 +6,7 @@
 package com.oima.project.DDDProperty.controller;
 
 import com.oima.project.DDDProperty.model.dto.Pais;
-import com.oima.project.DDDProperty.services.impl.ServicioPais;
+import com.oima.project.DDDProperty.utilities.Controller;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.util.List;
 
@@ -14,42 +14,37 @@ import java.util.List;
  *
  * @author OIMA
  */
-public class ControlPais {
-
-    private ServicioPais servicioPais;
+public class ControlPais extends Controller{
+    
     private Pais pais;
-    private List<Pais> listaPaises;
-    private Integer idPais;
+    private List<Pais> listaPais;
+    private Long idPais;
 
     public String guardar() throws Exception {
-        System.out.println("Entro a guardar");
         pais.setStatus(Boolean.TRUE);
         servicioPais.guardar(pais);
         return SUCCESS;
     }
 
-    public void eliminar(Long primaryKey) throws Exception {
-    }
-
-    public void editar(Object object) throws Exception {
-    }
-
-    public String consultarTodos() throws Exception {
-        listaPaises = getServicioPais().consultarTodos(Pais.class);
-        System.out.println("Paises "+listaPaises);
+    public String eliminar() throws Exception {
+        servicioPais.eliminar(idPais);
         return SUCCESS;
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        return null;
+    public String editar() throws Exception {
+        servicioPais.editar(pais);
+        return SUCCESS;
     }
 
-    public ServicioPais getServicioPais() {
-        return servicioPais;
+    public String consultarTodos() throws Exception {
+        listaPais = servicioPais.consultarTodos(Pais.class);
+        return SUCCESS;
     }
 
-    public void setServicioPais(ServicioPais servicioPais) {
-        this.servicioPais = servicioPais;
+    public String consultarUnico() throws Exception {
+        pais = servicioPais.consultarUnico(idPais);
+        consultarTodos();
+        return SUCCESS;
     }
 
     public Pais getPais() {
@@ -60,19 +55,19 @@ public class ControlPais {
         this.pais = pais;
     }
 
-    public List<Pais> getListaPaises() {
-        return listaPaises;
+    public List<Pais> getListaPais() {
+        return listaPais;
     }
 
-    public void setListaPaises(List<Pais> listaPaises) {
-        this.listaPaises = listaPaises;
+    public void setListaPais(List<Pais> listaPais) {
+        this.listaPais = listaPais;
     }
 
-    public Integer getIdPais() {
+    public Long getIdPais() {
         return idPais;
     }
 
-    public void setIdPais(Integer idPais) {
+    public void setIdPais(Long idPais) {
         this.idPais = idPais;
     }
 

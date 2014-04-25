@@ -68,13 +68,23 @@
 </package>
 
 <package name="tablaPais" extends="struts-default">
-    <action name="Pais" class="Navegacion" method="index">
-        <result>/test/FormularioPais.jsp</result>
+    <action name="testPais" class="Pais" method="consultarTodos">
+        <result>/test/TestPais.jsp</result>
     </action>
-    <action name="InsertarPais" class="Pais" method="guardar">
-        <result>/test/FormularioPais.jsp</result>
+    <action name="eliminarPais" class="Pais" method="eliminar">
+        <result type="redirectAction">testPais</result>
+    </action>
+    <action name="consultarPais" class="Pais" method="consultarUnico">
+        <result >/test/TestPais.jsp</result>
+    </action>
+    <action name="guardarPais" class="Pais" method="guardar">
+        <result type="redirectAction">testPais</result>
+    </action>
+    <action name="editarPais" class="Pais" method="editar">
+        <result type="redirectAction">testPais</result>
     </action>
 </package>
+
 <package name="tablaPropiedad" extends="struts-default">
     
 </package>

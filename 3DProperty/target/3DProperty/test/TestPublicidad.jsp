@@ -50,10 +50,10 @@
         </div>
         <div id="modificaciones">
             <h1>Editar Publicidad.</h1>
-            <s:form action="editarPublicidad" method="post" name="">
+            <s:form action="editarPublicidad" method="post" name="" enctype="multipart/form-data">
                 <s:hidden name="publicidad.idPublicidad" value="%{publicidad.idPublicidad}"/>
                 <s:textfield label="Detalle" name="publicidad.detalle" value="%{publicidad.detalle}"/>
-                <s:textfield label="Ruta" name="publicidad.ruta" value="%{publicidad.ruta}"/>
+                <s:file label="Seleccione un archivo" name="archivoPublicidad"/>
                 <s:hidden name="publicidad.status" value="%{publicidad.status}"/>
                 <s:submit value="Actualizar"/>
             </s:form>
