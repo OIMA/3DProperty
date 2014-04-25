@@ -4,9 +4,25 @@
         <result>/test/FormularioEstado.jsp</result>
     </action>-->
 </package>
+
 <package name="tablaCategoria" extends="struts-default">
-    
+    <action name="testCategoria" class="Categoria" method="consultarTodos">
+        <result>/test/TestCategoria.jsp</result>
+    </action>
+    <action name="eliminarCategoria" class="Categoria" method="eliminar">
+        <result type="redirectAction">testCategoria</result>
+    </action>
+    <action name="consultarCategoria" class="Categoria" method="consultarUnico">
+        <result >/test/TestCategoria.jsp</result>
+    </action>
+    <action name="guardarCategoria" class="Categoria" method="guardar">
+        <result type="redirectAction">testCategoria</result>
+    </action>
+    <action name="editarCategoria" class="Categoria" method="editar">
+        <result type="redirectAction">testCategoria</result>
+    </action>
 </package>
+
 <package name="tablaCodigoPostal" extends="struts-default">
     
 </package>

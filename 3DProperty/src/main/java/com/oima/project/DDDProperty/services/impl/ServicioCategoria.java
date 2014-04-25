@@ -35,8 +35,8 @@ public class ServicioCategoria {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, Categoria.class, "Categoria");
+    public Categoria consultarUnico(Long primaryKey) throws Exception {
+        return (Categoria)query.consultarUnico(primaryKey, Categoria.class, "Categoria");
     }
 
     public DAO getQuery() {

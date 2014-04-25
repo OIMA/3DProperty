@@ -16,6 +16,9 @@
     <!--============================================================================================================================================
                                             CONTROLES
     =============================================================================================================================================-->
+    <bean id="Categoria" class="com.oima.project.DDDProperty.controller.ControlCategoria" scope="prototype">
+        <property name="servicioCategoria" ref="servicioCategoria"/>
+    </bean>
     
     <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
         <property name="servicioPais" ref="servicioPais"/>

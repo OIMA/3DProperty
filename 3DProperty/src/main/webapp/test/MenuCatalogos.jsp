@@ -14,7 +14,7 @@
     <body>
         <ol type="I">
             <li><a href="CatalogoFotosTest.action">Tabla Catalogo Fotos</a></li>
-            <li><a href="CategoriaTest.action">Tabla Categoria</a></li>
+            <li><a href="testCategoria.action">Tabla Categoria</a></li>
             <li><a href="CodigoPostalTest.action">Tabla Codigo Postal</a></li>
             <li><a href="ColoniaTest.action">Tabla Colonia</a></li>
             <li><a href="ContratoTest.action">Tabla Contrato</a></li>

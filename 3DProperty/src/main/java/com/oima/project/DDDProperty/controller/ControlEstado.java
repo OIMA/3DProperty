@@ -18,9 +18,9 @@ import java.util.List;
 public class ControlEstado extends Controller {
 
     private Estado estado;
-    private List<Estado> listaEstados;
-    private List<Pais> listaPaises;
+    private List<Estado> listaEstado;
     private Long idEstado;
+    private List<Pais> listaPais;
 
 //    private ServicioPais servicioPais;
 //    private ServicioEstado servicioEstado;
@@ -39,21 +39,22 @@ public class ControlEstado extends Controller {
         return SUCCESS;
     }
 
-    public void editar(Object object) throws Exception {
+    public String editar() throws Exception {
+        return SUCCESS;
     }
 
     public String consultarTodos() throws Exception {
-        listaEstados = servicioEstado.consultarTodos(Estado.class);
+        listaEstado = servicioEstado.consultarTodos(Estado.class);
         borrarServicios();
         return SUCCESS;
     }
 
-    public Object consultarUnico(Long primaryKey, Class clase, String tabla) throws Exception {
-        return null;
+    public String consultarUnico() throws Exception {
+        return SUCCESS;
     }
 
     public String consultarPaises() throws Exception {
-        listaPaises = getServicioPais().consultarTodos(Pais.class);
+        listaPais = getServicioPais().consultarTodos(Pais.class);
         borrarServicios();
         return SUCCESS;
     }
@@ -67,19 +68,19 @@ public class ControlEstado extends Controller {
     }
 
     public List<Estado> getListaEstados() {
-        return listaEstados;
+        return listaEstado;
     }
 
     public void setListaEstados(List<Estado> listaEstados) {
-        this.listaEstados = listaEstados;
+        this.listaEstado = listaEstados;
     }
 
     public List<Pais> getListaPaises() {
-        return listaPaises;
+        return listaPais;
     }
 
     public void setListaPaises(List<Pais> listaPaises) {
-        this.listaPaises = listaPaises;
+        this.listaPais = listaPaises;
     }
 
     public Long getIdEstado() {
