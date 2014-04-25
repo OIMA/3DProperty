@@ -32,6 +32,7 @@ public class ServicioPais {
     }
 
     public List consultarTodos(Class clase) throws Exception {
+        System.out.println("Consulta los paises");
         return query.consultarTodos(clase);
     }
 

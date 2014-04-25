@@ -22,40 +22,40 @@ public class ControlEstado extends Controller {
     private Long idEstado;
     private List<Pais> listaPais;
 
-//    private ServicioPais servicioPais;
-//    private ServicioEstado servicioEstado;
     private String mensajeRetorno;
 
     public String guardar() throws Exception {
         estado.setStatus(Boolean.TRUE);
         servicioEstado.guardar(estado);
-        borrarServicios();
+        consultarTodos();
         return SUCCESS;
     }
 
     public String eliminar() throws Exception {
         servicioEstado.eliminar(idEstado);
-        borrarServicios();
         return SUCCESS;
     }
 
     public String editar() throws Exception {
+        servicioEstado.editar(estado);
         return SUCCESS;
     }
 
     public String consultarTodos() throws Exception {
         listaEstado = servicioEstado.consultarTodos(Estado.class);
-        borrarServicios();
+        consultarPaises();
         return SUCCESS;
     }
 
     public String consultarUnico() throws Exception {
+        estado = servicioEstado.consultarUnico(idEstado);
+        System.out.println(estado.getIdPais().getNombre());
+        consultarTodos();
         return SUCCESS;
     }
 
     public String consultarPaises() throws Exception {
         listaPais = getServicioPais().consultarTodos(Pais.class);
-        borrarServicios();
         return SUCCESS;
     }
 
@@ -67,19 +67,19 @@ public class ControlEstado extends Controller {
         this.estado = estado;
     }
 
-    public List<Estado> getListaEstados() {
+    public List<Estado> getListaEstado() {
         return listaEstado;
     }
 
-    public void setListaEstados(List<Estado> listaEstados) {
+    public void setListaEstado(List<Estado> listaEstados) {
         this.listaEstado = listaEstados;
     }
 
-    public List<Pais> getListaPaises() {
+    public List<Pais> getListaPais() {
         return listaPais;
     }
 
-    public void setListaPaises(List<Pais> listaPaises) {
+    public void setListaPais(List<Pais> listaPaises) {
         this.listaPais = listaPaises;
     }
 
