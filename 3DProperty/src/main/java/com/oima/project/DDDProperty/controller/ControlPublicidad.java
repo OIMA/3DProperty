@@ -58,6 +58,18 @@ public class ControlPublicidad extends Controller implements ServletRequestAware
     }
 
     public String editar() throws Exception {
+        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
+        archivoPublicidadFileName="images/"+archivoPublicidadFileName;
+        
+        File fileToCreate = new File(filePath, archivoPublicidadFileName);
+
+        FileUtils.copyFile(archivoPublicidad, fileToCreate);
+        System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
+        
+        Archivos archivos = new Archivos();
+        publicidad.setRuta(archivoPublicidadFileName);
+        publicidad.setArchivo(archivos.fileToBytes(archivoPublicidad));
+        publicidad.setStatus(Boolean.TRUE);
         servicioPublicidad.editar(publicidad);
         return SUCCESS;
     }
