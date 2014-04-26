@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">3DProperty & Tourism</a>
+        <a class="navbar-brand" href="index.action">3DProperty & Tourism</a>
     </div>
     <!-- /.navbar-header -->
 

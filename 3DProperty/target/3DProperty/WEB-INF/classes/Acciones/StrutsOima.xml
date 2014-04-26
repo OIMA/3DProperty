@@ -50,10 +50,16 @@
     <action name="Examen" class="Navegacion" method="index">
         <result>/test/examen.jsp</result>
     </action>-->
+    <action name="index" class="Navegacion" method="index">
+        <result>index.jsp</result>
+    </action>
     <action name="OIMA" class="Navegacion" method="index">
         <result>/test/MenuOIMA.jsp</result>
     </action>
-    <action name="PorCategoria" class="Navegacion" method="index">
-        <result>/test/PorCategoria.jsp</result>
+    <action name="PropiedadPorCategoria" class="PropiedadPorCategoria" method="buscarPorCategoria">
+        <result>/roles/UsuarioGeneral/PorCategoria.jsp</result>
+    </action>
+    <action name="VerDisenio" class="Navegacion" method="index">
+        <result>/roles/UsuarioGeneral/VerDisenio.jsp</result>
     </action>
 </package>

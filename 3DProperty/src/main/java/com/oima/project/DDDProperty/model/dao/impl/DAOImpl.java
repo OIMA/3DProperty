@@ -12,7 +12,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -34,7 +33,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            if (oneToMany) {
+            if (!oneToMany) {
                 this.releaseSession(session);
             }
         }
@@ -56,7 +55,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         }
         finally {
-            if (oneToMany) {
+            if (!oneToMany) {
                 this.releaseSession(session);
             }
         }
@@ -75,7 +74,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            if (oneToMany) {
+            if (!oneToMany) {
                 this.releaseSession(session);
             }
         }
@@ -94,7 +93,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             throw e;
         } 
         finally {
-            if (oneToMany) {
+            if (!oneToMany) {
                 this.releaseSession(session);
             }
         }
@@ -140,7 +139,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             System.out.println("Error de consulta " + e.getMessage());
             throw e;
         } finally {
-            if (oneToMany) {
+            if (!oneToMany) {
                 this.releaseSession(session);
             }
         }

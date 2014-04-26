@@ -9304,8 +9304,8 @@
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
-	
+//		"aLengthMenu": [ 10, 25, 50, 100 ],
+                "aLengthMenu": [ 1, 2, 3, 4 ],
 	
 		/**
 		 * The `columns` option in the initialisation parameter allows you to define
@@ -10331,7 +10331,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"iDisplayLength": 10,
+		"iDisplayLength": 1,
 	
 	
 		/**
@@ -10479,7 +10479,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "Primera",
 	
 	
 				/**
@@ -10502,7 +10502,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "&Uacute;ltima",
 	
 	
 				/**
@@ -10525,7 +10525,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Siguiente",
 	
 	
 				/**
@@ -10548,7 +10548,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Anterior"
 			},
 	
 			/**
@@ -10571,7 +10571,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "No hay datos que mostrar",
 	
 	
 			/**
@@ -10603,8 +10603,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-	
+			//"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+                        "sInfo": "",
 	
 			/**
 			 * Display information string for when the table is empty. Typically the
@@ -10624,7 +10624,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "No hay datos que mostrar",
 	
 	
 			/**
@@ -10646,8 +10646,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
-	
+			//"sInfoFiltered": "(filtered from _MAX_ total entries)",
+                        "sInfoFiltered": "",
 	
 			/**
 			 * If can be useful to append extra information to the info string at times,
@@ -10813,7 +10813,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Buscar: <span class='glyphicon glyphicon-search'></span> ",
 	
 	
 			/**

@@ -20,7 +20,7 @@ public class ControlPropiedad extends Controller {
     private Propiedad propiedad;
     private List<Propiedad> listaPropiedades;
     private Long idPropiedad;
-    private Long idCategoria;
+    private String idCategoria;
 
     private String mensajeRetorno;
 
@@ -32,7 +32,7 @@ public class ControlPropiedad extends Controller {
     }
 
     public String eliminar() throws Exception {
-        servicioEstado.eliminar(getIdPropiedad());
+        servicioPropiedad.eliminar(getIdPropiedad());
         borrarServicios();
         return SUCCESS;
     }
@@ -42,7 +42,7 @@ public class ControlPropiedad extends Controller {
     }
 
     public String consultarTodos() throws Exception {
-        setListaPropiedades((List<Propiedad>) servicioEstado.consultarTodos(Propiedad.class));
+        setListaPropiedades((List<Propiedad>) servicioPropiedad.consultarTodos(Propiedad.class));
         borrarServicios();
         return SUCCESS;
     }
@@ -52,8 +52,9 @@ public class ControlPropiedad extends Controller {
     }
 
     public String buscarPorCategoria() throws Exception {
-        Categoria categoria = getServicioCategoria().consultarUnico(idCategoria);
-        setListaPropiedades(getServicioPropiedad().consultaPorCampoEspecifico("idCategoria", categoria, "asc", Categoria.class, null));
+        System.out.println(idCategoria);
+        Categoria categoria = servicioCategoria.consultarUnico(Long.valueOf(idCategoria));
+        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria.getIdCategoria(), "equal", Categoria.class, null));
         borrarServicios();
         return SUCCESS;
     }
@@ -82,11 +83,11 @@ public class ControlPropiedad extends Controller {
         this.idPropiedad = idPropiedad;
     }
 
-    public Long getIdCategoria() {
+    public String getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(Long idCategoria) {
+    public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
 
