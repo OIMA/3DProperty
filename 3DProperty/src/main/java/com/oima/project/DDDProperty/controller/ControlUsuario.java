@@ -3,40 +3,83 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.oima.project.DDDProperty.controller;
 
-import com.oima.project.DDDProperty.model.dto.Pais;
 import com.oima.project.DDDProperty.model.dto.Usuario;
+import com.oima.project.DDDProperty.model.dto.Colonia;
 import com.oima.project.DDDProperty.utilities.Controller;
-import java.util.List;
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import java.util.List;
 
 /**
  *
  * @author OIMA
  */
-public class ControlUsuario extends Controller{
-    private List<Pais> listaPaises;
-    private Long idUsuario;
+public class ControlUsuario extends Controller {
+
     private Usuario usuario;
-    
-    public String consultaUsuario(){
-        
-        return SUCCESS;
-    }
-    
-    public String consultaPaises() throws Exception{
-        getServicioPais().consultarTodos(Pais.class);
+    private List<Usuario> listaUsuario;
+    private Long idUsuario;
+    private List<Colonia> listaColonia;
+
+    private String mensajeRetorno;
+
+    public String guardar() throws Exception {
+        usuario.setStatus(Boolean.TRUE);
+        servicioUsuario.guardar(usuario);
+        consultarTodos();
         return SUCCESS;
     }
 
-    public List<Pais> getListaPaises() {
-        return listaPaises;
+    public String eliminar() throws Exception {
+        servicioUsuario.eliminar(idUsuario);
+        return SUCCESS;
     }
 
-    public void setListaPaises(List<Pais> listaPaises) {
-        this.listaPaises = listaPaises;
+    public String editar() throws Exception {
+        servicioUsuario.editar(usuario);
+        return SUCCESS;
+    }
+
+    public String consultarTodos() throws Exception {
+        listaUsuario = servicioUsuario.consultarTodos(Usuario.class);
+        consultarPaises();
+        return SUCCESS;
+    }
+
+    public String consultarUnico() throws Exception {
+        usuario = servicioUsuario.consultarUnico(idUsuario);
+        consultarTodos();
+        return SUCCESS;
+    }
+
+    public String consultarPaises() throws Exception {
+        listaColonia = getServicioColonia().consultarTodos(Colonia.class);
+        return SUCCESS;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Usuario> getListaUsuario() {
+        return listaUsuario;
+    }
+
+    public void setListaUsuario(List<Usuario> listaUsuarios) {
+        this.listaUsuario = listaUsuarios;
+    }
+
+    public List<Colonia> getListaColonia() {
+        return listaColonia;
+    }
+
+    public void setListaColonia(List<Colonia> listaColoniaes) {
+        this.listaColonia = listaColoniaes;
     }
 
     public Long getIdUsuario() {
@@ -47,11 +90,11 @@ public class ControlUsuario extends Controller{
         this.idUsuario = idUsuario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public String getMensajeRetorno() {
+        return mensajeRetorno;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setMensajeRetorno(String mensajeRetorno) {
+        this.mensajeRetorno = mensajeRetorno;
     }
 }

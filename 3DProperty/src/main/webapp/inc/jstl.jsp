@@ -10,3 +10,4 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix = "s" uri="/struts-tags" %>
 <%@taglib prefix="sb" uri="/struts-bootstrap-tags" %>
+<%@taglib prefix="sj" uri="/struts-jquery-tags"%>

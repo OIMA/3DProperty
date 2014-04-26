@@ -36,12 +36,12 @@
                 </table>
             </s:if>
             <s:else>
-                <h1>No hay datos en CodigoPostal.</h1>
+                <h1>No hay datos en Codigo Postal.</h1>
             </s:else>
 
         </div>
         <div id="altas">
-            <h1>Alta de CodigoPostales.</h1>
+            <h1>Alta de Codigo Postales.</h1>
             <s:if test="listaLocalidad.size>0">
                 <s:form action="guardarCodigoPostal" method="post" name="">
                     <s:textfield label="Número" name="codigoPostal.numero" value=""/>
@@ -60,7 +60,7 @@
             </s:else>
         </div>
         <div id="modificaciones">
-            <h1>Editar CodigoPostal.</h1>
+            <h1>Editar Codigo Postal.</h1>
             <s:if test="listaLocalidad.size>0">    
                 <s:form action="editarCodigoPostal" method="post" name="">
                     <s:hidden name="codigoPostal.idCodigoPostal" value="%{codigoPostal.idCodigoPostal}"/>

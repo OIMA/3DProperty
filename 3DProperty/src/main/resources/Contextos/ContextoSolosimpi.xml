@@ -25,6 +25,11 @@
         <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
     </bean>
     
+    <bean id="Colonia" class="com.oima.project.DDDProperty.controller.ControlColonia" scope="prototype">
+        <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
+        <property name="servicioColonia" ref="servicioColonia"/>
+    </bean>
+    
     <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
         <property name="servicioPais" ref="servicioPais"/>
         <property name="servicioEstado" ref="servicioEstado"/>
@@ -45,5 +50,10 @@
     
     <bean id="Publicidad" class="com.oima.project.DDDProperty.controller.ControlPublicidad" scope="prototype">
         <property name="servicioPublicidad" ref="servicioPublicidad"/>
+    </bean>
+    
+    <bean id="Usuario" class="com.oima.project.DDDProperty.controller.ControlUsuario" scope="prototype">
+        <property name="servicioColonia" ref="servicioColonia"/>
+        <property name="servicioUsuario" ref="servicioUsuario"/>
     </bean>
 </beans>

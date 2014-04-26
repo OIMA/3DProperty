@@ -16,7 +16,7 @@
             <li><a href="CatalogoFotosTest.action">Tabla Catalogo Fotos</a></li>
             <li><a href="testCategoria.action">Tabla Categoria</a></li>
             <li><a href="testCodigoPostal.action">Tabla Codigo Postal</a></li>
-            <li><a href="ColoniaTest.action">Tabla Colonia</a></li>
+            <li><a href="testColonia.action">Tabla Colonia</a></li>
             <li><a href="ContratoTest.action">Tabla Contrato</a></li>
             <li><a href="DiseniadorPropiedadTest.action">Tabla Diseñador Propiedad</a></li>
             <li><a href="DisenioTest.action">Tabla Diseño</a></li>
@@ -31,7 +31,7 @@
             <li><a href="PropiedadTest.action">Tabla Propiedad</a></li>
             <li><a href="testPublicidad.action">Tabla Publicidad</a></li>
             <li><a href="RegistroPagoTest.action">Tabla Registro Pago</a></li>
-            <li><a href="UsuarioTest.action">Tabla Usuario</a></li>
+            <li><a href="testUsuario.action">Tabla Usuario</a></li>
         </ol>
 
     </body>

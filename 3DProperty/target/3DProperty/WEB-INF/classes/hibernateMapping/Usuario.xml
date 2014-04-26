@@ -35,7 +35,7 @@
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
-        <property column="FECHA_NACIMIENTO" name="fechaNacimiento" not-null="false" type="java.lang.String">
+        <property column="FECHA_NACIMIENTO" name="fechaNacimiento" not-null="false" type="java.util.Date">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
@@ -66,7 +66,7 @@
         <many-to-one class="com.oima.project.DDDProperty.model.dto.Colonia" insert="true" update="true" lazy="false" name="idColonia">
             <column name="ID_COLONIA"/>
         </many-to-one>
-        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Boolean">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>

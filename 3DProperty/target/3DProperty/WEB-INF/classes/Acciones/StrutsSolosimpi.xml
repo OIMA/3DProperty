@@ -26,9 +26,25 @@
 <package name="tablaCodigoPostal" extends="struts-default">
     
 </package>
+
 <package name="tablaColonia" extends="struts-default">
-    
+    <action name="testColonia" class="Colonia" method="consultarTodos">
+        <result>/test/TestColonia.jsp</result>
+    </action>
+    <action name="eliminarColonia" class="Colonia" method="eliminar">
+        <result type="redirectAction">testColonia</result>
+    </action>
+    <action name="consultarColonia" class="Colonia" method="consultarUnico">
+        <result >/test/TestColonia.jsp</result>
+    </action>
+    <action name="guardarColonia" class="Colonia" method="guardar">
+        <result type="redirectAction">testColonia</result>
+    </action>
+    <action name="editarColonia" class="Colonia" method="editar">
+        <result type="redirectAction">testColonia</result>
+    </action>
 </package>
+
 <package name="tablaContrato" extends="struts-default">
     
 </package>
@@ -53,6 +69,12 @@
     </action>
     <action name="editarEstado" class="Estado" method="editar">
         <result type="redirectAction">testEstado</result>
+    </action>
+    <action name="consultaEstadosJson" class="Estado" method="consultarTodos">
+        <result type="json"></result>
+    </action>
+    <action name="consultaEstadosPorPaisJson" class="Estado" method="consultarPorPais">
+        <result type="json"></result>
     </action>
 </package>
 <package name="tablaFavorito" extends="struts-default">
@@ -102,7 +124,7 @@
     </action>
 </package>
 
-<package name="tablaPais" extends="struts-default">
+<package name="tablaPais" extends="struts-default, json-default">
     <action name="testPais" class="Pais" method="consultarTodos">
         <result>/test/TestPais.jsp</result>
     </action>
@@ -117,6 +139,9 @@
     </action>
     <action name="editarPais" class="Pais" method="editar">
         <result type="redirectAction">testPais</result>
+    </action>
+    <action name="consultarPaisesJson" class="Pais" method="consultarTodos">
+        <result type="json"></result>
     </action>
 </package>
 
@@ -162,8 +187,20 @@
 </package>
 
 <package name="tablaUsuario" extends="struts-default">
-    <action name="Registro" class="Pais" method="consultarTodos">
-        <result>/roles/UsuarioGeneral/Registro.jsp</result>
+    <action name="testUsuario" class="Usuario" method="consultarTodos">
+        <result>/test/TestUsuario.jsp</result>
+    </action>
+    <action name="eliminarUsuario" class="Usuario" method="eliminar">
+        <result type="redirectAction">testUsuario</result>
+    </action>
+    <action name="consultarUsuario" class="Usuario" method="consultarUnico">
+        <result >/test/TestUsuario.jsp</result>
+    </action>
+    <action name="guardarUsuario" class="Usuario" method="guardar">
+        <result type="redirectAction">testUsuario</result>
+    </action>
+    <action name="editarUsuario" class="Usuario" method="editar">
+        <result type="redirectAction">testUsuario</result>
     </action>
 </package>
 <package name="utileriasSolosimpi" extends="struts-default">

@@ -25,7 +25,10 @@
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern> <!--mapea todos los elementos-->
     </filter-mapping>
-    
+<!--    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/struts/*</url-pattern> mapea todos los elementos
+    </filter-mapping>-->
     <!--    Spring security-->
 <!--      <filter>
         <filter-name>springSecurityFilterChain</filter-name>

@@ -85,7 +85,7 @@ public class Usuario implements Serializable {
     private String curp;
     @Basic(optional = false)
     @Column(name = "TIPO_USUARIO")
-    private String tipoUsuario;
+    private String tipoUsuario; //1. Administrador, 2. Diseñador, 3. Usuario Registrado, 4. Usuario General
     @Basic(optional = false)
     @Column(name = "CALLE")
     private String calle;

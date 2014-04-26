@@ -40,6 +40,11 @@ public class ServicioEstado {
         return (Estado)query.consultarUnico(primaryKey, Estado.class, "Estado");
     }
 
+    public List<Estado> consultarPorPais(Long idPais) throws Exception {
+        System.out.println("Esta en el servicio, este es el idPais"+idPais);
+        return query.consultaPorCampoEspecifico("idPais", idPais, "equal", Estado.class, null);
+    }
+    
     public DAO getQuery() {
         return query;
     }

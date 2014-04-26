@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@include file="inc/jstl.jsp" %>
 <html>
     <head>
         <title>3DProperty</title>

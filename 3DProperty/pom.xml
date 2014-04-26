@@ -65,6 +65,12 @@
             <artifactId>struts2-json-plugin</artifactId>
             <version>${org.apache.struts.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.jgeppert.struts2.jquery</groupId>
+            <artifactId>struts2-jquery-plugin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
 
 
         <!-- SpringFrameWork -->

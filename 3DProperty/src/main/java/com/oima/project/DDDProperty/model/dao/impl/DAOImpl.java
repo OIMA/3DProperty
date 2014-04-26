@@ -115,9 +115,10 @@ public class DAOImpl extends DaoSupport implements DAO{
         session = this.getSession();
         try {
             Criteria criterio = session.createCriteria(clase);
-
+            System.out.println("antes de las restricciones"+criterio.list().size());
             if (predicado.equals("equal")) {
                 criterio.add(Restrictions.eq(campo, contenido));
+                System.out.println("Despues del equals"+criterio.list().size());
             } else if (predicado.equals("lower")) {
                 criterio.add(Restrictions.lt(campo, contenido));
             } else if (predicado.equals("greater")) {
@@ -133,7 +134,7 @@ public class DAOImpl extends DaoSupport implements DAO{
             }
             
             criterio.add(Restrictions.eq("status", true));
-            
+            System.out.println("Despues de borrar los que no estaban"+criterio.list().size());
             return criterio.list();
         } catch (Exception e) {
             System.out.println("Error de consulta " + e.getMessage());
