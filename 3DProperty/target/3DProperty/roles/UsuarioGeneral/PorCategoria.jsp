@@ -90,7 +90,7 @@
                                 <div class="col-md-2 column">
                                     <img alt="140x140" src="http://lorempixel.com/140/140/" class="img-thumbnail" />
                                 </div>
-                                <div class="col-md-4 column">
+                                <div class="col-md-4 column detallePropiedad">
                                     <dl>
                                         <dt>
                                         Description lists

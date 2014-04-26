@@ -18,6 +18,7 @@
             <li><a href="PropiedadPorPropietario.action">Vista propietario</a></li>
             <li><a href="PanelUsuario.action">Perfil usuario</a></li>
             <li><a href="PanelAdministrador.action">Menu Administrador</a></li>
+            <li><a href="PanelDiseniador.action">Panel diseniador</a></li>
             <li><a href="VerDisenio.action">Ver disenio</a></li>
         </ul>
     </body>
