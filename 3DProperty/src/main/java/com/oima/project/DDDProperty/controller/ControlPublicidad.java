@@ -28,6 +28,11 @@ public class ControlPublicidad extends Controller implements ServletRequestAware
     private String archivoPublicidadFileName;
     private HttpServletRequest servletRequest;
 
+    /**
+     * Se debe de cambiar la ruta "images/"
+     * @return
+     * @throws Exception 
+     */
     public String guardar() throws Exception {
         
         System.out.println("Se obtuvo este archivo: " + archivoPublicidad.getName());

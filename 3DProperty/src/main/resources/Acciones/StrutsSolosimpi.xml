@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="tablaCatalogoFotos" extends="struts-default">
-    <!--    <action name="TestCatalogoFotos" class="" method="consultarPaises">
-        <result>/test/FormularioEstado.jsp</result>
-    </action>-->
+<package name="tablaCatalogoFotos" extends="struts-default, json-default">
+    <action name="testCatalogoFotos" class="CatalogoFotos" method="consultarTodos">
+        <result>/test/TestCatalogoFotos.jsp</result>
+    </action>
+    <action name="eliminarCatalogoFotos" class="CatalogoFotos" method="eliminar">
+        <result type="redirectAction">testCatalogoFotos</result>
+    </action>
+    <action name="consultarCatalogoFotos" class="CatalogoFotos" method="consultarUnico">
+        <result >/test/TestCatalogoFotos.jsp</result>
+    </action>
+    <action name="guardarCatalogoFotos" class="CatalogoFotos" method="guardar">
+        <result>/test/TestCatalogoFotos.jsp</result>
+    </action>
+    <action name="editarCatalogoFotos" class="CatalogoFotos" method="editar">
+        <result type="redirectAction">testCatalogoFotos</result>
+    </action>
 </package>
 
 <package name="tablaCategoria" extends="struts-default, json-default">
@@ -174,7 +186,7 @@
     </action>
 </package>
 
-<package name="tablaPropiedad" extends="struts-default">
+<package name="tablaPropiedad" extends="struts-default, json-default">
     <action name="testPropiedad" class="Propiedad" method="consultarTodos">
         <result>/test/TestPropiedad.jsp</result>
     </action>
@@ -189,6 +201,9 @@
     </action>
     <action name="editarPropiedad" class="Propiedad" method="editar">
         <result type="redirectAction">testPropiedad</result>
+    </action>
+    <action name="consultarPropiedadesJson" class="Propiedad" method="consultarTodos">
+        <result type="json"></result>
     </action>
 </package>
 
@@ -246,6 +261,7 @@
         <result type="redirectAction">testUsuario</result>
     </action>
 </package>
+
 <package name="utileriasSolosimpi" extends="struts-default, json-default">
     <action name="MenuCatalogo" class="Navegacion" method="index">
         <result>/test/MenuCatalogos.jsp</result>

@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -47,6 +48,9 @@ public class CatalogoFotos implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID_PROPIEDAD")
     private Propiedad idPropiedad;
+    @Lob
+    @Column(name = "ARCHIVO")
+    private byte[] archivo;
     @Column(name = "STATUS")
     private Boolean status;
 
@@ -134,6 +138,20 @@ public class CatalogoFotos implements Serializable {
     @Override
     public String toString() {
         return "com.oima.project.DDDProperty.model.dto.CatalogoFotos[ idCatalogoFotos=" + idCatalogoFotos + " ]";
+    }
+
+    /**
+     * @return the archivo
+     */
+    public byte[] getArchivo() {
+        return archivo;
+    }
+
+    /**
+     * @param archivo the archivo to set
+     */
+    public void setArchivo(byte[] archivo) {
+        this.archivo = archivo;
     }
     
 }

@@ -13,7 +13,7 @@
     </head>
     <body>
         <ol type="I">
-            <li><a href="CatalogoFotosTest.action">Tabla Catalogo Fotos</a></li>
+            <li><a href="testCatalogoFotos.action">Tabla Catalogo Fotos</a></li>
             <li><a href="testCategoria.action">Tabla Categoria</a></li>
             <li><a href="testCodigoPostal.action">Tabla Codigo Postal</a></li>
             <li><a href="testColonia.action">Tabla Colonia</a></li>

@@ -19,6 +19,7 @@ public class ServicioCatalogoFotos {
     private DAO query;
 
     public void guardar(Object objeto) throws Exception {
+        System.out.println("Segun se va a gruadar");
         query.guardar(objeto);
     }
 
