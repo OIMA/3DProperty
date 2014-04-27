@@ -11,10 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Test</title>
-        <%@include file="../inc/scripts.jsp" %>
         <%@include file="../inc/Header.jsp" %>
+        <%@include file="../inc/scripts.jsp" %>
     </head>
     <body>
+        <s:url id="paisURL" action="consultarPaisesJson"/> 
+        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+        <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
+        <s:url id="codigoPostalURL" action="consultaCodigosPostalesPorLocalidadJson"/> 
+        <s:url id="coloniaURL" action="consultaColoniasPorCodigoPostalJson"/> 
         <div id="consultas">
             <s:if test="listaUsuario.size>0">
                 <table>
@@ -79,7 +84,7 @@
         <div id="altas">
             <h1>Alta de Usuarios.</h1>
             <s:if test="listaColonia.size>0">
-                <s:form action="guardarUsuario" method="post" name="">
+                <s:form id="formularioUsuario" action="guardarUsuario" method="post" name="">
                     <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value=""/>
                     <s:password label="Contraseña" name="usuario.contrasenia" value=""/>
                     <s:textfield label="Nombre" name="usuario.nombre" value=""/>
@@ -97,12 +102,71 @@
                     <s:textfield label="Calle" name="usuario.calle" value=""/>
                     <s:textfield label="No. Exterior" name="usuario.noExterior" value=""/>
                     <s:textfield label="No. Interior" name="usuario.noInterior" value=""/>
-                    <s:select 
-                        name="usuario.idColonia.idColonia" 
+                    <sj:select 
+                        href="%{paisURL}" 
+                        id="pais" 
+                        onChangeTopics="recargarEstados" 
+                        name="idPais" 
+                        list="listaPais" 
+                        listKey="idPais" 
+                        listValue="nombre" 
+                        headerKey="-1"
+                        headerValue="Seleccione un Pais"
+                        />
+
+                    <sj:select 
+                        href="%{estadoURL}" 
+                        id="estado" 
+                        reloadTopics="recargarEstados"
+                        onChangeTopics="recargarLocalidades"
+                        name="idEstado"
+                        formIds="formularioUsuario"
+                        list="listaEstado"
+                        listKey="idEstado" 
+                        listValue="nombre" 
+                        headerKey="-1" 
+                        headerValue="Seleccione un Estado" 
+                        /> 
+                    
+                    <sj:select 
+                        href="%{localidadURL}" 
+                        id="localidad" 
+                        reloadTopics="recargarLocalidades"
+                        onChangeTopics="recargarCodigosPostales"
+                        name="idLocalidad"
+                        formIds="formularioUsuario"
+                        list="listaLocalidad"
+                        listKey="idLocalidad" 
+                        listValue="nombre"
+                        headerKey="-1" 
+                        headerValue="Seleccione una Localidad" 
+                        />
+                    
+                    <sj:select 
+                        href="%{codigoPostalURL}" 
+                        id="codigoPostal" 
+                        reloadTopics="recargarCodigosPostales"
+                        onChangeTopics="recargarColonias"
+                        name="idCodigoPostal"
+                        formIds="formularioUsuario"
+                        list="listaCodigoPostal"
+                        listKey="idCodigoPostal" 
+                        listValue="numero" 
+                        headerKey="-1" 
+                        headerValue="Seleccione un Codigo Postal" 
+                        />
+                    
+                    <sj:select 
+                        href="%{coloniaURL}" 
+                        id="colonia" 
+                        reloadTopics="recargarColonias" 
+                        name="usuario.idColonia.idColonia"
+                        formIds="formularioUsuario"
                         list="listaColonia"
-                        listKey="%{idColonia}"
-                        listValue="%{nombre}"
-                        label="Colonia"
+                        listKey="idColonia" 
+                        listValue="nombre"
+                        headerKey="-1" 
+                        headerValue="Seleccione una Colonia" 
                         />
                     <s:submit value="Guardar"/>
                 </s:form>
@@ -111,10 +175,10 @@
                 No Datos en <a href="testColonia.action">Colonia</a>.
             </s:else>
         </div>
-        <div id="modificaciones">
+        <div id="modificaciones"> <!--OJO!!! la edicion se debe mover a otra pagina-->
             <h1>Editar Codigo Postal.</h1>
             <s:if test="listaColonia.size>0">    
-                <s:form action="editarUsuario" method="post" name="">
+                <s:form id="editarUsuarioFormulario" action="editarUsuario" method="post" name="">
                     <s:hidden name="usuario.idUsuario" value="%{usuario.idUsuario}"/>
                     <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value="%{usuario.nombreUsuario}"/>
                     <s:password label="Contraseña" name="usuario.contrasenia" value="%{usuario.contrasenia}"/>
@@ -134,14 +198,65 @@
                     <s:textfield label="Calle" name="usuario.calle" value="%{usuario.calle}"/>
                     <s:textfield label="No. Exterior" name="usuario.noExterior" value="%{usuario.noExterior}"/>
                     <s:textfield label="No. Interior" name="usuario.noInterior" value="%{usuario.noInterior}"/>
-                    <s:select 
-                        name="usuario.idColonia.idColonia" 
-                        list="listaColonia"
-                        listKey="%{idColonia}"
-                        listValue="%{nombre}"
-                        label="Colonia"
-                        value="%{usuario.idColonia.idColonia}"
+                    
+                    <sj:select 
+                        href="%{paisURL}" 
+                        id="paisEditar" 
+                        onChangeTopics="recargarEstadosEditar" 
+                        name="idPais" 
+                        list="listaPais" 
+                        listKey="idPais" 
+                        listValue="nombre"  
                         />
+
+ 
+                    <sj:select 
+                        href="%{estadoURL}" 
+                        id="estadoEditar" 
+                        reloadTopics="recargarEstadosEditar"
+                        onChangeTopics="recargarLocalidadesEditar"
+                        name="idEstado"
+                        formIds="editarUsuarioFormulario"
+                        list="listaEstado"
+                        listKey="idEstado" 
+                        listValue="nombre" 
+                        />
+ 
+                    <sj:select 
+                        href="%{localidadURL}" 
+                        id="localidadEditar" 
+                        reloadTopics="recargarLocalidadesEditar"
+                        onChangeTopics="recargarCodigosPostalesEditar"
+                        name="idLocalidad"
+                        formIds="editarUsuarioFormulario"
+                        list="listaLocalidad"
+                        listKey="idLocalidad" 
+                        listValue="nombre" 
+                        />
+
+                    <sj:select 
+                        href="%{codigoPostalURL}" 
+                        id="codigoPostalEditar" 
+                        reloadTopics="recargarCodigosPostalesEditar"
+                        onChangeTopics="recargarColoniasEditar"
+                        name="idCodigoPostal"
+                        formIds="editarUsuarioFormulario"
+                        list="listaCodigoPostal"
+                        listKey="idCodigoPostal" 
+                        listValue="numero" 
+                        />
+
+                    <sj:select 
+                        href="%{coloniaURL}" 
+                        id="coloniaEditar" 
+                        reloadTopics="recargarColoniasEditar" 
+                        name="usuario.idColonia.idColonia"
+                        formIds="editarUsuarioFormulario"
+                        list="listaColonia"
+                        listKey="idColonia" 
+                        listValue="nombre" 
+                        />
+                    
                     <s:hidden name="usuario.status" value="%{usuario.status}"/>
                     <s:submit value="Actualizar"/>
                 </s:form>
@@ -152,32 +267,5 @@
         </div>
 
         <br/>
-        <s:url id="paisURL" action="consultarPaisesJson"/> 
-        <sj:select 
-            href="%{paisURL}" 
-            id="idPais2" 
-            onChangeTopics="recargarEstados" 
-            name="idPais1" 
-            list="listaPais" 
-            listKey="idPais" 
-            listValue="nombre" 
-            emptyOption="true" 
-            headerKey="-1"
-            headerValue="Seleccione un estado"
-            />
-
-        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/> 
-        <sj:select 
-            href="%{estadoURL}" 
-            id="selectWithReloadTopic" 
-            reloadTopics="recargarEstados" 
-            name="idPais" 
-            list="listaEstado"
-            listKey="idEstado" 
-            listValue="nombre"
-            emptyOption="true" 
-            headerKey="-1" 
-            headerValue="Seleccione un estado" 
-            />
     </body>
 </html>

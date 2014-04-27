@@ -21,7 +21,7 @@ public class ControlEstado extends Controller {
     private List<Estado> listaEstado;
     private Long idEstado;
     private List<Pais> listaPais;
-    private Long idPais1;
+    private Long idPais;
 
     private String mensajeRetorno;
 
@@ -60,9 +60,8 @@ public class ControlEstado extends Controller {
         return SUCCESS;
     }
 
-    public String consultarPorPais() throws Exception {
-        System.out.println("El idPais es"+idPais1);
-        //listaEstado = servicioEstado.consultarPorPais(idPais);
+    public String consultarPorIdPais() throws Exception {
+        listaEstado = servicioEstado.consultarPorIdPais(idPais);
         return SUCCESS;
     }
     
@@ -109,14 +108,14 @@ public class ControlEstado extends Controller {
     /**
      * @return the idPais
      */
-    public Long getIdPais1() {
-        return idPais1;
+    public Long  getIdPais() {
+        return idPais;
     }
 
     /**
      * @param idPais the idPais to set
      */
-    public void setIdPais1(Long idPais) {
-        this.idPais1 = idPais;
+    public void setIdPais(Long idPais) {
+        this.idPais = idPais;
     }
 }

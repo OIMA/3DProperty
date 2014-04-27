@@ -7,6 +7,7 @@
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
+import com.oima.project.DDDProperty.model.dto.Estado;
 import com.oima.project.DDDProperty.model.dto.Localidad;
 import java.util.List;
 
@@ -45,6 +46,10 @@ public class ServicioLocalidad {
 
     public void setQuery(DAO query) {
         this.query = query;
+    }
+
+    public List<Localidad> consultarPorIdEstado(Long idEstado) throws Exception{
+        return query.consultaPorCampoEspecifico("idEstado.idEstado", idEstado, "equal", Localidad.class, null);
     }
     
 }

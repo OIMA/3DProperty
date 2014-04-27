@@ -21,6 +21,7 @@ public class ControlColonia extends Controller {
     private List<Colonia> listaColonia;
     private Long idColonia;
     private List<CodigoPostal> listaCodigoPostal;
+    private Long idCodigoPostal;
 
     private String mensajeRetorno;
 
@@ -55,6 +56,11 @@ public class ControlColonia extends Controller {
 
     public String consultarCodigoPostales() throws Exception {
         listaCodigoPostal = getServicioCodigoPostal().consultarTodos(CodigoPostal.class);
+        return SUCCESS;
+    }
+    
+    public String consultarPorIdCodigoPostal() throws Exception {
+        listaColonia = servicioColonia.consultarPorIdCodigoPostal(idCodigoPostal);
         return SUCCESS;
     }
 
@@ -96,5 +102,19 @@ public class ControlColonia extends Controller {
 
     public void setMensajeRetorno(String mensajeRetorno) {
         this.mensajeRetorno = mensajeRetorno;
+    }
+
+    /**
+     * @return the idCodigoPostal
+     */
+    public Long getIdCodigoPostal() {
+        return idCodigoPostal;
+    }
+
+    /**
+     * @param idCodigoPostal the idCodigoPostal to set
+     */
+    public void setIdCodigoPostal(Long idCodigoPostal) {
+        this.idCodigoPostal = idCodigoPostal;
     }
 }

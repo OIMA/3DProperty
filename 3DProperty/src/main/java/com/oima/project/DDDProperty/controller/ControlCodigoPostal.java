@@ -21,6 +21,7 @@ public class ControlCodigoPostal extends Controller {
     private List<CodigoPostal> listaCodigoPostal;
     private Long idCodigoPostal;
     private List<Localidad> listaLocalidad;
+    private Long idLocalidad;
 
     private String mensajeRetorno;
 
@@ -59,6 +60,11 @@ public class ControlCodigoPostal extends Controller {
         return SUCCESS;
     }
 
+    public String consultarPorIdLocalidad() throws Exception {
+        listaCodigoPostal = servicioCodigoPostal.consultarPorIdLocalidad(idLocalidad);
+        return SUCCESS;
+    }
+    
     public CodigoPostal getCodigoPostal() {
         return codigoPostal;
     }
@@ -97,5 +103,19 @@ public class ControlCodigoPostal extends Controller {
 
     public void setMensajeRetorno(String mensajeRetorno) {
         this.mensajeRetorno = mensajeRetorno;
+    }
+
+    /**
+     * @return the idLocalidad
+     */
+    public Long getIdLocalidad() {
+        return idLocalidad;
+    }
+
+    /**
+     * @param idLocalidad the idLocalidad to set
+     */
+    public void setIdLocalidad(Long idLocalidad) {
+        this.idLocalidad = idLocalidad;
     }
 }

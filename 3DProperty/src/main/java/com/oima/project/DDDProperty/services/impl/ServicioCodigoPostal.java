@@ -8,6 +8,7 @@ package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.CodigoPostal;
+import com.oima.project.DDDProperty.model.dto.Localidad;
 import java.util.List;
 
 /**
@@ -45,5 +46,9 @@ public class ServicioCodigoPostal {
 
     public void setQuery(DAO query) {
         this.query = query;
+    }
+
+    public List<CodigoPostal> consultarPorIdLocalidad(Long idLocalidad) throws Exception{
+        return query.consultaPorCampoEspecifico("idLocalidad.idLocalidad", idLocalidad, "equal", CodigoPostal.class, null);
     }
 }

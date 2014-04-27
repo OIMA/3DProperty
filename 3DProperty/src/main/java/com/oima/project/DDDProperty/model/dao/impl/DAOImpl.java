@@ -113,6 +113,8 @@ public class DAOImpl extends DaoSupport implements DAO{
         Session session = null;
         session = this.getSession();
         try {
+            System.out.println("La consulta es: "+campo+" "+predicado+" "+contenido+" de la clase"+clase.getSimpleName());
+            
             Criteria criterio = session.createCriteria(clase);
             System.out.println("antes de las restricciones"+criterio.list().size());
             if (predicado.equals("equal")) {

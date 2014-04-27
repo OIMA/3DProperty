@@ -21,6 +21,8 @@ public class ControlLocalidad extends Controller {
     private List<Localidad> listaLocalidad;
     private Long idLocalidad;
     private List<Estado> listaEstado;
+    
+    private Long idEstado;
 
     private String mensajeRetorno;
 
@@ -56,6 +58,11 @@ public class ControlLocalidad extends Controller {
 
     public String consultarEstadoes() throws Exception {
         listaEstado = getServicioEstado().consultarTodos(Estado.class);
+        return SUCCESS;
+    }
+    
+    public String consultarPorIdEstado() throws Exception {
+        listaLocalidad = servicioLocalidad.consultarPorIdEstado(idEstado);
         return SUCCESS;
     }
 
@@ -97,5 +104,19 @@ public class ControlLocalidad extends Controller {
 
     public void setMensajeRetorno(String mensajeRetorno) {
         this.mensajeRetorno = mensajeRetorno;
+    }
+
+    /**
+     * @return the idEstado
+     */
+    public Long getIdEstado() {
+        return idEstado;
+    }
+
+    /**
+     * @param idEstado the idEstado to set
+     */
+    public void setIdEstado(Long idEstado) {
+        this.idEstado = idEstado;
     }
 }

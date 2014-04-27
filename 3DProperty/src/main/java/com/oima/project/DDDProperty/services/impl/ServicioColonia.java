@@ -39,6 +39,10 @@ public class ServicioColonia {
     public Colonia consultarUnico(Long primaryKey) throws Exception {
         return (Colonia)query.consultarUnico(primaryKey, Colonia.class, "Colonia");
     }
+    
+    public List<Colonia> consultarPorIdCodigoPostal(Long idCodigoPostal) throws Exception{
+        return query.consultaPorCampoEspecifico("idCodigoPostal.idCodigoPostal", idCodigoPostal, "equal", Colonia.class, null);
+    }
 
     public DAO getQuery() {
         return query;
