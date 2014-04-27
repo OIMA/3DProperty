@@ -37,6 +37,7 @@ public class ControlCategoria extends Controller{
     }
 
     public String consultarTodos() throws Exception {
+        System.out.println("Consulta todas las categorias");
         listaCategoria = servicioCategoria.consultarTodos(Categoria.class);
         return SUCCESS;
     }

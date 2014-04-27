@@ -5,7 +5,7 @@
     </action>-->
 </package>
 
-<package name="tablaCategoria" extends="struts-default">
+<package name="tablaCategoria" extends="struts-default, json-default">
     <action name="testCategoria" class="Categoria" method="consultarTodos">
         <result>/test/TestCategoria.jsp</result>
     </action>
@@ -20,6 +20,9 @@
     </action>
     <action name="editarCategoria" class="Categoria" method="editar">
         <result type="redirectAction">testCategoria</result>
+    </action>
+    <action name="consultarCategoriasJson" class="Categoria" method="consultarTodos">
+        <result type="json"></result>
     </action>
 </package>
 
@@ -61,6 +64,9 @@
         <result type="redirectAction">testColonia</result>
     </action>
     <action name="consultaColoniasPorCodigoPostalJson" class="Colonia" method="consultarPorIdCodigoPostal">
+        <result type="json"></result>
+    </action>
+    <action name="consultarColoniasJson" class="Colonia" method="consultarTodos">
         <result type="json"></result>
     </action>
 </package>
@@ -169,7 +175,21 @@
 </package>
 
 <package name="tablaPropiedad" extends="struts-default">
-    
+    <action name="testPropiedad" class="Propiedad" method="consultarTodos">
+        <result>/test/TestPropiedad.jsp</result>
+    </action>
+    <action name="eliminarPropiedad" class="Propiedad" method="eliminar">
+        <result type="redirectAction">testPropiedad</result>
+    </action>
+    <action name="consultarPropiedad" class="Propiedad" method="consultarUnico">
+        <result >/test/TestPropiedad.jsp</result>
+    </action>
+    <action name="guardarPropiedad" class="Propiedad" method="guardar">
+        <result type="redirectAction">testPropiedad</result>
+    </action>
+    <action name="editarPropiedad" class="Propiedad" method="editar">
+        <result type="redirectAction">testPropiedad</result>
+    </action>
 </package>
 
 <package name="tablaPublicidad" extends="struts-default">

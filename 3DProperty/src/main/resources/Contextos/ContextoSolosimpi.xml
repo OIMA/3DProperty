@@ -48,6 +48,10 @@
         <property name="servicioPais" ref="servicioPais"/>
     </bean>
     
+    <bean id="Propiedad" class="com.oima.project.DDDProperty.controller.ControlPropiedad" scope="prototype">
+        <property name="servicioPropiedad" ref="servicioPropiedad"/>
+    </bean>
+    
     <bean id="Publicidad" class="com.oima.project.DDDProperty.controller.ControlPublicidad" scope="prototype">
         <property name="servicioPublicidad" ref="servicioPublicidad"/>
     </bean>
