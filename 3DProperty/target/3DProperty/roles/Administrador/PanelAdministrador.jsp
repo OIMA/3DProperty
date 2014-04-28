@@ -21,7 +21,7 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <s:if test="operacion=='index'"><%@include file="indexAdmin.jsp" %></s:if>
+                        <%--<s:if test="operacion=='index'"><%@include file="indexAdmin.jsp" %></s:if>--%>
                         <s:if test="operacion=='altaCategoria'"><%@include file="Formularios/formularioCategoria.jspf" %></s:if>
                         <s:if test="operacion=='altaCodigoPostal'"><%@include file="Formularios/formularioCodigoPostal.jspf" %></s:if>
                         <s:if test="operacion=='altaPais'"><%@include file="Formularios/formularioPais.jspf" %></s:if>

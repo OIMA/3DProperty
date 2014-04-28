@@ -4,11 +4,31 @@
     <div class="col-md-12 column">
         <div class="row clearfix">
             <div class="col-md-8 column">
-                
+                <h1>Alta de Localidades.</h1>
+                <s:if test="listaEstado.size>0">
+                    <s:form theme="bootstrap" class="form-horizontal" role="form" action="guardarLocalidad" method="post" name="">
+                        <label class="label label-primary">Nombre de la localidad</label>
+                        <s:textfield name="localidad.nombre" value="" cssClass="form-control"/>
+                        <div class="form-group"></div>
+                        <label class="label label-primary">Nombre del estado al que pertenece</label>
+                        <s:select 
+                            name="localidad.idEstado.idEstado" 
+                            list="listaEstado"
+                            listKey="%{idEstado}"
+                            listValue="%{nombre}"
+                            cssClass="form-control"
+                            />
+                        <div class="form-group"></div>
+                        <s:submit value="Guardar" cssClass="btn btn-primary"/>
+                    </s:form>
+                </s:if>
+                <s:else>
+                    No Datos en <a href="testEstado.action">Estados</a>.
+                </s:else>
 
             </div>
             <div class="col-md-4 column">
-                
+
             </div>
         </div>
     </div>

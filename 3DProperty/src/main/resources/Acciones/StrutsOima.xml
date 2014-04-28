@@ -62,7 +62,7 @@
     <action name="VerDisenio" class="Navegacion" method="index">
         <result>/roles/UsuarioGeneral/VerDisenio.jsp</result>
     </action>
-    <action name="PanelAdministrador" class="ControlAdministrador" method="cambiarOperacion">
+    <action name="PanelAdministrador" class="ControlAdministrador" method="consultarDatos">
         <result>/roles/Administrador/PanelAdministrador.jsp</result>
     </action>
 </package>
