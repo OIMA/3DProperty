@@ -22,9 +22,9 @@ public class ServicioDiseniadorPropiedad {
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-//        DiseniadorPropiedad diseniadorPropiedad = (DiseniadorPropiedad)consultarUnico(primaryKey);
-//        diseniadorPropiedad.setStatus(Boolean.FALSE);
-//        editar(diseniadorPropiedad);
+        DiseniadorPropiedad diseniadorPropiedad = (DiseniadorPropiedad)consultarUnico(primaryKey);
+        diseniadorPropiedad.setStatus(Boolean.FALSE);
+        editar(diseniadorPropiedad);
     }
 
     public void editar(Object object) throws Exception {

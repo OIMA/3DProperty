@@ -29,7 +29,7 @@
                         <tr>
                             <td>${idDiseniadorPropiedad}</td>
                             <td>${idUsuario.nombre}</td>
-                            <td>${idPropiedad.nombre}</td>
+                            <td>${idDisenio.idDisenio}</td>
                             <td>
                                 <a href="eliminarDiseniadorPropiedad.action?idDiseniadorPropiedad=${idDiseniadorPropiedad}"> Eliminar </a> 
                                 <a href="consultarDiseniadorPropiedad.action?idDiseniadorPropiedad=${idDiseniadorPropiedad}"> Editar </a>
@@ -57,13 +57,12 @@
                         headerValue="Seleccione un Usuario"
                         label="Diseñador"
                         />
-                <sj:select 
-                        href="%{disenioURL}" 
-                        id="propiedad" 
+                <s:select 
+                        id="disenio" 
                         name="diseniadorPropiedad.idDisenio.idDisenio" 
                         list="listaDisenio" 
-                        listKey="idDisenio" 
-                        listValue="idDisenio" 
+                        listKey="%{idDisenio}" 
+                        listValue="%{idDisenio}" 
                         headerKey="-1"
                         headerValue="Seleccione un Diseño"
                         label="Diseño ID"

@@ -36,6 +36,7 @@
     
     <bean id="DiseniadorPropiedad" class="com.oima.project.DDDProperty.controller.ControlDiseniadorPropiedad" scope="prototype">
         <property name="servicioDiseniadorPropiedad" ref="servicioDiseniadorPropiedad"/>
+        <property name="servicioDisenio" ref="servicioDisenio"/>
     </bean>
     
     <bean id="Disenio" class="com.oima.project.DDDProperty.controller.ControlDisenio" scope="prototype">

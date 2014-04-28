@@ -98,10 +98,6 @@ public class ControlDisenio extends Controller implements ServletRequestAware{
 
     public String consultarTodosJson() throws Exception{
         consultarTodos();
-        System.out.println("Hola va a consultar los deseños y nulificar lo demas");
-        for (Disenio temp : listaDisenio) {
-		temp.setArchivo(null);
-	}
         return SUCCESS;
     }
     
