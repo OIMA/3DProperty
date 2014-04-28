@@ -63,23 +63,23 @@
     <!-- PÃ¡ginas con Error -->
     <error-page>
         <error-code>404</error-code>
-        <location>/errores/error404.jsp</location>
+        <location>/errors/Error404.jsp</location>
     </error-page>
     <error-page>
         <error-code>401</error-code>
-        <location>/errores/sysError.jsp</location>
+        <location>/errors/Error401.jsp</location>
     </error-page>
     <error-page>
         <error-code>403</error-code>
-        <location>/Errores/Error403.jsp</location>
+        <location>/errors/Error403.jsp</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
-        <location>/Errores/Error403.jsp</location>
+        <location>/errors/Error500.jsp</location>
     </error-page>
     <error-page>
         <error-code>503</error-code>
-        <location>/errores/sysError.jsp</location>
+        <location>/errores/Error503.jsp</location>
     </error-page>
     
      

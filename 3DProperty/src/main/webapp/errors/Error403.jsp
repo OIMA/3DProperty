@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>No tienes permisos para acceder a esta pagina</h1>
+        <h6>Reinstala</h6>
     </body>
 </html>

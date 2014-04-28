@@ -25,4 +25,24 @@
         <property name="servicioCategoria" ref="servicioCategoria"/>
     </bean>
     
+    <bean id="ControlAdministrador" class="com.oima.project.DDDProperty.controller.ControlAdministrador" scope="prototype">
+        <property name="servicioCatalogoFotos" ref="servicioCatalogoFotos"/>
+        <property name="servicioCategoria" ref="servicioCategoria"/>
+        <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
+        <property name="servicioColonia" ref="servicioColonia"/>
+        <property name="servicioContrato" ref="servicioContrato"/>
+        <property name="servicioDiseniadorPropiedad" ref="servicioDiseniadorPropiedad"/>
+        <property name="servicioDisenio" ref="servicioDisenio"/>
+        <property name="servicioEstado" ref="servicioEstado"/>
+        <property name="servicioFavorito" ref="servicioFavorito"/>
+        <property name="servicioHistorial" ref="servicioHistorial"/>
+        <property name="servicioLocalidad" ref="servicioLocalidad"/>
+        <property name="servicioMensaje" ref="servicioMensaje"/>
+        <property name="servicioPago" ref="servicioPago"/>
+        <property name="servicioPais" ref="servicioPais"/>
+        <property name="servicioPropiedad" ref="servicioPropiedad"/>
+        <property name="servicioPublicidad" ref="servicioPublicidad"/>
+        <property name="servicioRegistroPago" ref="servicioRegistroPago"/>
+        <property name="servicioUsuario" ref="servicioUsuario"/>
+    </bean>
 </beans>

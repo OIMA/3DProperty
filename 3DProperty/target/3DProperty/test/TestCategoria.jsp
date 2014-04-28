@@ -16,12 +16,14 @@
         <div id="consultas">
             <s:if test="listaCategoria.size>0">
                 <table>
+                    <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Descripci&oacute;n</th>
                         <th>Acciones</th>
                     </tr>
+                    </thead>
                     <s:iterator value="listaCategoria">
                         <tr>
                             <td>${idCategoria}</td>

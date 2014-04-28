@@ -62,4 +62,14 @@
     <action name="VerDisenio" class="Navegacion" method="index">
         <result>/roles/UsuarioGeneral/VerDisenio.jsp</result>
     </action>
+    <action name="PanelAdministrador" class="ControlAdministrador" method="cambiarOperacion">
+        <result>/roles/Administrador/PanelAdministrador.jsp</result>
+    </action>
 </package>
+
+<!--<package name="Administrador" extends="struts-default">
+    <action name="PanelAdministrador" class="ControlAdministrador" method="cambiarOperacion">
+        <result name="index">/roles/Administrador/PanelAdministrador.jsp</result>
+        <result name="altaCategoria">/roles/Administrador/PanelAdministrador.jsp</result>
+    </action>
+</package>-->
