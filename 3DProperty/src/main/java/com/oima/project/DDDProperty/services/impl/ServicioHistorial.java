@@ -22,9 +22,9 @@ public class ServicioHistorial {
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-//        Historial historial = (Historial)consultarUnico(primaryKey);
-//        historial.setStatus(Boolean.FALSE);
-//        editar(historial);
+        Historial historial = (Historial)consultarUnico(primaryKey);
+        historial.setStatus(Boolean.FALSE);
+        editar(historial);
     }
 
     public void editar(Object object) throws Exception {
@@ -36,8 +36,8 @@ public class ServicioHistorial {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, Historial.class, "Historial");
+    public Historial consultarUnico(Long primaryKey) throws Exception {
+        return (Historial)query.consultarUnico(primaryKey, Historial.class, "Historial");
     }
 
     public DAO getQuery() {

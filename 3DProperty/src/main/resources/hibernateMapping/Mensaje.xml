@@ -11,7 +11,7 @@
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
-        <property column="STATUS_LEIDO" name="statusLeido" not-null="false" type="java.lang.Byte">
+        <property column="STATUS_LEIDO" name="statusLeido" not-null="false" type="java.lang.Boolean">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
@@ -21,11 +21,10 @@
         <many-to-one class="com.oima.project.DDDProperty.model.dto.Usuario" insert="true" update="true" lazy="false" name="idDestinatario">
             <column name="ID_DESTINATARIO"/>
         </many-to-one>
-        <property column="ID_PROPIEDAD" name="idPropiedad" not-null="false" type="java.lang.Long">
-            <meta attribute="use-in-tostring">true</meta>
-            <meta attribute="use-in-equals">true</meta>
-        </property>
-        <property column="STATUS" name="status" not-null="false" type="java.lang.Byte">
+        <many-to-one class="com.oima.project.DDDProperty.model.dto.Propiedad" insert="true" update="true" lazy="false" name="idPropiedad">
+            <column name="ID_PROPIEDAD"/>
+        </many-to-one>
+        <property column="STATUS" name="status" not-null="false" type="java.lang.Boolean">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>

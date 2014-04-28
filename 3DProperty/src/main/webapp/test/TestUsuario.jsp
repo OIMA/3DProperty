@@ -96,7 +96,7 @@
                     <s:textfield label="RFC" name="usuario.rfc" value=""/><!--1. Administrador, 2. Diseñador, 3. Usuario Registrado, 4. Usuario General-->
                     <s:textfield label="CURP" name="usuario.curp" value=""/>
                     <s:select label="Tipo de Usuario"
-                              list="#@java.util.LinkedHashMap@{'1':'Administrador','2':'Diseñador','3':'Cliente'}"
+                              list="#@java.util.LinkedHashMap@{'ROLE_ADMINISTRADOR':'Administrador','ROLE_DISENIADOR':'Diseñador','ROLE_CLIENTE':'Cliente'}"
                               name="usuario.tipoUsuario"
                               /><!--onchange="consulta_roles(this.value,'div_roles')"-->
                     <s:textfield label="Calle" name="usuario.calle" value=""/>

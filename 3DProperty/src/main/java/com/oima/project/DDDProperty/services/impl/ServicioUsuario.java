@@ -38,6 +38,10 @@ public class ServicioUsuario {
     public Usuario consultarUnico(Long primaryKey) throws Exception {
         return (Usuario)query.consultarUnico(primaryKey, Usuario.class, "Usuario");
     }
+    
+    public List<Usuario> consultarPorCampoEspecifico(String campo, Object objeto, String predicado, String[] order) throws Exception {
+        return query.consultaPorCampoEspecifico(campo, objeto, predicado, Usuario.class, order);
+    }
 
     public DAO getQuery() {
         return query;

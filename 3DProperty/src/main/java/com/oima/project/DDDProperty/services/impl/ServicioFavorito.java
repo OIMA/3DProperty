@@ -22,9 +22,9 @@ public class ServicioFavorito {
     }
 
     public void eliminar(Long primaryKey) throws Exception {
-//        Favorito favorito = (Favorito)consultarUnico(primaryKey);
-//        favorito.setStatus(Boolean.FALSE);
-//        editar(favorito);
+        Favorito favorito = (Favorito)consultarUnico(primaryKey);
+        favorito.setStatus(Boolean.FALSE);
+        editar(favorito);
     }
 
     public void editar(Object object) throws Exception {
@@ -36,8 +36,8 @@ public class ServicioFavorito {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, Favorito.class, "Favorito");
+    public Favorito consultarUnico(Long primaryKey) throws Exception {
+        return (Favorito)query.consultarUnico(primaryKey, Favorito.class, "Favorito");
     }
 
     public DAO getQuery() {

@@ -50,7 +50,7 @@ public class Mensaje implements Serializable {
     @Column(name = "STATUS_LEIDO")
     private Boolean statusLeido;
     @Column(name = "ID_PROPIEDAD")
-    private Integer idPropiedad;
+    private Propiedad idPropiedad;
     @Column(name = "STATUS")
     private Boolean status;
 
@@ -108,11 +108,11 @@ public class Mensaje implements Serializable {
         this.statusLeido = statusLeido;
     }
 
-    public Integer getIdPropiedad() {
+    public Propiedad getIdPropiedad() {
         return idPropiedad;
     }
 
-    public void setIdPropiedad(Integer idPropiedad) {
+    public void setIdPropiedad(Propiedad idPropiedad) {
         this.idPropiedad = idPropiedad;
     }
 

@@ -34,14 +34,35 @@
         <property name="servicioColonia" ref="servicioColonia"/>
     </bean>
     
+    <bean id="DiseniadorPropiedad" class="com.oima.project.DDDProperty.controller.ControlDiseniadorPropiedad" scope="prototype">
+        <property name="servicioDiseniadorPropiedad" ref="servicioDiseniadorPropiedad"/>
+        <property name="servicioDisenio" ref="servicioDisenio"/>
+    </bean>
+    
+    <bean id="Disenio" class="com.oima.project.DDDProperty.controller.ControlDisenio" scope="prototype">
+        <property name="servicioDisenio" ref="servicioDisenio"/>
+    </bean>
+    
     <bean id="Estado" class="com.oima.project.DDDProperty.controller.ControlEstado" scope="prototype">
         <property name="servicioPais" ref="servicioPais"/>
         <property name="servicioEstado" ref="servicioEstado"/>
     </bean>
     
+    <bean id="Favorito" class="com.oima.project.DDDProperty.controller.ControlFavorito" scope="prototype">
+        <property name="servicioFavorito" ref="servicioFavorito"/>
+    </bean>
+    
+    <bean id="Historial" class="com.oima.project.DDDProperty.controller.ControlHistorial" scope="prototype">
+        <property name="servicioHistorial" ref="servicioHistorial"/>
+    </bean>
+    
     <bean id="Localidad" class="com.oima.project.DDDProperty.controller.ControlLocalidad" scope="prototype">
         <property name="servicioEstado" ref="servicioEstado"/>
         <property name="servicioLocalidad" ref="servicioLocalidad"/>
+    </bean>
+    
+    <bean id="Mensaje" class="com.oima.project.DDDProperty.controller.ControlMensaje" scope="prototype">
+        <property name="servicioMensaje" ref="servicioMensaje"/>
     </bean>
     
     <bean id="Pago" class="com.oima.project.DDDProperty.controller.ControlPago" scope="prototype">
