@@ -87,11 +87,44 @@
     
 </package>
 <package name="tablaDiseniadorPropiedad" extends="struts-default">
-    
+    <action name="testDiseniadorPropiedad" class="DiseniadorPropiedad" method="consultarTodos">
+        <result>/test/TestDiseniadorPropiedad.jsp</result>
+    </action>
+    <action name="eliminarDiseniadorPropiedad" class="DiseniadorPropiedad" method="eliminar">
+        <result type="redirectAction">testDiseniadorPropiedad</result>
+    </action>
+    <action name="consultarDiseniadorPropiedad" class="DiseniadorPropiedad" method="consultarUnico">
+        <result >/test/TestDiseniadorPropiedad.jsp</result>
+    </action>
+    <action name="guardarDiseniadorPropiedad" class="DiseniadorPropiedad" method="guardar">
+        <result type="redirectAction">testDiseniadorPropiedad</result>
+    </action>
+    <action name="editarDiseniadorPropiedad" class="DiseniadorPropiedad" method="editar">
+        <result type="redirectAction">testDiseniadorPropiedad</result>
+    </action>
 </package>
-<package name="tablaDisenio" extends="struts-default">
-    
+
+<package name="tablaDisenio" extends="struts-default, json-default">
+    <action name="testDisenio" class="Disenio" method="consultarTodos">
+        <result>/test/TestDisenio.jsp</result>
+    </action>
+    <action name="eliminarDisenio" class="Disenio" method="eliminar">
+        <result type="redirectAction">testDisenio</result>
+    </action>
+    <action name="consultarDisenio" class="Disenio" method="consultarUnico">
+        <result >/test/TestDisenio.jsp</result>
+    </action>
+    <action name="guardarDisenio" class="Disenio" method="guardar">
+        <result>/test/TestDisenio.jsp</result>
+    </action>
+    <action name="editarDisenio" class="Disenio" method="editar">
+        <result type="redirectAction">testDisenio</result>
+    </action>
+    <action name="consultarDiseniosJson" class="Disenio" method="consultarTodosJson">
+        <result type="json"></result>
+    </action>
 </package>
+
 <package name="tablaEstado" extends="struts-default, json-default">
     <action name="testEstado" class="Estado" method="consultarTodos">
         <result>/test/TestEstado.jsp</result>
@@ -115,11 +148,41 @@
         <result type="json"></result>
     </action>
 </package>
+
 <package name="tablaFavorito" extends="struts-default">
-    
+    <action name="testFavorito" class="Favorito" method="consultarTodos">
+        <result>/test/TestFavorito.jsp</result>
+    </action>
+    <action name="eliminarFavorito" class="Favorito" method="eliminar">
+        <result type="redirectAction">testFavorito</result>
+    </action>
+    <action name="consultarFavorito" class="Favorito" method="consultarUnico">
+        <result>/test/TestFavorito.jsp</result>
+    </action>
+    <action name="guardarFavorito" class="Favorito" method="guardar">
+        <result>/test/TestFavorito.jsp</result>
+    </action>
+    <action name="editarFavorito" class="Favorito" method="editar">
+        <result type="redirectAction">testFavorito</result>
+    </action>
 </package>
-<package name="tablaHistorial" extends="struts-default">
-    
+
+<package name="tablaHistorial" extends="struts-default, json-default">
+    <action name="testHistorial" class="Historial" method="consultarTodos">
+        <result>/test/TestHistorial.jsp</result>
+    </action>
+    <action name="eliminarHistorial" class="Historial" method="eliminar">
+        <result type="redirectAction">testHistorial</result>
+    </action>
+    <action name="consultarHistorial" class="Historial" method="consultarUnico">
+        <result >/test/TestHistorial.jsp</result>
+    </action>
+    <action name="guardarHistorial" class="Historial" method="guardar">
+        <result>/test/TestHistorial.jsp</result>
+    </action>
+    <action name="editarHistorial" class="Historial" method="editar">
+        <result type="redirectAction">testHistorial</result>
+    </action>
 </package>
 
 <package name="tablaLocalidad" extends="struts-default, json-default">
@@ -144,7 +207,21 @@
 </package>
 
 <package name="tablaMensaje" extends="struts-default">
-    
+    <action name="testMensaje" class="Mensaje" method="consultarTodos">
+        <result>/test/TestMensaje.jsp</result>
+    </action>
+    <action name="eliminarMensaje" class="Mensaje" method="eliminar">
+        <result type="redirectAction">testMensaje</result>
+    </action>
+    <action name="consultarMensaje" class="Mensaje" method="consultarUnico">
+        <result >/test/TestMensaje.jsp</result>
+    </action>
+    <action name="guardarMensaje" class="Mensaje" method="guardar">
+        <result type="redirectAction">testMensaje</result>
+    </action>
+    <action name="editarMensaje" class="Mensaje" method="editar">
+        <result type="redirectAction">testMensaje</result>
+    </action>
 </package>
 
 <package name="tablaPago" extends="struts-default">
@@ -244,7 +321,7 @@
 <package name="tablaRegistroPago" extends="struts-default">    
 </package>
 
-<package name="tablaUsuario" extends="struts-default">
+<package name="tablaUsuario" extends="struts-default, json-default">
     <action name="testUsuario" class="Usuario" method="consultarTodos">
         <result>/test/TestUsuario.jsp</result>
     </action>
@@ -259,6 +336,12 @@
     </action>
     <action name="editarUsuario" class="Usuario" method="editar">
         <result type="redirectAction">testUsuario</result>
+    </action>
+    <action name="consultarUsuariosJson" class="Usuario" method="consultarTodos">
+        <result type="json"></result>
+    </action> 
+    <action name="consultarDiseniadoresJson" class="Usuario" method="consultarDiseniadores">
+        <result type="json"></result>
     </action>
 </package>
 

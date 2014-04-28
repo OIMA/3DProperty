@@ -37,8 +37,8 @@ public class ServicioMensaje {
         query.editar(mensaje);
     }
 
-    public Mensaje consultarUnico(Long id, Class c, String tabla) throws Exception {
-        return (Mensaje) query.consultarUnico(id, c, "Mensaje");
+    public Mensaje consultarUnico(Long id) throws Exception {
+        return (Mensaje) query.consultarUnico(id, Mensaje.class, "Mensaje");
     }
 
     /**

@@ -36,8 +36,8 @@ public class ServicioDiseniadorPropiedad {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, DiseniadorPropiedad.class, "DiseniadorPropiedad");
+    public DiseniadorPropiedad consultarUnico(Long primaryKey) throws Exception {
+        return (DiseniadorPropiedad)query.consultarUnico(primaryKey, DiseniadorPropiedad.class, "DiseniadorPropiedad");
     }
 
     public DAO getQuery() {

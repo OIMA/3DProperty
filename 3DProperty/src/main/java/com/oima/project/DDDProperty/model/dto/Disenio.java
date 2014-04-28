@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -52,6 +53,9 @@ public class Disenio implements Serializable {
     @Basic(optional = false)
     @Column(name = "RUTA")
     private String ruta;
+    @Lob
+    @Column(name = "ARCHIVO")
+    private byte[] archivo;
     @Column(name = "RUTA_SKYBOX")
     private String skybox;
     @Column(name = "VIEWPOINT")
@@ -163,6 +167,34 @@ public class Disenio implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    /**
+     * @return the archivo
+     */
+    public byte[] getArchivo() {
+        return archivo;
+    }
+
+    /**
+     * @param archivo the archivo to set
+     */
+    public void setArchivo(byte[] archivo) {
+        this.archivo = archivo;
+    }
+
+    /**
+     * @return the skybox
+     */
+    public String getSkybox() {
+        return skybox;
+    }
+
+    /**
+     * @param skybox the skybox to set
+     */
+    public void setSkybox(String skybox) {
+        this.skybox = skybox;
     }
     
 }

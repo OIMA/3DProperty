@@ -58,6 +58,11 @@ public class ControlUsuario extends Controller {
         return SUCCESS;
     }
 
+    public String consultarDiseniadores() throws Exception {
+        listaUsuario = servicioUsuario.consultarPorCampoEspecifico("tipoUsuario", "ROLE_DISENIADOR", "equal", null);
+        return SUCCESS;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
