@@ -8,7 +8,7 @@
 <html>
 
     <head>
-        <title></title>
+        <title>Panel Administrador</title>
         <%@include file="../../inc/jstl.jsp" %>
         <%@include file="../../inc/Header.jsp" %>
     </head>
@@ -32,7 +32,7 @@
                         <s:if test="operacion=='altaPropiedad'"><%@include file="Formularios/formularioPropiedad.jspf" %></s:if>
                         <s:if test="operacion=='altaPublicidad'"><%@include file="Formularios/formularioPublicidad.jspf" %></s:if>
                         <s:if test="operacion=='altaUsuario'"><%@include file="Formularios/formularioUsuario.jspf" %></s:if>
-                        
+                        <s:if test="operacion=='altaDisenio'"><%@include file="Formularios/formularioDisenio.jspf" %></s:if>
                         <!-- /.row -->
                         <!--</div>-->
                     </div>

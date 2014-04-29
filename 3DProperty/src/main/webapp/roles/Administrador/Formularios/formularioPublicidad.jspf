@@ -4,11 +4,22 @@
     <div class="col-md-12 column">
         <div class="row clearfix">
             <div class="col-md-8 column">
-                
-
+                <div id="altas">
+                    <h1>Alta de Publicidad.</h1>
+                    <s:form theme="bootstrap" class="form-horizontal" role="form" action="guardarPublicidad" method="post" name="" enctype="multipart/form-data">
+                        <div class="form-group"></div>
+                        <label class="label label-primary">Nombre publicidad</label>
+                        <s:textfield name="publicidad.detalle" cssClass="form-control"/>
+                        <div class="form-group"></div>
+                        <label class="label label-primary">Archivo de dise&ntilde;o de publicidad</label>
+                        <s:file name="archivoPublicidad" cssClass="form-control"/>
+                        <div class="form-group"></div>
+                        <s:submit value="Guardar" cssClass="btn btn-primary"/>
+                    </s:form>
+                </div>
             </div>
             <div class="col-md-4 column">
-                
+
             </div>
         </div>
     </div>
