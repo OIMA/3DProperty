@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>404 Checa tu Struts!</h1>
-        <h6>Es tu windows</h6>
+        <h6></h6>
     </body>
 </html>
