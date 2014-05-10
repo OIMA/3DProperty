@@ -45,4 +45,6 @@
         <property name="servicioRegistroPago" ref="servicioRegistroPago"/>
         <property name="servicioUsuario" ref="servicioUsuario"/>
     </bean>
+     <bean id="ControlDiseniador" class="com.oima.project.DDDProperty.controller.ControlDiseniador" scope="prototype">
+     </bean>
 </beans>
