@@ -34,6 +34,14 @@
         <property name="servicioColonia" ref="servicioColonia"/>
     </bean>
     
+    <bean id="Direcciones" class="com.oima.project.DDDProperty.controller.ControlDirecciones" scope="prototype">
+        <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
+        <property name="servicioColonia" ref="servicioColonia"/>
+        <property name="servicioEstado" ref="servicioEstado"/>
+        <property name="servicioLocalidad" ref="servicioLocalidad"/>
+        <property name="servicioPais" ref="servicioPais"/>
+    </bean>
+    
     <bean id="DiseniadorPropiedad" class="com.oima.project.DDDProperty.controller.ControlDiseniadorPropiedad" scope="prototype">
         <property name="servicioDiseniadorPropiedad" ref="servicioDiseniadorPropiedad"/>
         <property name="servicioDisenio" ref="servicioDisenio"/>

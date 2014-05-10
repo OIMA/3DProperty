@@ -10,6 +10,7 @@ import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.CatalogoFotos;
 import com.oima.project.DDDProperty.model.dto.Pais;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -18,17 +19,20 @@ import java.util.List;
 public class ServicioCatalogoFotos {
     private DAO query;
 
+    @Transactional
     public void guardar(Object objeto) throws Exception {
         System.out.println("Segun se va a gruadar");
         query.guardar(objeto);
     }
 
+    @Transactional
     public void eliminar(Long primaryKey) throws Exception {
         CatalogoFotos catalogoFotos = (CatalogoFotos)consultarUnico(primaryKey);
         catalogoFotos.setStatus(Boolean.FALSE);
         editar(catalogoFotos);
     }
 
+    @Transactional
     public void editar(Object object) throws Exception {
         query.editar(object);
     }

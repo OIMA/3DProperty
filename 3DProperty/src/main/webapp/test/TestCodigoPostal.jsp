@@ -11,9 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Test</title>
+        <%@include file="../inc/Header.jsp" %>
+        <%@include file="../inc/scripts.jsp" %>
     </head>
     <body>
         <div id="consultas">
+            <s:url id="paisURL" action="consultarPaisesJson"/> 
+            <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+            <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
             <s:if test="listaCodigoPostal.size>0">
                 <table>
                     <tr>
@@ -43,14 +48,45 @@
         <div id="altas">
             <h1>Alta de Codigo Postales.</h1>
             <s:if test="listaLocalidad.size>0">
-                <s:form action="guardarCodigoPostal" method="post" name="">
+                <s:form id="formularioCodigoPostal" action="guardarCodigoPostal" method="post" name="">
                     <s:textfield label="Número" name="codigoPostal.numero" value=""/>
-                    <s:select 
-                        name="codigoPostal.idLocalidad.idLocalidad" 
+                    <sj:select 
+                        href="%{paisURL}" 
+                        id="pais" 
+                        onChangeTopics="recargarEstados,recargarLocalidades" 
+                        name="idPais" 
+                        list="listaPais" 
+                        listKey="idPais" 
+                        listValue="nombre" 
+                        headerKey="-1"
+                        headerValue="Seleccione un Pais"
+                        />
+
+                    <sj:select 
+                        href="%{estadoURL}" 
+                        id="estado" 
+                        reloadTopics="recargarEstados"
+                        onChangeTopics="recargarLocalidades"
+                        name="idEstado"
+                        formIds="formularioCodigoPostal"
+                        list="listaEstado"
+                        listKey="idEstado" 
+                        listValue="nombre" 
+                        headerKey="-1" 
+                        headerValue="Seleccione un Estado" 
+                        /> 
+
+                    <sj:select 
+                        href="%{localidadURL}" 
+                        id="localidad" 
+                        reloadTopics="recargarLocalidades"
+                        name="codigoPostal.idLocalidad.idLocalidad"
+                        formIds="formularioCodigoPostal"
                         list="listaLocalidad"
-                        listKey="%{idLocalidad}"
-                        listValue="%{nombre}"
-                        label="Localidad"
+                        listKey="idLocalidad" 
+                        listValue="nombre"
+                        headerKey="-1" 
+                        headerValue="Seleccione una Localidad" 
                         />
                     <s:submit value="Guardar"/>
                 </s:form>

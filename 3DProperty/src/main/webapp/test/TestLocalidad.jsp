@@ -11,8 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Test</title>
+        <%@include file="../inc/Header.jsp" %>
+        <%@include file="../inc/scripts.jsp" %>
     </head>
     <body>
+        <s:url id="paisURL" action="consultarPaisesJson"/> 
+        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
         <div id="consultas">
             <s:if test="listaLocalidad.size>0">
                 <table>
@@ -43,13 +47,31 @@
         <div id="altas">
             <h1>Alta de Localidades.</h1>
             <s:if test="listaEstado.size>0">
-                <s:form action="guardarLocalidad" method="post" name="">
+                <s:form id="formularioLocalidad" action="guardarLocalidad" method="post" name="">
                     <s:textfield label="Nombre" name="localidad.nombre" value=""/>
-                    <s:select 
-                        name="localidad.idEstado.idEstado" 
+                    <sj:select 
+                        href="%{paisURL}" 
+                        id="pais" 
+                        onChangeTopics="recargarEstados" 
+                        name="idPais" 
+                        list="listaPais" 
+                        listKey="idPais" 
+                        listValue="nombre" 
+                        headerKey="-1"
+                        headerValue="Seleccione un Pais"
+                        />
+
+                    <sj:select 
+                        href="%{estadoURL}" 
+                        id="estado" 
+                        reloadTopics="recargarEstados"
+                        name="localidad.idEstado.idEstado"
+                        formIds="formularioLocalidad"
                         list="listaEstado"
-                        listKey="%{idEstado}"
-                        listValue="%{nombre}"
+                        listKey="idEstado" 
+                        listValue="nombre" 
+                        headerKey="-1" 
+                        headerValue="Seleccione un Estado" 
                         />
                     <s:submit value="Guardar"/>
                 </s:form>
