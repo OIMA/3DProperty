@@ -105,7 +105,7 @@
                     <sj:select 
                         href="%{paisURL}" 
                         id="pais" 
-                        onChangeTopics="recargarEstados" 
+                        onChangeTopics="recargarEstados,recargarLocalidades,recargarCodigosPostales,recargarColonias" 
                         name="idPais" 
                         list="listaPais" 
                         listKey="idPais" 
@@ -118,7 +118,7 @@
                         href="%{estadoURL}" 
                         id="estado" 
                         reloadTopics="recargarEstados"
-                        onChangeTopics="recargarLocalidades"
+                        onChangeTopics="recargarLocalidades,recargarCodigosPostales,recargarColonias"
                         name="idEstado"
                         formIds="formularioUsuario"
                         list="listaEstado"
@@ -132,7 +132,7 @@
                         href="%{localidadURL}" 
                         id="localidad" 
                         reloadTopics="recargarLocalidades"
-                        onChangeTopics="recargarCodigosPostales"
+                        onChangeTopics="recargarCodigosPostales,recargarColonias"
                         name="idLocalidad"
                         formIds="formularioUsuario"
                         list="listaLocalidad"
@@ -175,96 +175,7 @@
                 No Datos en <a href="testColonia.action">Colonia</a>.
             </s:else>
         </div>
-        <div id="modificaciones"> <!--OJO!!! la edicion se debe mover a otra pagina-->
-            <h1>Editar Codigo Postal.</h1>
-            <s:if test="listaColonia.size>0">    
-                <s:form id="editarUsuarioFormulario" action="editarUsuario" method="post" name="">
-                    <s:hidden name="usuario.idUsuario" value="%{usuario.idUsuario}"/>
-                    <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value="%{usuario.nombreUsuario}"/>
-                    <s:password label="Contraseña" name="usuario.contrasenia" value="%{usuario.contrasenia}"/>
-                    <s:textfield label="Nombre" name="usuario.nombre" value="%{usuario.nombre}"/>
-                    <s:textfield label="Apellido Paterno" name="usuario.apPat" value="%{usuario.apPat}"/>
-                    <s:textfield label="Apellido Materno" name="usuario.apMat" value="%{usuario.apMat}"/>
-                    <s:textfield label="Telefono" name="usuario.telefono" value="%{usuario.telefono}"/>
-                    <s:textfield label="E-Mail" name="usuario.email" value="%{usuario.email}"/>
-                    <s:textfield label="Fecha de Nacimiento" name="usuario.fechaNacimiento" value="%{usuario.fechaNacimiento}"/>
-                    <s:textfield label="RFC" name="usuario.rfc" value="%{usuario.rfc}"/><!--1. Administrador, 2. Diseñador, 3. Usuario Registrado, 4. Usuario General--!>
-                    <s:textfield label="CURP" name="usuario.curp" value="%{usuario.curp}"/>
-                    <s:select label="Tipo de Usuario"
-                              list="#@java.util.LinkedHashMap@{'1':'Administrador','2':'Diseñador','3':'Cliente'}"
-                              name="usuario.tipoUsuario"
-                              value="%{usuario.tipoUsuario}"
-                              /><!--onchange="consulta_roles(this.value,'div_roles')"-->
-                    <s:textfield label="Calle" name="usuario.calle" value="%{usuario.calle}"/>
-                    <s:textfield label="No. Exterior" name="usuario.noExterior" value="%{usuario.noExterior}"/>
-                    <s:textfield label="No. Interior" name="usuario.noInterior" value="%{usuario.noInterior}"/>
-                    
-                    <sj:select 
-                        href="%{paisURL}" 
-                        id="paisEditar" 
-                        onChangeTopics="recargarEstadosEditar" 
-                        name="idPais" 
-                        list="listaPais" 
-                        listKey="idPais" 
-                        listValue="nombre"  
-                        />
-
- 
-                    <sj:select 
-                        href="%{estadoURL}" 
-                        id="estadoEditar" 
-                        reloadTopics="recargarEstadosEditar"
-                        onChangeTopics="recargarLocalidadesEditar"
-                        name="idEstado"
-                        formIds="editarUsuarioFormulario"
-                        list="listaEstado"
-                        listKey="idEstado" 
-                        listValue="nombre" 
-                        />
- 
-                    <sj:select 
-                        href="%{localidadURL}" 
-                        id="localidadEditar" 
-                        reloadTopics="recargarLocalidadesEditar"
-                        onChangeTopics="recargarCodigosPostalesEditar"
-                        name="idLocalidad"
-                        formIds="editarUsuarioFormulario"
-                        list="listaLocalidad"
-                        listKey="idLocalidad" 
-                        listValue="nombre" 
-                        />
-
-                    <sj:select 
-                        href="%{codigoPostalURL}" 
-                        id="codigoPostalEditar" 
-                        reloadTopics="recargarCodigosPostalesEditar"
-                        onChangeTopics="recargarColoniasEditar"
-                        name="idCodigoPostal"
-                        formIds="editarUsuarioFormulario"
-                        list="listaCodigoPostal"
-                        listKey="idCodigoPostal" 
-                        listValue="numero" 
-                        />
-
-                    <sj:select 
-                        href="%{coloniaURL}" 
-                        id="coloniaEditar" 
-                        reloadTopics="recargarColoniasEditar" 
-                        name="usuario.idColonia.idColonia"
-                        formIds="editarUsuarioFormulario"
-                        list="listaColonia"
-                        listKey="idColonia" 
-                        listValue="nombre" 
-                        />
-                    
-                    <s:hidden name="usuario.status" value="%{usuario.status}"/>
-                    <s:submit value="Actualizar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testColonia.action">Colonia</a>.
-            </s:else>
-        </div>
+        
 
         <br/>
     </body>

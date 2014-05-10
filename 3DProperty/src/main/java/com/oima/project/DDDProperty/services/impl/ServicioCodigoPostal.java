@@ -10,6 +10,7 @@ import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.CodigoPostal;
 import com.oima.project.DDDProperty.model.dto.Localidad;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -18,16 +19,19 @@ import java.util.List;
 public class ServicioCodigoPostal {
     private DAO query;
 
+    @Transactional
     public void guardar(Object objeto) throws Exception {
         query.guardar(objeto);
     }
 
+    @Transactional
     public void eliminar(Long primaryKey) throws Exception {
         CodigoPostal codigoPostal = (CodigoPostal)consultarUnico(primaryKey);
         codigoPostal.setStatus(Boolean.FALSE);
         editar(codigoPostal);
     }
 
+    @Transactional
     public void editar(Object object) throws Exception {
         query.editar(object);
     }

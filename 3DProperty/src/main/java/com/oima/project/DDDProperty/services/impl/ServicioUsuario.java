@@ -9,6 +9,7 @@ package com.oima.project.DDDProperty.services.impl;
 import com.oima.project.DDDProperty.model.dao.DAO;
 import com.oima.project.DDDProperty.model.dto.Usuario;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -17,16 +18,19 @@ import java.util.List;
 public class ServicioUsuario {
     private DAO query;
 
+    @Transactional
     public void guardar(Object objeto) throws Exception {
         query.guardar(objeto);
     }
 
+    @Transactional
     public void eliminar(Long primaryKey) throws Exception {
         Usuario usuario = (Usuario)consultarUnico(primaryKey);
         usuario.setStatus(Boolean.FALSE);
         editar(usuario);
     }
 
+    @Transactional    
     public void editar(Object object) throws Exception {
         query.editar(object);
     }

@@ -1,1 +1,4 @@
-*.netbeans_automatic_build
+*.class
+*.war
+*.class
+*.class
