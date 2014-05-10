@@ -33,7 +33,7 @@
     <action name="editarCategoria" class="Categoria" method="editar">
         <result type="redirectAction">testCategoria</result>
     </action>
-    <action name="consultarCategoriasJson" class="Categoria" method="consultarTodos">
+    <action name="consultarCategoriasJson" class="Direcciones" method="consultarCategorias">
         <result type="json"></result>
     </action>
 </package>

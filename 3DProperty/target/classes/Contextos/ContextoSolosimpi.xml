@@ -35,6 +35,7 @@
     </bean>
     
     <bean id="Direcciones" class="com.oima.project.DDDProperty.controller.ControlDirecciones" scope="prototype">
+        <property name="servicioCategoria" ref="servicioCategoria"/>
         <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>
         <property name="servicioColonia" ref="servicioColonia"/>
         <property name="servicioEstado" ref="servicioEstado"/>
@@ -83,6 +84,7 @@
     
     <bean id="Propiedad" class="com.oima.project.DDDProperty.controller.ControlPropiedad" scope="prototype">
         <property name="servicioPropiedad" ref="servicioPropiedad"/>
+        <property name="servicioCategoria" ref="servicioCategoria"/>
     </bean>
     
     <bean id="Publicidad" class="com.oima.project.DDDProperty.controller.ControlPublicidad" scope="prototype">

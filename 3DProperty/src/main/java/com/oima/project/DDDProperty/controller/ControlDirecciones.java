@@ -6,6 +6,7 @@
 
 package com.oima.project.DDDProperty.controller;
 
+import com.oima.project.DDDProperty.model.dto.Categoria;
 import com.oima.project.DDDProperty.model.dto.CodigoPostal;
 import com.oima.project.DDDProperty.model.dto.Colonia;
 import com.oima.project.DDDProperty.model.dto.Estado;
@@ -30,6 +31,8 @@ public class ControlDirecciones extends Controller {
     private List<Localidad> listaLocalidad;
     private List<CodigoPostal> listaCodigoPostal;
     private List<Colonia> listaColonia;
+    private List<Categoria> listaCategoria;
+
     private Long idPais;
     private Long idEstado;
     private Long idLocalidad;
@@ -38,6 +41,13 @@ public class ControlDirecciones extends Controller {
 
     public String consultarPaises() throws Exception {
         listaPais = servicioPais.consultarTodos(Pais.class);
+        return SUCCESS;
+    }
+    
+    public String consultarCategorias() throws Exception {
+        System.out.println("Hola");
+        listaCategoria = servicioCategoria.consultarTodos(Categoria.class);
+        System.out.println(listaCategoria.size());
         return SUCCESS;
     }
     
@@ -242,6 +252,13 @@ public class ControlDirecciones extends Controller {
     public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
     }
+    
+    public void setListaCategoria(List<Categoria> listaCategoria) {
+        this.listaCategoria = listaCategoria;
+    }
 
+    public List<Categoria> getListaCategoria() {
+        return listaCategoria;
+    }
     
 }

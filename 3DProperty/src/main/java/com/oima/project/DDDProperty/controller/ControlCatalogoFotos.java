@@ -40,7 +40,7 @@ public class ControlCatalogoFotos extends Controller implements ServletRequestAw
         System.out.println("Con ruta: " + archivoCatalogoFotos.getAbsolutePath());
         
         String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        archivoCatalogoFotosFileName="images/"+archivoCatalogoFotosFileName;
+        archivoCatalogoFotosFileName="/images/"+archivoCatalogoFotosFileName;
         
         File fileToCreate = new File(filePath, archivoCatalogoFotosFileName);
 
