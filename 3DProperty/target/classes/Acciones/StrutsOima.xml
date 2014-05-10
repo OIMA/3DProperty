@@ -65,6 +65,9 @@
     <action name="PanelAdministrador" class="ControlAdministrador" method="consultarDatos">
         <result>/roles/Administrador/PanelAdministrador.jsp</result>
     </action>
+    <action name="PanelDiseniador" class="ControlDiseniador" method="consultarDatos">
+        <result>/roles/Diseniador/PanelDiseniador.jsp</result>
+    </action>
     <action name="registro" class="Usuario" method="guardar">
         <result>/roles/UsuarioGeneral/Registro.jsp</result>
     </action>
