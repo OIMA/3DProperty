@@ -47,6 +47,10 @@ public class ServicioUsuario {
         return query.consultaPorCampoEspecifico(campo, objeto, predicado, Usuario.class, order);
     }
 
+    public Usuario consultarUnico(String campo, Object objeto) throws Exception {
+        return (Usuario)query.consultaPorCampoEspecifico(campo, objeto, "equal", Usuario.class, null).get(0);
+    }
+    
     public DAO getQuery() {
         return query;
     }

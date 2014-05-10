@@ -100,6 +100,7 @@
     <bean id="Navegacion" class="com.oima.project.DDDProperty.utilities.Navegacion">
     </bean>
      <bean id="ControlSesion" class="com.oima.project.DDDProperty.controller.ControlSesion">
+         <property name="servicioUsuario" ref="servicioUsuario"/>
     </bean>
 
 </beans>

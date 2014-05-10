@@ -6,11 +6,11 @@
 package com.oima.project.DDDProperty.controller;
 
 import com.oima.project.DDDProperty.model.dto.CatalogoFotos;
-import com.oima.project.DDDProperty.services.impl.ServicioCatalogoFotos;
-import com.oima.project.DDDProperty.utilities.Archivos;
 import com.oima.project.DDDProperty.utilities.Controller;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
@@ -20,8 +20,7 @@ import org.apache.struts2.interceptor.ServletRequestAware;
  *
  * @author OIMA
  */
-
-public class ControlCatalogoFotos extends Controller implements ServletRequestAware{
+public class ControlCatalogoFotos extends Controller implements ServletRequestAware {
 
     private CatalogoFotos catalogoFotos;
     private List<CatalogoFotos> listaCatalogoFotos;
@@ -30,30 +29,34 @@ public class ControlCatalogoFotos extends Controller implements ServletRequestAw
     private String archivoCatalogoFotosFileName;
     private HttpServletRequest servletRequest;
 
-    /**
-     * Se debe de cambiar la ruta "images/"
-     * @return
-     * @throws Exception 
-     */
     public String guardar() throws Exception {
+        Date date = new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-G-HH-mm-ss");
+        String nombreSinExtension = archivoCatalogoFotosFileName.substring(0, archivoCatalogoFotosFileName.lastIndexOf("."));
+        nombreSinExtension = nombreSinExtension.replace(" ", "_");
+        String extension = archivoCatalogoFotosFileName.substring(archivoCatalogoFotosFileName.lastIndexOf("."),archivoCatalogoFotosFileName.length());
+        archivoCatalogoFotosFileName = nombreSinExtension+sdf.format(date)+extension;
+
         System.out.println("Se obtuvo este archivo: " + archivoCatalogoFotos.getName());
         System.out.println("Con ruta: " + archivoCatalogoFotos.getAbsolutePath());
-        
-        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        archivoCatalogoFotosFileName="/images/"+archivoCatalogoFotosFileName;
-        
-        File fileToCreate = new File(filePath, archivoCatalogoFotosFileName);
+        String webPath = servletRequest.getSession().getServletContext().getRealPath("/");
+        String filePath = "C:/Archivos";
+        archivoCatalogoFotosFileName = "imagenes/" + archivoCatalogoFotosFileName;
+
+        File fileToCreate = new File(webPath, archivoCatalogoFotosFileName);
+
+        FileUtils.copyFile(archivoCatalogoFotos, fileToCreate);
+
+        fileToCreate = new File(filePath, archivoCatalogoFotosFileName);
 
         FileUtils.copyFile(archivoCatalogoFotos, fileToCreate);
         System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
-        
-        Archivos archivos = new Archivos();
+
         catalogoFotos.setRutaFotografia(archivoCatalogoFotosFileName);
-        catalogoFotos.setArchivo(archivos.fileToBytes(archivoCatalogoFotos));
         catalogoFotos.setStatus(Boolean.TRUE);
         servicioCatalogoFotos.guardar(catalogoFotos);
         System.out.println("Se guardo?");
-        
+
         consultarTodos();
         return SUCCESS;
     }
@@ -64,19 +67,7 @@ public class ControlCatalogoFotos extends Controller implements ServletRequestAw
     }
 
     public String editar() throws Exception {
-        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        archivoCatalogoFotosFileName="images/"+archivoCatalogoFotosFileName;
-        
-        File fileToCreate = new File(filePath, archivoCatalogoFotosFileName);
-
-        FileUtils.copyFile(archivoCatalogoFotos, fileToCreate);
-        System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
-        
-        Archivos archivos = new Archivos();
-        catalogoFotos.setRutaFotografia(archivoCatalogoFotosFileName);
-        catalogoFotos.setArchivo(archivos.fileToBytes(archivoCatalogoFotos));
-        catalogoFotos.setStatus(Boolean.TRUE);
-        servicioCatalogoFotos.editar(catalogoFotos);
+        //IMPLEMENTAR
         return SUCCESS;
     }
 
@@ -87,11 +78,20 @@ public class ControlCatalogoFotos extends Controller implements ServletRequestAw
 
     public String consultarUnico() throws Exception {
         catalogoFotos = (CatalogoFotos) servicioCatalogoFotos.consultarUnico(idCatalogoFotos);
-        Archivos archivos = new Archivos();
-        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        System.out.println("Ruta de archivo:"+catalogoFotos.getRutaFotografia());
-        archivos.bytesToFile(catalogoFotos.getArchivo(), filePath+"/"+catalogoFotos.getRutaFotografia());
-        archivoCatalogoFotosFileName=catalogoFotos.getRutaFotografia();
+        String filePath = "C:/Archivos";
+        String webPath = servletRequest.getSession().getServletContext().getRealPath("/");
+        File fileToCreate = new File(webPath, catalogoFotos.getRutaFotografia());
+        if (!fileToCreate.exists()) {
+            File fileToOpen = new File(filePath, catalogoFotos.getRutaFotografia());
+
+            FileUtils.copyFile(fileToOpen, fileToCreate);
+
+            System.out.println("Rutal archivo abierto" + fileToOpen.getAbsolutePath());
+            System.out.println("Rutal archivo creado" + fileToCreate.getAbsolutePath());
+        } else {
+            System.out.println("El archivo ya existe en web, no sera creado");
+        }
+        archivoCatalogoFotosFileName = catalogoFotos.getRutaFotografia();
         consultarTodos();
         return SUCCESS;
     }
@@ -142,7 +142,8 @@ public class ControlCatalogoFotos extends Controller implements ServletRequestAw
     }
 
     /**
-     * @param archivoCatalogoFotosFileName the archivoCatalogoFotosFileName to set
+     * @param archivoCatalogoFotosFileName the archivoCatalogoFotosFileName to
+     * set
      */
     public void setArchivoCatalogoFotosFileName(String archivoCatalogoFotosFileName) {
         this.archivoCatalogoFotosFileName = archivoCatalogoFotosFileName;

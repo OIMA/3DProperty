@@ -32,6 +32,7 @@
             <li><a href="testPublicidad.action">Tabla Publicidad</a></li>
             <li><a href="RegistroPagoTest.action">Tabla Registro Pago</a></li>
             <li><a href="testUsuario.action">Tabla Usuario</a></li>
+            <li><a href="testChat.action">Chat (OJO!Sesion Iniciada)</a></li>
         </ol>
 
     </body>

@@ -6,33 +6,41 @@
 
 package com.oima.project.DDDProperty.controller;
 
-import java.security.Principal;
-import org.springframework.stereotype.Controller;
+import com.oima.project.DDDProperty.model.dto.Usuario;
+import com.oima.project.DDDProperty.utilities.Controller;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  *
  * @author OIMA
  */
-@Controller
-public class ControlSesion {
-    private Principal p;
-    public String mostrarJSP(){
-        System.out.println("esta mapeando");
-        if (p == null) {
-            String s = "errorUsuario";
-            System.out.println("Error de usuario");
-            System.out.println(s);
-            return s;
-        }else
-            System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ "+p.getName());
-            return "errorUsuario";
+public class ControlSesion extends Controller implements SessionAware {
+    private Map session;
+    
+    public String loginSuccesfull() throws Exception {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String nombre_usuario = auth.getName();
+        Usuario usuario = servicioUsuario.consultarUnico("nombreUsuario", nombre_usuario);
+        session.put("usuario", usuario);
+        return SUCCESS;
     }
 
-    public Principal getP() {
-        return p;
+    /**
+     * @return the session
+     */
+    public Map getSession() {
+        return session;
     }
 
-    public void setP(Principal p) {
-        this.p = p;
+    /**
+     * @param session the session to set
+     */
+    @Override
+    public void setSession(Map<String, Object> map) {
+        session = map;
     }
 }

@@ -331,6 +331,9 @@
 </package>
 
 <package name="utileriasSolosimpi" extends="struts-default, json-default">
+    <action name="LoginSucessfull" class="ControlSesion" method="loginSuccesfull">
+        <result>/test/MenuCatalogos.jsp</result>
+    </action>
     <action name="MenuCatalogo" class="Navegacion" method="index">
         <result>/test/MenuCatalogos.jsp</result>
     </action>

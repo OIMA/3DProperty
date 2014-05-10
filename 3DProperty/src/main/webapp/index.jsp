@@ -52,6 +52,9 @@
                                 <li class="">
                                     <a href="OIMA.action">OIMA</a>
                                 </li>
+                                <li class="">
+                                    <a href="<c:url value='j_spring_security_logout'/>">Cerrar Sesión</a>
+                                </li>
                                 <!--                                <li class="">
                                                                     <a href="Examen.action">Examen</a>
                                                                 </li>-->
@@ -91,24 +94,29 @@
                                         </p>
                                     </div>
                                     <div class="col-md-4 column">
-                                        <form role="form" method="post" action="<c:url value='j_spring_security_check' />">
-                                            <div class="form-group">
-                                                <label>Nombre de usuario</label><input type="text" class="form-control" name="j_username" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label >Contrase&ntilde;a</label><input type="password" class="form-control" name="j_password" />
-                                            </div>
-                                            <!--                                            <div class="form-group">
-                                                                                            <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
-                                                                                            <p class="help-block">
-                                                                                                Example block-level help text here.
-                                                                                            </p>
-                                                                                        </div>-->
-                                            <!--<div class="checkbox">-->
-                                            <!--<label><input type="checkbox" /> Check me out</label>-->
-                                            <!--</div>--> 
-                                            <button type="submit" class="btn btn-default">Iniciar</button>
-                                        </form>
+                                        <sec:authorize ifAnyGranted="ROLE_GUEST">
+                                            <form role="form" method="post" action="<c:url value='j_spring_security_check' />">
+                                                <div class="form-group">
+                                                    <label>Nombre de usuario</label><input type="text" class="form-control" name="j_username" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label >Contrase&ntilde;a</label><input type="password" class="form-control" name="j_password" />
+                                                </div>
+                                                <!--                                            <div class="form-group">
+                                                                                                <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
+                                                                                                <p class="help-block">
+                                                                                                    Example block-level help text here.
+                                                                                                </p>
+                                                                                            </div>-->
+                                                <!--<div class="checkbox">-->
+                                                <!--<label><input type="checkbox" /> Check me out</label>-->
+                                                <!--</div>--> 
+                                                <button type="submit" class="btn btn-default">Iniciar</button>
+                                            </form>
+                                        </sec:authorize>
+                                        <sec:authorize ifAnyGranted="ROLE_CLIENTE">
+                                            Bienvenido: ${usuario.nombreUsuario}
+                                        </sec:authorize>
                                     </div>
                                 </div>
                                 <div class="row">
