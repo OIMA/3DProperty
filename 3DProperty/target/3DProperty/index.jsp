@@ -115,7 +115,7 @@
                                             </form>
                                         </sec:authorize>
                                         <sec:authorize ifAnyGranted="ROLE_CLIENTE">
-                                            Bienvenido: ${usuario.nombreUsuario}
+                                            Bienvenido: ${usuarioSession.nombreUsuario}
                                         </sec:authorize>
                                     </div>
                                 </div>

@@ -24,6 +24,12 @@
         <property name="servicioCategoria" ref="servicioCategoria"/>
     </bean>
     
+    <bean id="Chat" class="com.oima.project.DDDProperty.controller.ControlChat" scope="prototype">
+        <property name="servicioPropiedad" ref="servicioPropiedad"/>
+        <property name="servicioMensaje" ref="servicioMensaje"/>
+        <property name="servicioUsuario" ref="servicioUsuario"/>
+    </bean>
+    
     <bean id="CodigoPostal" class="com.oima.project.DDDProperty.controller.ControlCodigoPostal" scope="prototype">
         <property name="servicioLocalidad" ref="servicioLocalidad"/>
         <property name="servicioCodigoPostal" ref="servicioCodigoPostal"/>

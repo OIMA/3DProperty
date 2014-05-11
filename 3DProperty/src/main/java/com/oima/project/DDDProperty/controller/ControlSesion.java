@@ -25,7 +25,7 @@ public class ControlSesion extends Controller implements SessionAware {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String nombre_usuario = auth.getName();
         Usuario usuario = servicioUsuario.consultarUnico("nombreUsuario", nombre_usuario);
-        session.put("usuario", usuario);
+        session.put("usuarioSession", usuario);
         return SUCCESS;
     }
 

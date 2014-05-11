@@ -356,5 +356,19 @@
     <action name="consultarPaisesJson" class="Direcciones" method="consultarPaises">
         <result type="json"></result>
     </action>
-        
+</package>
+
+<package name="chat" extends="struts-default, json-default">
+    <action name="consultarDestinatariosJson" class="Chat" method="consultarDestinatarios">
+        <result type="json"></result>
+    </action>
+    <action name="consultarPropiedadesPorUsuarioJson" class="Chat" method="consultarPropiedadesPorIdUsuario">
+        <result type="json"></result>
+    </action>
+    <action name="guardarMensajeJson" class="Chat" method="guardarMensaje">
+        <result type="json"></result>
+    </action>
+    <action name="verChat" class="Navegacion" method="index">
+        <result>/test/TestChat.jsp</result>
+    </action>
 </package>

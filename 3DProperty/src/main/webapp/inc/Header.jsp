@@ -1,7 +1,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <sj:head jqueryui="false"/>
+        <!--jquery-->
+        <sj:head jqueryui="true"/>
+        <!--jquery-->
+        
+        <!--struts bostrap-->
         <sb:head includeScripts="false" includeStyles="false" includeScriptsValidation="false"/>
+        <!--struts bostrap-->
         
         <!-- Core CSS - Include with every page -->
         <link href="style/css/bootstrap.min.css" rel="stylesheet">
