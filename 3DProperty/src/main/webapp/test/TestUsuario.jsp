@@ -174,7 +174,7 @@
                         headerValue="Seleccione una Colonia" 
                         cssClass="cc campo"
                         />
-                    <s:submit value="Guardar" id="bs" cssClass="vf"/>
+                    <s:submit value="Guardar" id="botonSubmit" cssClass="vf"/>
                 </s:form>
             </s:if>
             <s:else>

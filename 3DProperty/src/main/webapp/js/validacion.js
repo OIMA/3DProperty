@@ -48,7 +48,7 @@ function prueba(cadena, element)
     var bandera = true;
     var classList = element.attr('class').split(/\s+/);
     $.each( classList, function(index, item){
-//        alert(cadena+','+element+'.'+item);
+        alert(cadena+','+element+'.'+item);
         if (item === 'nn') 
         {
             alert('No nulo');
@@ -120,22 +120,24 @@ function prueba(cadena, element)
     });
     return bandera;
 }
-
+$('#botonSubmit').submit(function() 
+    {
+        alert('submit');
+    });
+    
 $(document).ready(function()
 {
-    $(".vf").submit()(function(event) 
-    {
-        alert(event);
-        $('.campo').blur(function ()
+    $('.campo').blur(function ()
         {
+            alert('event');
             var cadena = $(this).val();
             var element = $(this);
             if (!prueba(cadena,element))
                 event.preventDefault();
         });
-    });
-        
-//    $(".vf").click(function()
+});
+
+//$(".vf").click(function()
 //    {
 //        var ff = $('.ff').val();
 //        var ns = $('.ns').val();
@@ -179,4 +181,3 @@ $(document).ready(function()
 //            else
 //                alert('CURP ERROR');
 //    });
-});
