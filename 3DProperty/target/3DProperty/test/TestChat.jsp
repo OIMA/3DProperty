@@ -24,7 +24,7 @@
             <input type="hidden" name="mensaje.idRemitente.idUsuario" value="${usuarioSession.idUsuario}" />
             <sj:autocompleter 
                 id="usuario" 
-                name="idUsuario"
+                name="nombreUsuario"
                 label="Seleccione"
                 href="%{destinatariosURL}" 
                 list="usuarioList"
@@ -34,6 +34,7 @@
 	    	onFocusTopics="recargarPropiedades"
 	    	onSelectTopics="recargarPropiedades"
                 loadMinimumCount="2"
+                
                 />
             <sj:select 
                 href="%{propiedadesURL}" 

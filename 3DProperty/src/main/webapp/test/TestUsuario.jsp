@@ -14,7 +14,7 @@
         <%@include file="../inc/Header.jsp" %>
         <%@include file="../inc/scripts.jsp" %>
     </head>
-    <body>
+    <body> 
         <s:url id="paisURL" action="consultarPaisesJson"/> 
         <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
         <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
@@ -85,22 +85,23 @@
             <h1>Alta de Usuarios.</h1>
             <s:if test="listaColonia.size>0">
                 <s:form id="formularioUsuario" action="guardarUsuario" method="post" name="">
-                    <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value=""/>
+                    <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value="" cssClass="sl nn campo" maxLength="45"/>
                     <s:password label="Contraseña" name="usuario.contrasenia" value=""/>
-                    <s:textfield label="Nombre" name="usuario.nombre" value=""/>
-                    <s:textfield label="Apellido Paterno" name="usuario.apPat" value=""/>
-                    <s:textfield label="Apellido Materno" name="usuario.apMat" value=""/>
-                    <s:textfield label="Telefono" name="usuario.telefono" value=""/>
-                    <s:textfield label="E-Mail" name="usuario.email" value=""/>
-                    <s:textfield label="Fecha de Nacimiento" name="usuario.fechaNacimiento" value=""/>
-                    <s:textfield label="RFC" name="usuario.rfc" value=""/><!--1. Administrador, 2. Diseñador, 3. Usuario Registrado, 4. Usuario General-->
-                    <s:textfield label="CURP" name="usuario.curp" value=""/>
+                    <s:textfield label="Nombre" name="usuario.nombre" value="" cssClass="sl nn campo"/>
+                    <s:textfield label="Apellido Paterno" name="usuario.apPat" value="" cssClass="sl nn campo"/>
+                    <s:textfield label="Apellido Materno" name="usuario.apMat" value="" cssClass="sl nn campo"/>
+                    <s:textfield label="Telefono" name="usuario.telefono" value="" cssClass="sn campo"/>
+                    <s:textfield label="E-Mail" name="usuario.email" value="" cssClass="em campo"/>
+                    <s:textfield label="Fecha de Nacimiento" name="usuario.fechaNacimiento" value="" cssClass="ff nn campo"/>
+                    <s:textfield label="RFC" name="usuario.rfc" value="" cssClass="rfc nn campo"/><!--1. Administrador, 2. Diseñador, 3. Usuario Registrado, 4. Usuario General-->
+                    <s:textfield label="CURP" name="usuario.curp" value="" cssClass="curp nn campo"/>
                     <s:select label="Tipo de Usuario"
                               list="#@java.util.LinkedHashMap@{'ROLE_ADMINISTRADOR':'Administrador','ROLE_DISENIADOR':'Diseñador','ROLE_CLIENTE':'Cliente'}"
-                              name="usuario.tipoUsuario"
+                              name="usuario.tipoUsuario" 
+                              cssClass="cc campo"
                               /><!--onchange="consulta_roles(this.value,'div_roles')"-->
-                    <s:textfield label="Calle" name="usuario.calle" value=""/>
-                    <s:textfield label="No. Exterior" name="usuario.noExterior" value=""/>
+                    <s:textfield label="Calle" name="usuario.calle" value="" cssClass="sl nn campo"/>
+                    <s:textfield label="No. Exterior" name="usuario.noExterior" value="" cssClass="sn nn campo"/>
                     <s:textfield label="No. Interior" name="usuario.noInterior" value=""/>
                     <sj:select 
                         href="%{paisURL}" 
@@ -112,6 +113,7 @@
                         listValue="nombre" 
                         headerKey="-1"
                         headerValue="Seleccione un Pais"
+                        cssClass="cc campo"
                         />
 
                     <sj:select 
@@ -126,6 +128,7 @@
                         listValue="nombre" 
                         headerKey="-1" 
                         headerValue="Seleccione un Estado" 
+                        cssClass="cc campo"
                         /> 
                     
                     <sj:select 
@@ -140,6 +143,7 @@
                         listValue="nombre"
                         headerKey="-1" 
                         headerValue="Seleccione una Localidad" 
+                        cssClass="cc campo"
                         />
                     
                     <sj:select 
@@ -154,6 +158,7 @@
                         listValue="numero" 
                         headerKey="-1" 
                         headerValue="Seleccione un Codigo Postal" 
+                        cssClass="cc campo"
                         />
                     
                     <sj:select 
@@ -167,8 +172,9 @@
                         listValue="nombre"
                         headerKey="-1" 
                         headerValue="Seleccione una Colonia" 
+                        cssClass="cc campo"
                         />
-                    <s:submit value="Guardar"/>
+                    <s:submit value="Guardar" id="bs" cssClass="vf"/>
                 </s:form>
             </s:if>
             <s:else>
@@ -178,5 +184,6 @@
         
 
         <br/>
+        
     </body>
 </html>

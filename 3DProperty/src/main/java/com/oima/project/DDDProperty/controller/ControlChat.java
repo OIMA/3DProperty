@@ -37,7 +37,7 @@ public class ControlChat extends Controller implements SessionAware {
     public String consultarDestinatarios() throws Exception{
         //OJO DEBE DE CONSULTAR TODOS MENOS EL USUARIO XD
         System.out.println("Id Remitente "+mensaje.getIdRemitente().getIdUsuario());
-        usuarioList = servicioUsuario.consultarTodos(Usuario.class);
+        usuarioList = servicioUsuario.consultarPorCampoEspecifico("nombreUsuario",nombreUsuario,"like",null);
         return SUCCESS;
     }
     
