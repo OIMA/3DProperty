@@ -33,7 +33,7 @@
     <action name="editarCategoria" class="Categoria" method="editar">
         <result type="redirectAction">testCategoria</result>
     </action>
-    <action name="consultarCategoriasJson" class="Categoria" method="consultarTodos">
+    <action name="consultarCategoriasJson" class="Direcciones" method="consultarCategorias">
         <result type="json"></result>
     </action>
 </package>
@@ -331,6 +331,9 @@
 </package>
 
 <package name="utileriasSolosimpi" extends="struts-default, json-default">
+    <action name="LoginSucessfull" class="ControlSesion" method="loginSuccesfull">
+        <result>/test/MenuCatalogos.jsp</result>
+    </action>
     <action name="MenuCatalogo" class="Navegacion" method="index">
         <result>/test/MenuCatalogos.jsp</result>
     </action>
@@ -353,5 +356,19 @@
     <action name="consultarPaisesJson" class="Direcciones" method="consultarPaises">
         <result type="json"></result>
     </action>
-        
+</package>
+
+<package name="chat" extends="struts-default, json-default">
+    <action name="consultarDestinatariosJson" class="Chat" method="consultarDestinatarios">
+        <result type="json"></result>
+    </action>
+    <action name="consultarPropiedadesPorUsuarioJson" class="Chat" method="consultarPropiedadesPorIdUsuario">
+        <result type="json"></result>
+    </action>
+    <action name="guardarMensajeJson" class="Chat" method="guardarMensaje">
+        <result type="json"></result>
+    </action>
+    <action name="verChat" class="Navegacion" method="index">
+        <result>/test/TestChat.jsp</result>
+    </action>
 </package>

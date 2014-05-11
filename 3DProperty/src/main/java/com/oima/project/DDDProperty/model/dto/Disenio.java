@@ -53,9 +53,6 @@ public class Disenio implements Serializable {
     @Basic(optional = false)
     @Column(name = "RUTA")
     private String ruta;
-    @Lob
-    @Column(name = "ARCHIVO")
-    private byte[] archivo;
     @Column(name = "RUTA_SKYBOX")
     private String skybox;
     @Column(name = "VIEWPOINT")
@@ -167,20 +164,6 @@ public class Disenio implements Serializable {
 
     public void setStatus(Boolean status) {
         this.status = status;
-    }
-
-    /**
-     * @return the archivo
-     */
-    public byte[] getArchivo() {
-        return archivo;
-    }
-
-    /**
-     * @param archivo the archivo to set
-     */
-    public void setArchivo(byte[] archivo) {
-        this.archivo = archivo;
     }
 
     /**

@@ -124,6 +124,8 @@ public class DAOImpl extends DaoSupport implements DAO{
                 criterio.add(Restrictions.lt(campo, contenido));
             } else if (predicado.equals("greater")) {
                 criterio.add(Restrictions.gt(campo, contenido));
+            } else if (predicado.equals("notequal")) {
+                criterio.add(Restrictions.ne(campo, contenido));
             }
             
             if (orderBy != null) {

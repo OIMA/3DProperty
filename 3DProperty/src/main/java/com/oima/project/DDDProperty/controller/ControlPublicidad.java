@@ -10,6 +10,8 @@ import com.oima.project.DDDProperty.utilities.Archivos;
 import com.oima.project.DDDProperty.utilities.Controller;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
@@ -30,29 +32,38 @@ public class ControlPublicidad extends Controller implements ServletRequestAware
 
     /**
      * Se debe de cambiar la ruta "images/"
+     *
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public String guardar() throws Exception {
+        Date date = new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd-G-HH-mm-ss");
+        String nombreSinExtension = archivoPublicidadFileName.substring(0, archivoPublicidadFileName.lastIndexOf("."));
+        nombreSinExtension = nombreSinExtension.replace(" ", "_");
+        String extension = archivoPublicidadFileName.substring(archivoPublicidadFileName.lastIndexOf("."),archivoPublicidadFileName.length());
+        archivoPublicidadFileName = nombreSinExtension+sdf.format(date)+extension;
         
         System.out.println("Se obtuvo este archivo: " + archivoPublicidad.getName());
         System.out.println("Con ruta: " + archivoPublicidad.getAbsolutePath());
-        
-        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        archivoPublicidadFileName="images/"+archivoPublicidadFileName;
-        
-        File fileToCreate = new File(filePath, archivoPublicidadFileName);
+        String webPath = servletRequest.getSession().getServletContext().getRealPath("/");
+        String filePath = "C:/Archivos";
+        archivoPublicidadFileName = "publicidades/" + archivoPublicidadFileName;
+
+        File fileToCreate = new File(webPath, archivoPublicidadFileName);
+
+        FileUtils.copyFile(archivoPublicidad, fileToCreate);
+
+        fileToCreate = new File(filePath, archivoPublicidadFileName);
 
         FileUtils.copyFile(archivoPublicidad, fileToCreate);
         System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
-        
-        Archivos archivos = new Archivos();
+
         publicidad.setRuta(archivoPublicidadFileName);
-        publicidad.setArchivo(archivos.fileToBytes(archivoPublicidad));
         publicidad.setStatus(Boolean.TRUE);
         servicioPublicidad.guardar(publicidad);
-        
-        
+        System.out.println("Se guardo?");
+
         consultarTodos();
         return SUCCESS;
     }
@@ -64,16 +75,14 @@ public class ControlPublicidad extends Controller implements ServletRequestAware
 
     public String editar() throws Exception {
         String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        archivoPublicidadFileName="images/"+archivoPublicidadFileName;
-        
+        archivoPublicidadFileName = "images/" + archivoPublicidadFileName;
+
         File fileToCreate = new File(filePath, archivoPublicidadFileName);
 
         FileUtils.copyFile(archivoPublicidad, fileToCreate);
         System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
-        
-        Archivos archivos = new Archivos();
+
         publicidad.setRuta(archivoPublicidadFileName);
-        publicidad.setArchivo(archivos.fileToBytes(archivoPublicidad));
         publicidad.setStatus(Boolean.TRUE);
         servicioPublicidad.editar(publicidad);
         return SUCCESS;
@@ -86,11 +95,19 @@ public class ControlPublicidad extends Controller implements ServletRequestAware
 
     public String consultarUnico() throws Exception {
         publicidad = (Publicidad) servicioPublicidad.consultarUnico(idPublicidad);
-        Archivos archivos = new Archivos();
-        String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-        System.out.println("Ruta de archivo:"+publicidad.getRuta());
-        archivos.bytesToFile(publicidad.getArchivo(), filePath+"/"+publicidad.getRuta());
-        archivoPublicidadFileName=publicidad.getRuta();
+        String filePath = "C:/Archivos";
+        String webPath = servletRequest.getSession().getServletContext().getRealPath("/");
+
+        File fileToCreate = new File(webPath, publicidad.getRuta());
+        if (!fileToCreate.exists()) {
+            File fileToOpen = new File(filePath, publicidad.getRuta());
+            FileUtils.copyFile(fileToOpen, fileToCreate);
+            System.out.println("Rutal archivo abierto" + fileToOpen.getAbsolutePath());
+            System.out.println("Rutal archivo creado" + fileToCreate.getAbsolutePath());
+        } else{
+             System.out.println("El archivo ya existe en web, no sera creado");
+        }
+        archivoPublicidadFileName = publicidad.getRuta();
         consultarTodos();
         return SUCCESS;
     }

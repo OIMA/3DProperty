@@ -84,7 +84,7 @@
         </div>
         <div id="altas">
             <h1>Alta de Propiedades.</h1>
-                <s:form id="altaPropiedad" action="guardarPropiedad" method="post" name="">
+            <s:form id="altaPropiedad" action="guardarPropiedad" method="post" name="" theme="bootstrap">
                     <s:textfield label="Nombre" name="propiedad.nombre" value=""/>
                     <s:textfield label="Descripción" name="propiedad.descripcion" value=""/>
                     <s:textfield label="Extensión" name="propiedad.extension" value=""/>
@@ -101,7 +101,7 @@
                     <sj:select 
                         href="%{paisURL}" 
                         id="pais" 
-                        onChangeTopics="recargarEstados" 
+                        onChangeTopics="recargarEstados,recargarLocalidades,recargarCodigosPostales,recargarColonias" 
                         name="idPais" 
                         list="listaPais" 
                         listKey="idPais" 
@@ -115,14 +115,14 @@
                         href="%{estadoURL}" 
                         id="estado" 
                         reloadTopics="recargarEstados"
-                        onChangeTopics="recargarLocalidades"
+                        onChangeTopics="recargarLocalidades,recargarCodigosPostales,recargarColonias"
                         name="idEstado"
                         formIds="altaPropiedad"
                         list="listaEstado"
                         listKey="idEstado" 
                         listValue="nombre" 
                         headerKey="-1" 
-                        headerValue="Seleccione un Estado" 
+                        headerValue="Seleccione un Estado"
                         label="Estado"
                         /> 
                     
@@ -130,7 +130,7 @@
                         href="%{localidadURL}" 
                         id="localidad" 
                         reloadTopics="recargarLocalidades"
-                        onChangeTopics="recargarCodigosPostales"
+                        onChangeTopics="recargarCodigosPostales,recargarColonias"
                         name="idLocalidad"
                         formIds="altaPropiedad"
                         list="listaLocalidad"
@@ -152,7 +152,7 @@
                         listKey="idCodigoPostal" 
                         listValue="numero" 
                         headerKey="-1" 
-                        headerValue="Seleccione un Codigo Postal"
+                        headerValue="Seleccione un Codigo Postal" 
                         label="Codigo Postal"
                         />
                     
@@ -166,7 +166,7 @@
                         listKey="idColonia" 
                         listValue="nombre"
                         headerKey="-1" 
-                        headerValue="Seleccione una Colonia"
+                        headerValue="Seleccione una Colonia" 
                         label="Colonia"
                         />
                     <sj:select 
@@ -181,6 +181,7 @@
                         label="Categoria"
                         />
                     <s:submit value="Guardar"/>
+                    
                 </s:form>
         </div>
     </body>

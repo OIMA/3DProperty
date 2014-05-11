@@ -40,9 +40,6 @@ public class Publicidad implements Serializable {
     private String detalle;
     @Column(name = "RUTA")
     private String ruta;
-    @Lob
-    @Column(name = "ARCHIVO")
-    private byte[] archivo;
     @Column(name = "STATUS")
     private Boolean status;
 
@@ -108,20 +105,6 @@ public class Publicidad implements Serializable {
     @Override
     public String toString() {
         return "com.oima.project.DDDProperty.model.dto.Publicidad[ idPublicidad=" + idPublicidad + " ]";
-    }
-
-    /**
-     * @return the archivo
-     */
-    public byte[] getArchivo() {
-        return archivo;
-    }
-
-    /**
-     * @param archivo the archivo to set
-     */
-    public void setArchivo(byte[] archivo) {
-        this.archivo = archivo;
     }
     
 }

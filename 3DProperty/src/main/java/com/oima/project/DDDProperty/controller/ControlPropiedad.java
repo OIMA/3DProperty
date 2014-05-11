@@ -19,6 +19,7 @@ public class ControlPropiedad extends Controller {
 
     private Propiedad propiedad;
     private List<Propiedad> listaPropiedades;
+    private List<Categoria> listaCategoria;
     private Long idPropiedad;
     private String idCategoria;
 
@@ -47,6 +48,12 @@ public class ControlPropiedad extends Controller {
         return SUCCESS;
     }
 
+    public String consultarCategorias() throws Exception {
+        servicioCategoria.consultarTodos(Categoria.class);
+        borrarServicios();
+        return SUCCESS;
+    }
+    
     public String consultarUnico() throws Exception {
         return SUCCESS;
     }
@@ -97,6 +104,20 @@ public class ControlPropiedad extends Controller {
 
     public void setMensajeRetorno(String mensajeRetorno) {
         this.mensajeRetorno = mensajeRetorno;
+    }
+
+    /**
+     * @return the listaCategoria
+     */
+    public List<Categoria> getListaCategoria() {
+        return listaCategoria;
+    }
+
+    /**
+     * @param listaCategoria the listaCategoria to set
+     */
+    public void setListaCategoria(List<Categoria> listaCategoria) {
+        this.listaCategoria = listaCategoria;
     }
 
 }

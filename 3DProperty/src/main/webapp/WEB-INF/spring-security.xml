@@ -6,15 +6,15 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-    <http auto-config="true">
+    <http auto-config="true" use-expressions="true">
 <!--        <intercept-url pattern="/Hogar.action" access="ROLE_ADMINISTRADOR" />
         <intercept-url pattern="/Historia.action" access="ROLE_USUARIO,ROLE_ADMINISTRADOR" />
         <intercept-url pattern="/Turismo.action" access="ROLE_ADMINISTRADOR" />-->
-        <intercept-url pattern="/Examen.action" access="ROLE_ADMINISTRADOR" filters="none" />
-        <anonymous username="Invitado" granted-authority="ROLE_ADMINISTRADOR"></anonymous>
+<!--        <intercept-url pattern="/Examen.action" access="ROLE_ADMINISTRADOR" filters="none" />-->
+        <anonymous username="Invitado" granted-authority="ROLE_GUEST"></anonymous>
 
 
-        <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/Examen.action"
+        <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/LoginSucessfull.action"
                     authentication-failure-url="/IndexError.action" />
         <logout logout-success-url="/Index.action" />
     </http>

@@ -2,4 +2,6 @@
 *.war
 *.class
 *.class
+*.war
 *.class
+*.dpf
