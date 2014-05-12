@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
@@ -16,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author OIMA
  */
 public class ServicioUsuario {
+
     private DAO query;
 
     @Transactional
@@ -25,12 +25,12 @@ public class ServicioUsuario {
 
     @Transactional
     public void eliminar(Long primaryKey) throws Exception {
-        Usuario usuario = (Usuario)consultarUnico(primaryKey);
+        Usuario usuario = (Usuario) consultarUnico(primaryKey);
         usuario.setStatus(Boolean.FALSE);
         editar(usuario);
     }
 
-    @Transactional    
+    @Transactional
     public void editar(Object object) throws Exception {
         query.editar(object);
     }
@@ -40,17 +40,21 @@ public class ServicioUsuario {
     }
 
     public Usuario consultarUnico(Long primaryKey) throws Exception {
-        return (Usuario)query.consultarUnico(primaryKey, Usuario.class, "Usuario");
+        return (Usuario) query.consultarUnico(primaryKey, Usuario.class, "Usuario");
     }
-    
+
     public List<Usuario> consultarPorCampoEspecifico(String campo, Object objeto, String predicado, String[] order) throws Exception {
         return query.consultaPorCampoEspecifico(campo, objeto, predicado, Usuario.class, order);
     }
 
-    public Usuario consultarUnico(String campo, Object objeto) throws Exception {
-        return (Usuario)query.consultaPorCampoEspecifico(campo, objeto, "equal", Usuario.class, null).get(0);
+    public List<Usuario> consultarPorCampoEspecifico(String[] campos, Object[] contenidos, String predicados[], String[] orderBy) throws Exception {
+        return query.consultaPorCampoEspecifico(campos, contenidos, predicados, Usuario.class, orderBy);
     }
-    
+
+    public Usuario consultarUnico(String campo, Object objeto) throws Exception {
+        return (Usuario) query.consultaPorCampoEspecifico(campo, objeto, "equal", Usuario.class, null).get(0);
+    }
+
     public DAO getQuery() {
         return query;
     }
@@ -58,5 +62,5 @@ public class ServicioUsuario {
     public void setQuery(DAO query) {
         this.query = query;
     }
-    
+
 }

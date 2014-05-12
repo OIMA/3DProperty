@@ -26,6 +26,7 @@ public class ControlChat extends Controller implements SessionAware {
     private Propiedad propiedad;
     private List<Usuario> usuarioList;
     private List<Mensaje> mensajeList;
+    private List<Mensaje> mensajeRecibidosList;
     private List<Propiedad> propiedadList;
     private List<Contrato> contratoList;
     private String term; //del autocompleter
@@ -39,7 +40,10 @@ public class ControlChat extends Controller implements SessionAware {
     public String consultarDestinatarios() throws Exception{
         //OJO DEBE DE CONSULTAR TODOS MENOS EL USUARIO XD
         System.out.println("Id Remitente "+mensaje.getIdRemitente().getIdUsuario());
-        usuarioList = servicioUsuario.consultarPorCampoEspecifico("nombreUsuario",term,"like",null);
+        String campos[] = {"nombreUsuario","idUsuario"}; 
+        Object contenidos[] = {term,((Usuario)session.get("usuarioSession")).getIdUsuario()};
+        String predicados[] ={"like","notequal"};
+        usuarioList = servicioUsuario.consultarPorCampoEspecifico(campos,contenidos,predicados,null);
         return SUCCESS;
     }
     
@@ -50,8 +54,10 @@ public class ControlChat extends Controller implements SessionAware {
     }
     
     public String consultarMensajesPorIdUsuario() throws Exception{
-        System.out.println("Id Destinatario"+idUsuario);
-        mensajeList = servicioMensaje.consultaPorCampoEspecifico("idUsuario.idUsuario", idUsuario, "equal", null);
+        idUsuario = ((Usuario)session.get("usuarioSession")).getIdUsuario();
+        String orderBy[] = {"asc","idMensaje"};
+        mensajeList = servicioMensaje.consultaPorCampoEspecifico("idRemitente.idUsuario", idUsuario, "equal", orderBy);
+        mensajeRecibidosList = servicioMensaje.consultaPorCampoEspecifico("idDestinatario.idUsuario", idUsuario, "equal", orderBy);
         return SUCCESS;
     }
     
@@ -63,8 +69,17 @@ public class ControlChat extends Controller implements SessionAware {
         mensaje.setIdDestinatario(usuario);
         mensaje.setStatus(Boolean.TRUE);
         mensaje.setStatusLeido(Boolean.FALSE);
+        mensaje.setIdPropiedad((mensaje.getIdPropiedad().getIdPropiedad()==-1)?null:mensaje.getIdPropiedad());
         servicioMensaje.guardar(mensaje);
         System.out.println("Guardo el mensaje?");
+        return SUCCESS;
+    }
+    
+    public String marcarMensaje() throws Exception{
+        System.out.println("IdMensaje"+idMensaje);
+        Mensaje mensaje = servicioMensaje.consultarUnico(Long.valueOf(idMensaje));
+        mensaje.setStatus(Boolean.FALSE);
+        servicioMensaje.editar(mensaje);
         return SUCCESS;
     }
     
@@ -250,6 +265,20 @@ public class ControlChat extends Controller implements SessionAware {
      */
     public void setIdUsuario_widget(String idUsuario_widget) {
         this.idUsuario_widget = idUsuario_widget;
+    }
+
+    /**
+     * @return the mensajeRecibidosList
+     */
+    public List<Mensaje> getMensajeRecibidosList() {
+        return mensajeRecibidosList;
+    }
+
+    /**
+     * @param mensajeRecibidosList the mensajeRecibidosList to set
+     */
+    public void setMensajeRecibidosList(List<Mensaje> mensajeRecibidosList) {
+        this.mensajeRecibidosList = mensajeRecibidosList;
     }
 
     

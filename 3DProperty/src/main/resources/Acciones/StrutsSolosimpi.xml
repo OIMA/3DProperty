@@ -388,10 +388,13 @@
     <action name="guardarMensajeJson" class="Chat" method="guardarMensaje">
         <result type="json"></result>
     </action>
-    <action name="verChat" class="Navegacion" method="index">
+    <action name="verChat" class="Chat" method="consultarMensajesPorIdUsuario">
         <result>/test/TestChat.jsp</result>
     </action>
-    <action name="consultarMensajesJSON" class="Chat" method="guardarMensaje">
+    <action name="consultarMensajesJSON" class="Chat" method="consultarMensajesPorIdUsuario">
+        <result type="json"></result>
+    </action>
+    <action name="marcarMensaje" class="Chat" method="marcarMensaje">
         <result type="json"></result>
     </action>
 </package>

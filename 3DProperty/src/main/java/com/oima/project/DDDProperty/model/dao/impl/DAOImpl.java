@@ -167,6 +167,7 @@ public class DAOImpl extends DaoSupport implements DAO {
             System.out.println("antes de las restricciones" + criterio.list().size());
             int i=0;
             for (String restriction : predicados) {
+                System.out.println("Agregando restriccion");
                 if (restriction.equals("equal")) {
                     criterio.add(Restrictions.eq(campos[i], contenidos[i]));
                     System.out.println("Despues del equals" + criterio.list().size());

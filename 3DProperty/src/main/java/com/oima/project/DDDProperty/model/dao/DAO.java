@@ -35,4 +35,5 @@ public interface DAO {
      */
     public List consultaPorCampoEspecifico(String campo, Object contenido, String predicado, Class clase, String[] orderBy) throws Exception;
     
+    public List consultaPorCampoEspecifico(String[] campos, Object[] contenidos, String predicados[], Class clase, String[] orderBy) throws Exception;
 }

@@ -9,8 +9,8 @@ $.subscribe('autocompleteChange', function(event, data) {
         var contratoList = data.contratoList;
         if (contratoList)
         {
-            var select = "<label class=\"control-label\">Seleccione una propiedad</label><select class=\"form-control\" name=\"mensaje.idPropiedad.idPropiedad\">";
-            select+="<option value=\"null\">Ninguna Propiedad</option>";
+            var select = "<label class=\"control-label\">Seleccione una propiedad</label><select id=\"propiedad\" class=\"form-control\" name=\"mensaje.idPropiedad.idPropiedad\">";
+            select += "<option value=\"-1\">Ninguna Propiedad</option>";
             for (var i = 0; i < contratoList.length; i++) {
                 select += "<option value=\"" + contratoList[i].idPropiedad.idPropiedad + "\">" + contratoList[i].idPropiedad.nombre + "</option>";
             }
@@ -21,16 +21,25 @@ $.subscribe('autocompleteChange', function(event, data) {
 });
 
 $.subscribe('mensajesComplete', function(event, data) {
-    $.post("consultarMensajesJSON.action", {idUsuario: 1}, function(data)
+    var propiedad = $("#propiedad option[value='" + $("#propiedad").val() + "']").text()
+    var mensaje = $("#mensaje").val();
+    var destinatario = $("#destinatario_widget").val();
+    $("#mensajesEnviadosTable > tbody:first").before("<tr><td>" + mensaje + "</td><td>" + destinatario + "</td><td>" + propiedad + "</td></tr>");
+    $.post("consultarMensajesJSON.action", {idUsuario: $("#idUsuario").val}, function(data)
     {
-        var mensajeList = data.mensajeList;
-        if (mensajeList)
-        {
-            var mensajeHtml="";
-            for (var i = 0; i < mensajeList.length; i++) {
-                mensajeHtml += "<div>" + mensajeList[i].mensaje + "</div>";
-            }
-            $("#mensajes").html(mensajeHtml);
-        }
     });
 });
+
+$(document).on('click', ".marcarMensaje", updateMensaje);
+
+function updateMensaje(e)
+{
+
+    var row = $(this).parents('tr')[0];
+    var idUpdate = $(e.target).attr('ide');
+    row.remove();
+    $.post("marcarMensaje.action", {idMensaje: idUpdate}, function(response)
+    {
+        
+    });
+}
