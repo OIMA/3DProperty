@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.oima.project.DDDProperty.services.impl;
 
 import com.oima.project.DDDProperty.model.dao.DAO;
@@ -16,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author OIMA
  */
 public class ServicioContrato {
+
     private DAO query;
 
     @Transactional
@@ -25,7 +25,7 @@ public class ServicioContrato {
 
     @Transactional
     public void eliminar(Long primaryKey) throws Exception {
-        Contrato contrato = (Contrato)consultarUnico(primaryKey);
+        Contrato contrato = (Contrato) consultarUnico(primaryKey);
         contrato.setStatus(Boolean.FALSE);
         editar(contrato);
     }
@@ -40,8 +40,12 @@ public class ServicioContrato {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, Contrato.class, "Contrato");
+    public Contrato consultarUnico(Long primaryKey) throws Exception {
+        return (Contrato) query.consultarUnico(primaryKey, Contrato.class, "Contrato");
+    }
+
+    public List<Contrato> consultarPorCampoEspecifico(String campo, Object contenido , String predicado, String[] orderBy) throws Exception {
+        return (List<Contrato>) query.consultaPorCampoEspecifico(campo, contenido ,predicado,Contrato.class, orderBy);
     }
 
     public DAO getQuery() {
@@ -51,5 +55,5 @@ public class ServicioContrato {
     public void setQuery(DAO query) {
         this.query = query;
     }
-    
+
 }

@@ -77,8 +77,28 @@
     </action>
 </package>
 
-<package name="tablaContrato" extends="struts-default">
-    
+<package name="tablaContrato" extends="struts-default, json-default">
+    <action name="testContrato" class="Contrato" method="consultarTodos">
+        <result>/test/TestContrato.jsp</result>
+    </action>
+    <action name="eliminarContrato" class="Contrato" method="eliminar">
+        <result type="redirectAction">testContrato</result>
+    </action>
+    <action name="consultarContrato" class="Contrato" method="consultarUnico">
+        <result >/test/TestContrato.jsp</result>
+    </action>
+    <action name="guardarContrato" class="Contrato" method="guardar">
+        <result type="redirectAction">testContrato</result>
+    </action>
+    <action name="editarContrato" class="Contrato" method="editar">
+        <result type="redirectAction">testContrato</result>
+    </action>
+    <action name="consultarUsuariosContratoJSON" class="Contrato" method="consultarUsuarios">
+        <result type="json"></result>
+    </action>
+    <action name="consultarPropiedadesContratoJSON" class="Contrato" method="consultarPropiedades">
+        <result type="json"></result>
+    </action>
 </package>
 <package name="tablaDiseniadorPropiedad" extends="struts-default">
     <action name="testDiseniadorPropiedad" class="DiseniadorPropiedad" method="consultarTodos">
@@ -370,5 +390,8 @@
     </action>
     <action name="verChat" class="Navegacion" method="index">
         <result>/test/TestChat.jsp</result>
+    </action>
+    <action name="consultarMensajesJSON" class="Chat" method="guardarMensaje">
+        <result type="json"></result>
     </action>
 </package>

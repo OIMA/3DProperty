@@ -6,6 +6,7 @@
 
 package com.oima.project.DDDProperty.controller;
 
+import com.oima.project.DDDProperty.model.dto.Contrato;
 import com.oima.project.DDDProperty.model.dto.Mensaje;
 import com.oima.project.DDDProperty.model.dto.Propiedad;
 import com.oima.project.DDDProperty.model.dto.Usuario;
@@ -26,9 +27,10 @@ public class ControlChat extends Controller implements SessionAware {
     private List<Usuario> usuarioList;
     private List<Mensaje> mensajeList;
     private List<Propiedad> propiedadList;
-    private String nombreUsuario;
-    private Integer idUsuario;
-    private Integer idUsuario_widget;
+    private List<Contrato> contratoList;
+    private String term; //del autocompleter
+    private Long idUsuario;
+    private String idUsuario_widget;
     private Integer idMensaje;
     private Integer idPropiedad;
     private Map session;
@@ -37,20 +39,32 @@ public class ControlChat extends Controller implements SessionAware {
     public String consultarDestinatarios() throws Exception{
         //OJO DEBE DE CONSULTAR TODOS MENOS EL USUARIO XD
         System.out.println("Id Remitente "+mensaje.getIdRemitente().getIdUsuario());
-        usuarioList = servicioUsuario.consultarPorCampoEspecifico("nombreUsuario",nombreUsuario,"like",null);
+        usuarioList = servicioUsuario.consultarPorCampoEspecifico("nombreUsuario",term,"like",null);
         return SUCCESS;
     }
     
     public String consultarPropiedadesPorIdUsuario() throws Exception{
-        System.out.println("Id Destinatario"+mensaje.getIdDestinatario().getIdUsuario());
-        propiedadList = servicioPropiedad.consultarTodos(Propiedad.class);
+        System.out.println("Id Destinatario"+idUsuario);
+        contratoList = servicioContrato.consultarPorCampoEspecifico("idUsuario.idUsuario", idUsuario, "equal", null);
+        return SUCCESS;
+    }
+    
+    public String consultarMensajesPorIdUsuario() throws Exception{
+        System.out.println("Id Destinatario"+idUsuario);
+        mensajeList = servicioMensaje.consultaPorCampoEspecifico("idUsuario.idUsuario", idUsuario, "equal", null);
         return SUCCESS;
     }
     
     public String guardarMensaje() throws Exception{
-        System.out.println("Id Destinatario"+mensaje.getIdDestinatario().getIdUsuario());
+        System.out.println("Id Destinatario"+idUsuario);
         System.out.println("Id Remitente "+mensaje.getIdRemitente().getIdUsuario());
         System.out.println("Mensaje "+mensaje.getMensaje());
+        Usuario usuario = servicioUsuario.consultarUnico(idUsuario);
+        mensaje.setIdDestinatario(usuario);
+        mensaje.setStatus(Boolean.TRUE);
+        mensaje.setStatusLeido(Boolean.FALSE);
+        servicioMensaje.guardar(mensaje);
+        System.out.println("Guardo el mensaje?");
         return SUCCESS;
     }
     
@@ -156,28 +170,28 @@ public class ControlChat extends Controller implements SessionAware {
     /**
      * @return the nombreUsuario
      */
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getTerm() {
+        return term;
     }
 
     /**
      * @param nombreUsuario the nombreUsuario to set
      */
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setTerm(String term) {
+        this.term = term;
     }
 
     /**
      * @return the idUsuario
      */
-    public Integer getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
     /**
      * @param idUsuario the idUsuario to set
      */
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -209,10 +223,34 @@ public class ControlChat extends Controller implements SessionAware {
         this.idPropiedad = idPropiedad;
     }
 
+
+    /**
+     * @return the contratoList
+     */
+    public List<Contrato> getContratoList() {
+        return contratoList;
+    }
+
+    /**
+     * @param contratoList the contratoList to set
+     */
+    public void setContratoList(List<Contrato> contratoList) {
+        this.contratoList = contratoList;
+    }
+
     /**
      * @return the idUsuario_widget
      */
-    public Integer getIdUsuario_widget() {
+    public String getIdUsuario_widget() {
         return idUsuario_widget;
     }
+
+    /**
+     * @param idUsuario_widget the idUsuario_widget to set
+     */
+    public void setIdUsuario_widget(String idUsuario_widget) {
+        this.idUsuario_widget = idUsuario_widget;
+    }
+
+    
 }

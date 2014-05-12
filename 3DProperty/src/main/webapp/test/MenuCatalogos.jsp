@@ -17,7 +17,7 @@
             <li><a href="testCategoria.action">Tabla Categoria</a></li>
             <li><a href="testCodigoPostal.action">Tabla Codigo Postal</a></li>
             <li><a href="testColonia.action">Tabla Colonia</a></li>
-            <li><a href="ContratoTest.action">Tabla Contrato</a></li>
+            <li><a href="testContrato.action">Tabla Contrato</a></li>
             <li><a href="testDiseniadorPropiedad.action">Tabla Diseñador Propiedad</a></li>
             <li><a href="testDisenio.action">Tabla Diseño</a></li>
             <li><a href="DisenioPublicidadTest.action">Tabla Diseño Publicidad</a></li>

@@ -5,3 +5,4 @@
 *.war
 *.class
 *.dpf
+/3DProperty/target/

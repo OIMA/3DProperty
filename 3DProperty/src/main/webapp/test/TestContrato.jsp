@@ -15,8 +15,8 @@
         <%@include file="../inc/scripts.jsp" %>
     </head>
     <body>
-        <s:url id="usuarioURL" action="consultarUsuariosJson"/>
-        <s:url id="propiedadURL" action="consultarPropiedadesJson"/>
+        <s:url id="usuarioURL" action="consultarUsuariosContratoJSON"/>
+        <s:url id="propiedadURL" action="consultarPropiedadesContratoJSON"/>
         <div id="consultas">
             <s:if test="listaContrato.size>0">
                 <table>
@@ -24,16 +24,16 @@
                         <th>ID</th>
                         <th>Fecha</th>
                         <th>Descripcion</th>
-                        <th></th>
-                        <th>Descripcion</th>
-                        <th>Estrellas</th>
+                        <th>Propiedad</th>
+                        <th>Usuario</th>
                     </tr>
                     <s:iterator value="listaContrato">
                         <tr>
                             <td>${idContrato}</td>
+                            <td>${fecha}</td>
+                            <td>${descripcion}</td>
                             <td>${idUsuario.nombre}</td>
                             <td>${idPropiedad.nombre}</td>
-                            <td>${noEstrellas}</td>
                             <td>
                                 <a href="eliminarContrato.action?idContrato=${idContrato}"> Eliminar </a> 
                                 <a href="consultarContrato.action?idContrato=${idContrato}"> Editar </a>
@@ -53,7 +53,7 @@
                 <sj:select 
                         href="%{usuarioURL}" 
                         id="usuario" 
-                        name="favorito.idUsuario.idUsuario" 
+                        name="contrato.idUsuario.idUsuario" 
                         list="listaUsuario" 
                         listKey="idUsuario" 
                         listValue="nombre" 
@@ -64,15 +64,16 @@
                 <sj:select 
                         href="%{propiedadURL}" 
                         id="propiedad" 
-                        name="favorito.idPropiedad.idPropiedad" 
-                        list="listaPropiedades" 
+                        name="contrato.idPropiedad.idPropiedad" 
+                        list="listaPropiedad" 
                         listKey="idPropiedad" 
                         listValue="nombre" 
                         headerKey="-1"
                         headerValue="Seleccione una Propiedad"
                         label="Propiedad"
                         />
-                <s:textfield label="No. Estrellas" name="favorito.noEstrellas"/>
+                <s:textfield label="Descripcion" name="contrato.descripcion"/>
+                <s:textfield label="Fecha" name="contrato.fecha"/>
                 <s:submit value="Guardar"/>
             </s:form>
         </div>

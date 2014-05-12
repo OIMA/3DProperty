@@ -16,38 +16,50 @@
         <%@include file="../inc/scripts.jsp" %>
     </head>
     <body>
+
         ${usuarioSession.idUsuario}
+        <script src="js/Chat.js"></script>
         <s:url id="destinatariosURL" action="consultarDestinatariosJson"/>
-        <s:url id="propiedadURL" action="consultarPropiedadesPorUsuarioJson"/>
-        <s:form id="formularioChat" action="guardarMensaje">
-            <s:textarea label="Mensaje" name="mensaje.mensaje" />
+        <s:url id="guardarMensajeURL" action="guardarMensajeJson"/>
+        <s:form id="formularioChat" action="guardarMensajeJson" method="POST" >
+            <s:textarea label="Mensaje" name="mensaje.mensaje" cssClass="form-control"/>
             <input type="hidden" name="mensaje.idRemitente.idUsuario" value="${usuarioSession.idUsuario}" />
-            <sj:autocompleter 
+            <sj:autocompleter
                 id="usuario" 
-                name="nombreUsuario"
-                label="Seleccione"
+                name="idUsuario"
+                label="Destinatario"
                 href="%{destinatariosURL}" 
                 list="usuarioList"
                 listValue="nombreUsuario"
                 listKey="idUsuario"
-                onChangeTopics="recargarPropiedades"
-	    	onFocusTopics="recargarPropiedades"
-	    	onSelectTopics="recargarPropiedades"
                 loadMinimumCount="2"
-                
+                cssClass="form-control"
+                onSelectTopics="autocompleteChange"
+                selectBoxIcon="true"
                 />
-            <sj:select 
-                href="%{propiedadesURL}" 
-                id="propiedad" 
-                reloadTopics="recargarPropiedades" 
-                name="mensaje.idPropiedad.idPropiedad"
-                formIds="formularioChat"
-                list="listaPropiedad"
-                listKey="idPropiedad" 
-                listValue="nombre"
-                headerKey="-1" 
-                headerValue="Seleccione una Propiedad" 
-                />
+            <!--
+                id="usuario" id: no importa
+                name="idUsuario" el nombre que se recibe en el control, agregar en el control aparte de este atributo nombreAtributo_widget
+                label="Destinatario" el label a mostrar
+                href="%{destinatariosURL}" el url esta declarado mas arriba
+                list="usuarioList" la lista de donde obtendra los valoes
+                listValue="nombreUsuario" lo que va a mostrar
+                listKey="idUsuario" el value de los option
+                loadMinimumCount="2" a los cuantos caracteres escritos empieza a buscar el autocolpeter
+                cssClass="form-control" 
+                onSelectTopics="autocompleteChange" que pasa cuando se aleja
+                selectBoxIcon="true"
+            -->
+            <div id="selectPropiedades" class="control-group">
+            </div>
+            <sj:submit 
+	            	id="envioJS"
+	            	href="%{guardarMensajeURL}" 
+	            	targets="mensajes"
+	            	value="Enviar Mensaje" 
+	            	button="true"
+	            	/>
+            <div id="mensajes"></div>
         </s:form>
         <br/>
     </body>
