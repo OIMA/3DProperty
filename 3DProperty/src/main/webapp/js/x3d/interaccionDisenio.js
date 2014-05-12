@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+$("#divImagenes").hide();
+$("#divPromotor").hide();
 var maximizado = false;
 $("#botonMaximizar").click(
         function() {
@@ -39,23 +41,44 @@ $("#rating-id").raty({
         return $(this).attr('data-score');
     },
     click: function(score, evt) {
-    alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-    
-  },
-  cancel: true,
-  half   : true,
-  size   : 50
+        alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+
+    },
+    cancel: true,
+    half: true,
+    size: 50
 });
 $("#show-rating").raty({
     score: function() {
         return $(this).attr('data-score');
     },
     click: function(score, evt) {
-    alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
-    
-  },
-  cancel: 'true',
-  half   : 'false',
-  size   : 50,
-  readOnly: true
+        alert('ID: ' + $(this).attr('id') + "\nscore: " + score + "\nevent: " + evt);
+
+    },
+    cancel: 'true',
+    half: 'false',
+    size: 50,
+    readOnly: true
+});
+$('#thumbs').delegate('img', 'click', function() {
+    $('#largeImage').attr('src', $(this).attr('src').replace('thumb', 'large'));
+    $('#description').html($(this).attr('alt'));
+});
+$("#tabDisenio").click(function() {
+    $("#instrucciones").delay(500).show('slow');
+    $("#divImagenes").hide('slow');
+    $("#divPromotor").hide('slow');
+});
+
+$("#tabImagenes").click(function() {
+    $("#instrucciones").hide('slow');
+    $("#divPromotor").hide('slow');
+    $("#divImagenes").delay(500).show('slow');
+});
+
+$("#divPromotor").click(function(){
+    $("#instrucciones").hide('slow');
+    $("#divImagenes").hide('slow');
+    $("#divPromotor").delay(500).show('slow');
 });
