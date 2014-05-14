@@ -1,0 +1,630 @@
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Group>
+      <Group>
+        <Group>
+          <Group>
+            <Group>
+              <Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_0'>
+                      <Material DEF='AOPT_Material_156825360' diffuseColor='0.2 0.2 0.2'/>
+                      <ImageTexture DEF='Tex_1' url='"tex/texture0.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='48282' position='229.637 2.94508 -74.8073' size='15.6764 5.89016 16.73'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147306024_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147306024_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147306024_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147306024_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_2'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_3' url='"tex/texture1.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='43488' position='236.268 2.75988 -71.1622' size='2.58968 0.182413 2.60352'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147352944_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147352944_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147352944_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147352944_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_4'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_5' url='"tex/texture2.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='51672' position='236.334 2.81639 -71.1913' size='2.48369 0.460722 2.54541'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147363736_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147363736_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147363736_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147363736_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_6'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_7' url='"tex/texture3.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='24141' position='236.376 1.60488 -71.1623' size='2.66924 2.36977 2.46786'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147373528_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147373528_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147373528_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147373528_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+              </Group>
+              <Group>
+                <Group>
+                  <Group>
+                    <Shape>
+                      <Appearance DEF='App_8'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_9' url='"tex/texture6.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='40758' position='245.366 3.25249 -71.1622' size='4.76131 6.50502 5.13538'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148021144_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148021144_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT148021144_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT148021144_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                    <Shape>
+                      <Appearance DEF='App_10'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_11' url='"tex/texture7.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='58884' position='239.353 2.68 -71.1623' size='13.4735 4.56 15.3999'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148034072_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148034072_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT148034072_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT148034072_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                  </Group>
+                  <Shape>
+                    <Appearance DEF='App_12'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_13' url='"tex/texture5.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='46428' position='244.648 3.1725 -71.1622' size='4.47299 6.34501 4.42976'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148043840_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148043840_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT148043840_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT148043840_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Shape>
+                  <Appearance DEF='App_14'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_15' url='"tex/texture4.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='57306' position='240.953 4.09254 -71.1623' size='11.7566 8.18508 4.49541'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148053632_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148053632_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT148053632_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT148053632_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+            </Group>
+            <Group>
+              <Shape>
+                <Appearance DEF='App_16'>
+                  <Material USE='AOPT_Material_156825360'/>
+                  <ImageTexture DEF='Tex_17' url='"tex/texture8.jpg"'/>
+                </Appearance>
+                <ImageGeometry vertexCount='52512' position='232.995 3.6928 -71.1623' size='13.882 6.5856 15.4451'>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148065648_coordImage0.png"'/>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148065648_coordImage1.png"'/>
+                  <ImageTexture containerField='normal' url='"geoTex/AOPT148065648_normalImage.png"'/>
+                  <ImageTexture containerField='texCoord' url='"geoTex/AOPT148065648_texCoordImage.png"'/>
+                </ImageGeometry>
+              </Shape>
+              <Shape>
+                <Appearance DEF='App_18'>
+                  <Material USE='AOPT_Material_156825360'/>
+                  <ImageTexture DEF='Tex_19' url='"tex/texture9.jpg"'/>
+                </Appearance>
+                <ImageGeometry vertexCount='42714' position='234.91 12.1008 -71.3131' size='26.9301 24.8816 23.7185'>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148075536_coordImage0.png"'/>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148075536_coordImage1.png"'/>
+                  <ImageTexture containerField='normal' url='"geoTex/AOPT148075536_normalImage.png"'/>
+                  <ImageTexture containerField='texCoord' url='"geoTex/AOPT148075536_texCoordImage.png"'/>
+                </ImageGeometry>
+              </Shape>
+            </Group>
+          </Group>
+          <Group>
+            <Group>
+              <Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_20'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_21' url='"tex/texture11.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='14574' position='234.783 5.63 -69.4373' size='26.395 12.16 18.8499'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148090000_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148090000_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT148090000_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT148090000_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_22'>
+                      <Material ambientIntensity='1' diffuseColor='0.666667 0.792157 0.905882' shininess='0.43' specularColor='0.72 0.72 0.72' transparency='0.8'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='2301' position='234.25 8.37 -70.8373' size='24.83 17.4 21.53'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147577456_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147577456_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147577456_normalImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_23'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_24' url='"tex/texture12.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='50784' position='234.895 8.24 -71.1622' size='26.2 6.94 20.8379'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147583008_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147583008_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147583008_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147583008_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_25'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_26' url='"tex/texture13.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='13404' position='221.755 4.63132 -71.1622' size='0.37912 3.85738 21.0001'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147592736_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147592736_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147592736_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147592736_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+              </Group>
+              <Shape>
+                <Appearance DEF='App_27'>
+                  <Material USE='AOPT_Material_156825360'/>
+                  <ImageTexture DEF='Tex_28' url='"tex/texture10.jpg"'/>
+                </Appearance>
+                <ImageGeometry vertexCount='40128' position='234.37 3.24009 -70.8475' size='26.51 7.9202 22.5697'>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT149704656_coordImage0.png"'/>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT149704656_coordImage1.png"'/>
+                  <ImageTexture containerField='normal' url='"geoTex/AOPT149704656_normalImage.png"'/>
+                  <ImageTexture containerField='texCoord' url='"geoTex/AOPT149704656_texCoordImage.png"'/>
+                </ImageGeometry>
+              </Shape>
+            </Group>
+            <Group>
+              <Group>
+                <Shape>
+                  <Appearance DEF='App_29'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_30' url='"tex/texture15.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='24756' position='234.92 7.61117 -71.1623' size='26.6698 15.2224 21'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT149717784_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT149717784_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT149717784_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT149717784_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+                <Shape>
+                  <Appearance DEF='App_31'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_32' url='"tex/texture16.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='51483' position='235.143 10.0883 -71.39' size='26.5249 20.8566 23.6547'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148023984_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148023984_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT148023984_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT148023984_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+              <Shape>
+                <Appearance DEF='App_33'>
+                  <Material USE='AOPT_Material_156825360'/>
+                  <ImageTexture DEF='Tex_34' url='"tex/texture14.jpg"'/>
+                </Appearance>
+                <ImageGeometry vertexCount='41445' position='234.893 4.95 -71.0773' size='26.7578 7.62001 21.17'>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT149743464_coordImage0.png"'/>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT149743464_coordImage1.png"'/>
+                  <ImageTexture containerField='normal' url='"geoTex/AOPT149743464_normalImage.png"'/>
+                  <ImageTexture containerField='texCoord' url='"geoTex/AOPT149743464_texCoordImage.png"'/>
+                </ImageGeometry>
+              </Shape>
+            </Group>
+          </Group>
+        </Group>
+        <Group>
+          <Group>
+            <Group>
+              <Group>
+                <Group>
+                  <Group>
+                    <Shape>
+                      <Appearance DEF='App_35'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_36' url='"tex/texture18.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='46140' position='235.151 6.61264 -71.1623' size='25.9471 10.1447 15.89'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT147393344_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT147393344_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT147393344_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT147393344_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                    <Shape>
+                      <Appearance DEF='App_37'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_38' url='"tex/texture19.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='37428' position='232.54 9.06 -71.1623' size='13.44 5.25 15.89'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT147403104_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT147403104_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT147403104_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT147403104_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                  </Group>
+                  <Shape>
+                    <Appearance DEF='App_39'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_40' url='"tex/texture17.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='5856' position='233.205 11.4299 -71.3173' size='23.48 24.2999 23.7101'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147413160_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT147413160_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT147413160_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT147413160_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Group>
+                  <Group>
+                    <Group>
+                      <Group>
+                        <Shape>
+                          <Appearance DEF='App_41'>
+                            <Material USE='AOPT_Material_156825360'/>
+                            <ImageTexture DEF='Tex_42' url='"tex/texture22.jpg"'/>
+                          </Appearance>
+                          <ImageGeometry vertexCount='22152' position='238.539 5.3602 -71.1622' size='10.0205 0.732413 9.59332'>
+                            <ImageTexture containerField='coord' url='"geoTex/AOPT148102936_coordImage0.png"'/>
+                            <ImageTexture containerField='coord' url='"geoTex/AOPT148102936_coordImage1.png"'/>
+                            <ImageTexture containerField='normal' url='"geoTex/AOPT148102936_normalImage.png"'/>
+                            <ImageTexture containerField='texCoord' url='"geoTex/AOPT148102936_texCoordImage.png"'/>
+                          </ImageGeometry>
+                        </Shape>
+                        <Shape>
+                          <Appearance DEF='App_43'>
+                            <Material USE='AOPT_Material_156825360'/>
+                            <ImageTexture DEF='Tex_44' url='"tex/texture23.jpg"'/>
+                          </Appearance>
+                          <ImageGeometry vertexCount='45492' position='237.123 5.3602 -66.3716' size='10.9486 0.732414 0.0120087'>
+                            <ImageTexture containerField='coord' url='"geoTex/AOPT147423224_coordImage0.png"'/>
+                            <ImageTexture containerField='coord' url='"geoTex/AOPT147423224_coordImage1.png"'/>
+                            <ImageTexture containerField='normal' url='"geoTex/AOPT147423224_normalImage.png"'/>
+                            <ImageTexture containerField='texCoord' url='"geoTex/AOPT147423224_texCoordImage.png"'/>
+                          </ImageGeometry>
+                        </Shape>
+                      </Group>
+                      <Shape>
+                        <Appearance DEF='App_45'>
+                          <Material USE='AOPT_Material_156825360'/>
+                          <ImageTexture DEF='Tex_46' url='"tex/texture21.jpg"'/>
+                        </Appearance>
+                        <ImageGeometry vertexCount='50724' position='241.487 5.36 -71.2471' size='6.63649 0.732009 9.42362'>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT147433016_coordImage0.png"'/>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT147433016_coordImage1.png"'/>
+                          <ImageTexture containerField='normal' url='"geoTex/AOPT147433016_normalImage.png"'/>
+                          <ImageTexture containerField='texCoord' url='"geoTex/AOPT147433016_texCoordImage.png"'/>
+                        </ImageGeometry>
+                      </Shape>
+                    </Group>
+                    <Shape>
+                      <Appearance DEF='App_47'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_48' url='"tex/texture20.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='53040' position='234.382 3.943 -71.1623' size='12.2845 3.56601 15.96'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT151354120_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT151354120_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT151354120_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT151354120_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                  </Group>
+                  <Group>
+                    <Group>
+                      <Shape>
+                        <Appearance DEF='App_49'>
+                          <Material USE='AOPT_Material_156825360'/>
+                          <ImageTexture DEF='Tex_50' url='"tex/texture24.jpg"'/>
+                        </Appearance>
+                        <ImageGeometry vertexCount='42384' position='237.514 5.3602 -71.0769' size='12.07 0.732411 9.42262'>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT151366096_coordImage0.png"'/>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT151366096_coordImage1.png"'/>
+                          <ImageTexture containerField='normal' url='"geoTex/AOPT151366096_normalImage.png"'/>
+                          <ImageTexture containerField='texCoord' url='"geoTex/AOPT151366096_texCoordImage.png"'/>
+                        </ImageGeometry>
+                      </Shape>
+                      <Shape>
+                        <Appearance DEF='App_51'>
+                          <Material USE='AOPT_Material_156825360'/>
+                          <ImageTexture DEF='Tex_52' url='"tex/texture25.jpg"'/>
+                        </Appearance>
+                        <ImageGeometry vertexCount='33300' position='235.986 4.013 -71.4961' size='20.162 3.426 14.9129'>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT151375840_coordImage0.png"'/>
+                          <ImageTexture containerField='coord' url='"geoTex/AOPT151375840_coordImage1.png"'/>
+                          <ImageTexture containerField='normal' url='"geoTex/AOPT151375840_normalImage.png"'/>
+                          <ImageTexture containerField='texCoord' url='"geoTex/AOPT151375840_texCoordImage.png"'/>
+                        </ImageGeometry>
+                      </Shape>
+                    </Group>
+                    <Shape>
+                      <Appearance DEF='App_53'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_54' url='"tex/texture26.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='46440' position='234.886 9.775 -71.2533' size='27.0979 15.45 23.838'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148142056_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT148142056_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT148142056_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT148142056_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                  </Group>
+                </Group>
+              </Group>
+              <Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_55'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_56' url='"tex/texture27.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='49056' position='234.95 4.72 -71.3173' size='26.9699 10.12 23.71'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148153552_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148153552_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT148153552_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT148153552_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_57'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_58' url='"tex/texture28.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='19068' position='236.65 6.02501 -70.1073' size='22.1905 12.05 17.51'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148163296_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT148163296_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT148163296_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT148163296_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Shape>
+                  <Appearance DEF='App_59'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_60' url='"tex/texture29.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='17466' position='235.045 8.52 -71.3773' size='26.4209 17.72 23.5899'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148173088_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148173088_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT148173088_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT148173088_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+            </Group>
+            <Group>
+              <Group>
+                <Shape>
+                  <Appearance DEF='App_61'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_62' url='"tex/texture31.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='35088' position='238.218 0.466403 -67.8233' size='7.24281 0.932806 5.13'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148185232_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148185232_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT148185232_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT148185232_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+                <Shape>
+                  <Appearance DEF='App_63'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_64' url='"tex/texture32.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='53352' position='234.487 0.466403 -70.3366' size='14.735 0.932807 13.4614'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148194976_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT148194976_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT148194976_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT148194976_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+              <Shape>
+                <Appearance DEF='App_65'>
+                  <Material USE='AOPT_Material_156825360'/>
+                  <ImageTexture DEF='Tex_66' url='"tex/texture30.jpg"'/>
+                </Appearance>
+                <ImageGeometry vertexCount='52197' position='237.1 7.26999 -71.1623' size='22.07 14.54 15.4'>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148204768_coordImage0.png"'/>
+                  <ImageTexture containerField='coord' url='"geoTex/AOPT148204768_coordImage1.png"'/>
+                  <ImageTexture containerField='normal' url='"geoTex/AOPT148204768_normalImage.png"'/>
+                  <ImageTexture containerField='texCoord' url='"geoTex/AOPT148204768_texCoordImage.png"'/>
+                </ImageGeometry>
+              </Shape>
+            </Group>
+          </Group>
+          <Group>
+            <Group>
+              <Group>
+                <Shape>
+                  <Appearance DEF='App_67'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_68' url='"tex/texture33.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='42468' position='235.705 0.466402 -75.3411' size='8.93739 0.932806 6.7624'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT153231760_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT153231760_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT153231760_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT153231760_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+                <Shape>
+                  <Appearance DEF='App_69'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_70' url='"tex/texture34.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='36192' position='234.025 0.466402 -74.5049' size='15.6574 0.932806 5.13'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT153243552_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT153243552_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT153243552_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT153243552_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+              <Group>
+                <Shape>
+                  <Appearance DEF='App_71'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_72' url='"tex/texture35.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='29124' position='233.637 8.56 -71.5365' size='13.075 17.12 11.0668'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150534880_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150534880_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT150534880_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT150534880_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+                <Shape>
+                  <Appearance DEF='App_73'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_74' url='"tex/texture36.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='48708' position='237.826 8.60001 -71.1622' size='13.421 17.2 10.3183'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150544416_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150544416_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT150544416_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT150544416_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+            </Group>
+            <Group>
+              <Group>
+                <Group>
+                  <Shape>
+                    <Appearance DEF='App_75'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_76' url='"tex/texture37.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='32160' position='236.29 6.19502 -71.1622' size='3.14934 0.196366 3.17879'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT149735944_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT149735944_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT149735944_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT149735944_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                  <Shape>
+                    <Appearance DEF='App_77'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_78' url='"tex/texture38.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='32256' position='236.268 6.21355 -71.1622' size='3.16487 0.233433 3.15073'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT150579744_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT150579744_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT150579744_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT150579744_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Shape>
+                  <Appearance DEF='App_79'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_80' url='"tex/texture39.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='28368' position='236.275 6.26049 -71.1622' size='3.21878 0.17257 3.2187'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150589536_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT150589536_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT150589536_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT150589536_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+              <Group>
+                <Group>
+                  <Group>
+                    <Shape>
+                      <Appearance DEF='App_81'>
+                        <Material USE='AOPT_Material_156825360'/>
+                        <ImageTexture DEF='Tex_82' url='"tex/texture42.jpg"'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='38556' position='238.48 3.13689 -73.5886' size='159.391 17.8632 159.391'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT150602784_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT150602784_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT150602784_normalImage.png"'/>
+                        <ImageTexture containerField='texCoord' url='"geoTex/AOPT150602784_texCoordImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                    <Shape>
+                      <Appearance DEF='App_83'>
+                        <Material USE='AOPT_Material_156825360'/>
+                      </Appearance>
+                      <ImageGeometry vertexCount='5508' position='230.514 2.93106 -71.1572' size='1.83376 1.79412 10.0552'>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT150610032_coordImage0.png"'/>
+                        <ImageTexture containerField='coord' url='"geoTex/AOPT150610032_coordImage1.png"'/>
+                        <ImageTexture containerField='normal' url='"geoTex/AOPT150610032_normalImage.png"'/>
+                      </ImageGeometry>
+                    </Shape>
+                  </Group>
+                  <Shape>
+                    <Appearance DEF='App_84'>
+                      <Material USE='AOPT_Material_156825360'/>
+                      <ImageTexture DEF='Tex_85' url='"tex/texture41.jpg"'/>
+                    </Appearance>
+                    <ImageGeometry vertexCount='41964' position='238.243 11.4745 -71.1723' size='6.97783 10.2984 6.88999'>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT155407240_coordImage0.png"'/>
+                      <ImageTexture containerField='coord' url='"geoTex/AOPT155407240_coordImage1.png"'/>
+                      <ImageTexture containerField='normal' url='"geoTex/AOPT155407240_normalImage.png"'/>
+                      <ImageTexture containerField='texCoord' url='"geoTex/AOPT155407240_texCoordImage.png"'/>
+                    </ImageGeometry>
+                  </Shape>
+                </Group>
+                <Shape>
+                  <Appearance DEF='App_86'>
+                    <Material USE='AOPT_Material_156825360'/>
+                    <ImageTexture DEF='Tex_87' url='"tex/texture40.jpg"'/>
+                  </Appearance>
+                  <ImageGeometry vertexCount='24084' position='236.275 6.38584 -71.1623' size='3.17436 0.380505 3.17438'>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT155253080_coordImage0.png"'/>
+                    <ImageTexture containerField='coord' url='"geoTex/AOPT155253080_coordImage1.png"'/>
+                    <ImageTexture containerField='normal' url='"geoTex/AOPT155253080_normalImage.png"'/>
+                    <ImageTexture containerField='texCoord' url='"geoTex/AOPT155253080_texCoordImage.png"'/>
+                  </ImageGeometry>
+                </Shape>
+              </Group>
+            </Group>
+          </Group>
+        </Group>
+      </Group>
+    </Group>
+  </Scene>
+</X3D>
