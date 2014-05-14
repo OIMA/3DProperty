@@ -16,6 +16,10 @@
     <!--============================================================================================================================================
                                             CONTROLES
     =============================================================================================================================================-->
+    <bean id="Busqueda" class="com.oima.project.DDDProperty.controller.ControlBusqueda" scope="prototype">
+        <property name="servicioPropiedad" ref="servicioPropiedad"/>
+    </bean>
+    
     <bean id="CatalogoFotos" class="com.oima.project.DDDProperty.controller.ControlCatalogoFotos" scope="prototype">
         <property name="servicioCatalogoFotos" ref="servicioCatalogoFotos"/>
     </bean>

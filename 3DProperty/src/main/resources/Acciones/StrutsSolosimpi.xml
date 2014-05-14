@@ -398,3 +398,15 @@
         <result type="json"></result>
     </action>
 </package>
+
+<package name="busqueda" extends="struts-default, json-default">
+    <action name="verBusqueda" class="Busqueda" method="mostrarPaginaBusqueda">
+        <result>/test/TestBusqueda.jsp</result>
+    </action>
+    <action name="consultarPropiedadesPorPCJson" class="Busqueda" method="consultarPropiedadesPorLikeDescripcion">
+        <result type="json"></result>
+    </action>
+    <action name="obtenerListaClaveJson" class="Busqueda" method="filtrarPalabrasClave">
+        <result type="json"></result>
+    </action>
+</package>

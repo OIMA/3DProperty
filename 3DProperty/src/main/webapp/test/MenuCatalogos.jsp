@@ -33,6 +33,7 @@
             <li><a href="RegistroPagoTest.action">Tabla Registro Pago</a></li>
             <li><a href="testUsuario.action">Tabla Usuario</a></li>
             <li><a href="verChat.action">Chat (OJO!Sesion Iniciada)</a></li>
+            <li><a href="verBusqueda.action">Busqueda por palabras clave</a></li>
         </ol>
 
     </body>

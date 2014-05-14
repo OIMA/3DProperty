@@ -61,7 +61,7 @@ public class ControlPropiedad extends Controller {
     public String buscarPorCategoria() throws Exception {
         System.out.println(idCategoria);
         Categoria categoria = servicioCategoria.consultarUnico(Long.valueOf(idCategoria));
-        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria.getIdCategoria(), "equal", Categoria.class, null));
+        setListaPropiedades(servicioPropiedad.consultaPorCampoEspecifico("idCategoria", categoria.getIdCategoria(), "equal", null));
         borrarServicios();
         return SUCCESS;
     }
