@@ -30,7 +30,7 @@
             <li><a href="testPais.action">Tabla Pais</a></li>
             <li><a href="testPropiedad.action">Tabla Propiedad</a></li>
             <li><a href="testPublicidad.action">Tabla Publicidad</a></li>
-            <li><a href="RegistroPagoTest.action">Tabla Registro Pago</a></li>
+            <li><a href="testRegistroPago.action">Tabla Registro Pago</a></li>
             <li><a href="testUsuario.action">Tabla Usuario</a></li>
             <li><a href="verChat.action">Chat (OJO!Sesion Iniciada)</a></li>
             <li><a href="verBusqueda.action">Busqueda por palabras clave</a></li>

@@ -108,6 +108,10 @@
         <property name="servicioPublicidad" ref="servicioPublicidad"/>
     </bean>
     
+    <bean id="RegistroPago" class="com.oima.project.DDDProperty.controller.ControlRegistroPago" scope="prototype">
+        <property name="servicioRegistroPago" ref="servicioRegistroPago"/>
+    </bean>
+    
     <bean id="Usuario" class="com.oima.project.DDDProperty.controller.ControlUsuario" scope="prototype">
         <property name="servicioColonia" ref="servicioColonia"/>
         <property name="servicioUsuario" ref="servicioUsuario"/>

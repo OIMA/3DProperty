@@ -99,6 +99,9 @@
     <action name="consultarPropiedadesContratoJSON" class="Contrato" method="consultarPropiedades">
         <result type="json"></result>
     </action>
+    <action name="consultarContratosJson" class="Contrato" method="consultarTodos">
+        <result type="json"></result>
+    </action>
 </package>
 <package name="tablaDiseniadorPropiedad" extends="struts-default">
     <action name="testDiseniadorPropiedad" class="DiseniadorPropiedad" method="consultarTodos">
@@ -232,7 +235,7 @@
     </action>
 </package>
 
-<package name="tablaPago" extends="struts-default">
+<package name="tablaPago" extends="struts-default, json-default">
     <action name="testPago" class="Pago" method="consultarTodos">
         <result>/test/TestPago.jsp</result>
     </action>
@@ -248,6 +251,9 @@
     <action name="editarPago" class="Pago" method="editar">
         <result type="redirectAction">testPago</result>
     </action>
+    <action name="consultarPagosJson" class="Pago" method="consultarTodos">
+        <result type="json"></result>
+    </action> 
 </package>
 
 <package name="tablaPais" extends="struts-default, json-default">
@@ -323,7 +329,22 @@
     </action>
 </package>
 
-<package name="tablaRegistroPago" extends="struts-default">    
+<package name="tablaRegistroPago" extends="struts-default">
+    <action name="testRegistroPago" class="RegistroPago" method="consultarTodos">
+        <result>/test/TestRegistroPago.jsp</result>
+    </action>
+    <action name="eliminarRegistroPago" class="RegistroPago" method="eliminar">
+        <result type="redirectAction">testRegistroPago</result>
+    </action>
+    <action name="consultarRegistroPago" class="RegistroPago" method="consultarUnico">
+        <result>/test/TestRegistroPago.jsp</result>
+    </action>
+    <action name="guardarRegistroPago" class="RegistroPago" method="guardar">
+        <result>/test/TestRegistroPago.jsp</result>
+    </action>
+    <action name="editarRegistroPago" class="RegistroPago" method="editar">
+        <result type="redirectAction">testRegistroPago</result>
+    </action>
 </package>
 
 <package name="tablaUsuario" extends="struts-default, json-default">

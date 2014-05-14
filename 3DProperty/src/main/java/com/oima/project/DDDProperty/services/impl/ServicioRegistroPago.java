@@ -39,8 +39,8 @@ public class ServicioRegistroPago {
         return query.consultarTodos(clase);
     }
 
-    public Object consultarUnico(Long primaryKey) throws Exception {
-        return query.consultarUnico(primaryKey, RegistroPago.class, "RegistroPago");
+    public RegistroPago consultarUnico(Long primaryKey) throws Exception {
+        return (RegistroPago)query.consultarUnico(primaryKey, RegistroPago.class, "RegistroPago");
     }
 
     public DAO getQuery() {
