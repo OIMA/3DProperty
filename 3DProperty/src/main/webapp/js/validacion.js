@@ -1,6 +1,6 @@
 function combo(cadena)
 {
-    return cadena!=-1;
+    return cadena != -1;
 }
 
 function esCURP(cadena)
@@ -35,7 +35,7 @@ function soloLetras(cadena)
 
 function noNull(cadena)
 {
-    return cadena.length>0;
+    return cadena.length > 0;
 }
 
 function fechaFormato(cadena)
@@ -43,13 +43,11 @@ function fechaFormato(cadena)
     return /^(?:(?:0?[1-9]|1[0-9]|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9]|[0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9]|[0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:[0-9][0-9])?(?:0[48]|[2468][048]|[13579][26]))$/.test(cadena);
 }
 
-function prueba(cadena, element)
+function pruebaFormulario(cadena, element)
 {
-    var bandera = true;
     var classList = element.attr('class').split(/\s+/);
-    $.each( classList, function(index, item){
-        alert(cadena+','+element+'.'+item);
-        if (item === 'nn') 
+    $.each(classList, function(index, item) {
+        if (item === 'nn')
         {
             alert('No nulo');
             bandera = noNull(cadena);
@@ -57,7 +55,7 @@ function prueba(cadena, element)
                 return false;
             }
         }
-        if (item === 'sl') 
+        if (item === 'sl')
         {
             alert('Solo letras');
             bandera = soloLetras(cadena);
@@ -65,7 +63,7 @@ function prueba(cadena, element)
                 return false;
             }
         }
-        if (item === 'sn') 
+        if (item === 'sn')
         {
             alert('Solo numeros');
             bandera = soloNumeros(cadena);
@@ -73,7 +71,7 @@ function prueba(cadena, element)
                 return false;
             }
         }
-        if (item === 'em') 
+        if (item === 'em')
         {
             alert('Email');
             bandera = esEmail(cadena);
@@ -81,7 +79,7 @@ function prueba(cadena, element)
                 return false;
             }
         }
-        if (item === 'ff') 
+        if (item === 'ff')
         {
             alert('Fecha');
             bandera = fechaFormato(cadena);
@@ -96,21 +94,21 @@ function prueba(cadena, element)
                 return false;
             }
         }
-        if (item === 'curp') 
+        if (item === 'curp')
         {
             bandera = esCURP(cadena);
             if (!bandera) {
                 return false;
             }
         }
-        if (item === 'rfc') 
+        if (item === 'rfc')
         {
             bandera = esRFC(cadena);
             if (!bandera) {
                 return false;
             }
         }
-        if (item === 'cc') 
+        if (item === 'cc')
         {
             bandera = combo(cadena);
             if (!bandera) {
@@ -120,21 +118,102 @@ function prueba(cadena, element)
     });
     return bandera;
 }
-$('#botonSubmit').submit(function() 
-    {
-        alert('submit');
-    });
-    
+
 $(document).ready(function()
 {
-    $('.campo').blur(function ()
+    $(".vf").click(function (event)
+    {
+        var bandera = false;
+        var inputs = $(".form").find('input');
+        $.each(inputs, function(index, element)
         {
-            alert('event');
-            var cadena = $(this).val();
-            var element = $(this);
-            if (!prueba(cadena,element))
-                event.preventDefault();
+            var classList = $(element).attr('class').split(/\s+/);
+            if ($.inArray('campo',classList)>=0) 
+            {
+                $.each(classList, function(index, item) 
+                {
+                    if (item === 'nn')
+                    {
+                        bandera = noNull(element.value);
+                        if (!bandera) {
+                            alert('Campo '+element.name+' es nulo');
+                            return false;
+                        }
+                    }
+                    if (item === 'sl')
+                    {
+                        bandera = soloLetras(element.value);
+                        if (!bandera) {
+                            alert('Solo letras '+element.value+' invalidos');
+                            return false;
+                        }
+                    }
+                    if (item === 'sn')
+                    {
+                        bandera = soloNumeros(element.value);
+                        if (!bandera) {
+                            alert('Solo numeros'+element.value+' invalidos');
+                            return false;
+                        }
+                    }
+                    if (item === 'em')
+                    {
+                        alert('Email');
+                        bandera = esEmail(element.value);
+                        if (!bandera) {
+                            return false;
+                        }
+                    }
+                    if (item === 'ff')
+                    {
+                        bandera = fechaFormato(element.value);
+                        if (!bandera) {
+                            alert('Fecha '+element.value+' invalida');
+                            return false;
+                        }
+                    }
+                    if (item === 'ns')
+                    {
+                        bandera = element.value.containts('<script>');
+                        if (!bandera) {
+                            return false;
+                        }
+                    }
+                    if (item === 'curp')
+                    {
+                        bandera = esCURP(element.value);
+                        if (!bandera) {
+                            return false;
+                        }
+                    }
+                    if (item === 'rfc')
+                    {
+                        bandera = esRFC(element.value);
+                        if (!bandera) {
+                            return false;
+                        }
+                    }
+                    if (item === 'cc')
+                    {
+                        bandera = combo(element.value);
+                        if (!bandera) {
+                            return false;
+                        }
+                    }
+                });
+            }
         });
+        alert(bandera);
+        if (!bandera) 
+            event.preventDefault();
+    });
+    
+    $('.campo').blur(function()
+    {
+        var cadena = $(this).val();
+        var element = $(this);
+        pruebaFormulario(cadena, element);
+    });
 });
 
 //$(".vf").click(function()
@@ -146,14 +225,14 @@ $(document).ready(function()
 //        var em = $('.em').val();
 //        var cp = $('.cp').val();
 //        var cu = $('.cu').val();
-        
+
 //        expSL = new RegExp('^[a-zA-Z\s]*$');
 //        expSN = new RegExp('^[0-9]*$');
 //        expFF = new RegExp('^(?:(?:0?[1-9]|1[0-9]|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9]|[0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9][0-9][0-9][0-9]|[0-9][1-9][0-9][0-9]|[0-9][0-9][1-9][0-9]|[0-9][0-9][0-9][1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:[0-9][0-9])?(?:0[48]|[2468][048]|[13579][26]))$');
 //        expEM = new RegExp('^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,4}');
 //        expCP = new RegExp('^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$');
 //        expCU = new RegExp('^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$')
-        
+
 //        if (!sl.match(expSL)) 
 //            $('#div').html("Solo letras");
 //        if (sn.match(expSN))

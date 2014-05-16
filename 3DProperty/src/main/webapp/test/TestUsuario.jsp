@@ -84,7 +84,7 @@
         <div id="altas">
             <h1>Alta de Usuarios.</h1>
             <s:if test="listaColonia.size>0">
-                <s:form id="formularioUsuario" action="guardarUsuario" method="post" name="">
+                <s:form id="formularioUsuario" action="guardarUsuario" method="post" name="" cssClass="form">
                     <s:textfield label="Nombre Usuario" name="usuario.nombreUsuario" value="" cssClass="sl nn campo" maxLength="45"/>
                     <s:password label="Contraseña" name="usuario.contrasenia" value=""/>
                     <s:textfield label="Nombre" name="usuario.nombre" value="" cssClass="sl nn campo"/>
