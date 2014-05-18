@@ -16,6 +16,7 @@
                     <label class="label label-primary">Seleccione un archivo</label>
                     <s:file name="archivoDisenio" cssClass="form-control"/>
                     <div class="form-group"></div>
+                    <s:url id="propiedadURL" action="consultarPropiedadesJson"/>
                     <sj:select 
                         href="%{propiedadURL}" 
                         id="propiedad" 

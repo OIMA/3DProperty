@@ -37,6 +37,9 @@
                             <li>
                                 <a href="PanelAdministrador.action?operacion=altaCodigoPostal">Codigo Postal</a>
                             </li>
+                            <li>
+                                <a href="PanelAdministrador.action?operacion=altaColonia">Colonia</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -59,7 +62,39 @@
             <li>
                 <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> Tablas<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaCategoria">Categor&iacute;as</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaCodigoPostal">Codigos Postales</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaPais">Paises</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaEstado">Estados</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaLocalidad">Localidades</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaColonia">Colonias</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaPropiedad">Propiedades</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaPublicidad">Publicidad</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaUsuario">Usuarios</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaDisenio">Diseños</a>
+                    </li>
+                    <li>
+                        <a href="PanelAdministrador.action?operacion=tablaContrato">Contratos</a>
+                    </li>
                 </ul>
             </li>
             <li>

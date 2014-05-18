@@ -6,24 +6,75 @@
             <div class="col-md-8 column">
                 <h1>Alta de Codigo Postales.</h1>
                 <s:if test="listaLocalidad.size>0">
-                    <s:form theme="bootstrap" class="form-horizontal" role="form" action="guardarCodigoPostal" method="post" name="">
-                        <s:textfield label="Número" name="codigoPostal.numero" value="" cssClass="form-control"/>
-                        <s:select 
-                            name="codigoPostal.idLocalidad.idLocalidad" 
+                    <s:form id="formCodigoPostal" theme="bootstrap" class="form-horizontal" role="form" action="" method="post" name="">
+                        <s:textfield label="Número" name="codigoPostal.numero" value="" cssClass="form-control"/><br/>
+                        <s:url id="paisURL" action="consultarPaisesJson"/> 
+                        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+                        <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
+                        <sj:select 
+                            href="%{paisURL}" 
+                            id="pais" 
+                            onChangeTopics="recargarEstados,recargarLocalidades" 
+                            name="idPais" 
+                            list="listaPais" 
+                            listKey="idPais" 
+                            listValue="nombre" 
+                            headerKey="-1"
+                            headerValue="Seleccione un Pais"
+                            cssClass="cc campo form-control"
+                            label="Pais"
+                            /><br/>
+
+                        <sj:select 
+                            href="%{estadoURL}" 
+                            id="estado" 
+                            reloadTopics="recargarEstados"
+                            onChangeTopics="recargarLocalidades"
+                            name="idEstado"
+                            formIds="formCodigoPostal"
+                            list="listaEstado"
+                            listKey="idEstado" 
+                            listValue="nombre" 
+                            headerKey="-1" 
+                            headerValue="Seleccione un Estado" 
+                            cssClass="cc campo form-control"
+                            label="Estado"
+                            /> <br/>
+
+                        <sj:select 
+                            href="%{localidadURL}" 
+                            id="localidad" 
+                            reloadTopics="recargarLocalidades"
+                            name="codigoPostal.idLocalidad.idLocalidad"
+                            formIds="formCodigoPostal"
                             list="listaLocalidad"
-                            listKey="%{idLocalidad}"
-                            listValue="%{nombre}"
+                            listKey="idLocalidad" 
+                            listValue="nombre"
+                            headerKey="-1" 
+                            headerValue="Seleccione una Localidad" 
+                            cssClass="cc campo form-control"
                             label="Localidad"
-                            cssClass="form-control"
+                            /><br/>
+                        <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                        <s:url id="codigoPostalURL" action="guardarCodigoPostalJson"/> 
+                        <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo el codigo postal</b></h4></center></div><br/>
+                        <sj:submit
+                            
+                            href="%{codigoPostalURL}" 
+                            value="Guardar" 
+                            targets="target"
+                            cssClass="btn btn-primary"
+                            onCompleteTopics="mostrarMensaje"
                             />
-                        <s:submit value="Guardar" cssClass="btn btn-primary"/>
+                        <div id ="target"></div>
                     </s:form>
+                        
                 </s:if>
                 <s:else>
                     <div class="alert alert-danger">
                         <h3>
-                    No hay datos en <a class="alert-link" href="testLocalidad.action">Localidades</a>.
-                    </h3>
+                            No hay datos en <a class="alert-link" href="testLocalidad.action">Localidades</a>.
+                        </h3>
                     </div>
                 </s:else>
             </div>

@@ -19,6 +19,7 @@
         <s:url id="propiedadURL" action="consultarPropiedadesContratoJSON"/>
         <div id="consultas">
             <s:if test="listaContrato.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -35,8 +36,7 @@
                             <td>${idUsuario.nombre}</td>
                             <td>${idPropiedad.nombre}</td>
                             <td>
-                                <a href="eliminarContrato.action?idContrato=${idContrato}"> Eliminar </a> 
-                                <a href="consultarContrato.action?idContrato=${idContrato}"> Editar </a>
+                                <a metodo="eliminarContrato.action" nombre="idContrato" ide="${idContrato}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -46,36 +46,6 @@
                 <h1>No hay datos en Contrato.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Contratos.</h1>
-            <s:form action="guardarContrato" method="post" name="">
-                <sj:select 
-                        href="%{usuarioURL}" 
-                        id="usuario" 
-                        name="contrato.idUsuario.idUsuario" 
-                        list="listaUsuario" 
-                        listKey="idUsuario" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione un Usuario"
-                        label="Usuario"
-                        />
-                <sj:select 
-                        href="%{propiedadURL}" 
-                        id="propiedad" 
-                        name="contrato.idPropiedad.idPropiedad" 
-                        list="listaPropiedad" 
-                        listKey="idPropiedad" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione una Propiedad"
-                        label="Propiedad"
-                        />
-                <s:textfield label="Descripcion" name="contrato.descripcion"/>
-                <s:textfield label="Fecha" name="contrato.fecha"/>
-                <s:submit value="Guardar"/>
-            </s:form>
         </div>
     </body>
 </html>

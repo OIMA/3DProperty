@@ -34,6 +34,7 @@
             <li><a href="testUsuario.action">Tabla Usuario</a></li>
             <li><a href="verChat.action">Chat (OJO!Sesion Iniciada)</a></li>
             <li><a href="verBusqueda.action">Busqueda por palabras clave</a></li>
+            <li><a href="testURL.action">testURL</a></li>
         </ol>
 
     </body>

@@ -33,6 +33,18 @@
                         <s:if test="operacion=='altaPublicidad'"><%@include file="Formularios/formularioPublicidad.jspf" %></s:if>
                         <s:if test="operacion=='altaUsuario'"><%@include file="Formularios/formularioUsuario.jspf" %></s:if>
                         <s:if test="operacion=='altaDisenio'"><%@include file="Formularios/formularioDisenio.jspf" %></s:if>
+                        <s:if test="operacion=='altaContratos'"><%@include file="Formularios/formularioContrato.jspf" %></s:if>
+                        <s:if test="operacion=='tablaCategoria'"><%@include file="Tablas/tablaCategoria.jspf" %></s:if>
+                        <s:if test="operacion=='tablaCodigoPostal'"><%@include file="Tablas/tablaCodigoPostal.jspf" %></s:if>
+                        <s:if test="operacion=='tablaPais'"><%@include file="Tablas/tablaPais.jspf" %></s:if>
+                        <s:if test="operacion=='tablaEstado'"><%@include file="Tablas/tablaEstado.jspf" %></s:if>
+                        <s:if test="operacion=='tablaLocalidad'"><%@include file="Tablas/tablaLocalidad.jspf" %></s:if>
+                        <s:if test="operacion=='tablaColonia'"><%@include file="Tablas/tablaColonia.jspf" %></s:if>
+                        <s:if test="operacion=='tablaPropiedad'"><%@include file="Tablas/tablaPropiedad.jspf" %></s:if>
+                        <s:if test="operacion=='tablaPublicidad'"><%@include file="Tablas/tablaPublicidad.jspf" %></s:if>
+                        <s:if test="operacion=='tablaUsuario'"><%@include file="Tablas/tablaUsuario.jspf" %></s:if>
+                        <s:if test="operacion=='tablaDisenio'"><%@include file="Tablas/tablaDisenio.jspf" %></s:if>
+                        <s:if test="operacion=='tablaContrato'"><%@include file="Tablas/tablaContrato.jspf" %></s:if>
                         <!-- /.row -->
                         <!--</div>-->
                     </div>

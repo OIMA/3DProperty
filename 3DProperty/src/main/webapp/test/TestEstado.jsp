@@ -15,6 +15,7 @@
     <body>
         <div id="consultas">
             <s:if test="listaEstado.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -28,8 +29,7 @@
                             <td>${nombre}</td>
                             <td>${idPais.nombre}</td>
                             <td>
-                                <a href="eliminarEstado.action?idEstado=${idEstado}"> Eliminar </a> 
-                                <a href="consultarEstado.action?idEstado=${idEstado}"> Editar </a>
+                                <a metodo="eliminarEstado.action" nombre="idEstado" ide="${idEstado}" class="eliminacion" href="#"> Eliminar </a> 
                             </td>
                         </tr>
                     </s:iterator>
@@ -39,45 +39,6 @@
                 <h1>No hay datos en Estado.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Estados.</h1>
-            <s:if test="listaPais.size>0">
-                <s:form action="guardarEstado" method="post" name="">
-                    <s:textfield label="Nombre" name="estado.nombre" value=""/>
-                    <s:select 
-                        name="estado.idPais.idPais" 
-                        list="listaPais"
-                        listKey="%{idPais}"
-                        listValue="%{nombre}"
-                        />
-                    <s:submit value="Guardar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testPais.action">Paises</a>.
-            </s:else>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Estado.</h1>
-            <s:if test="listaPais.size>0">    
-                <s:form action="editarEstado" method="post" name="">
-                    <s:hidden name="estado.idEstado" value="%{estado.idEstado}"/>
-                    <s:textfield label="Nombre" name="estado.nombre" value="%{estado.nombre}"/>
-                    <s:select 
-                        name="estado.idPais.idPais" 
-                        list="listaPais"
-                        listKey="%{idPais}"
-                        listValue="%{nombre}"
-                        value="%{estado.idPais.idPais}"
-                        />
-                    <s:hidden name="estado.status" value="%{estado.status}"/>
-                    <s:submit value="Actualizar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testPais.action">Paises</a>.
-            </s:else>
         </div>
     </body>
 </html>

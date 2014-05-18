@@ -15,6 +15,7 @@
     <body>
         <div id="consultas">
             <s:if test="listaPublicidad.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -28,8 +29,7 @@
                             <td>${detalle}</td>
                             <td>${ruta}</td>
                             <td>
-                                <a href="eliminarPublicidad.action?idPublicidad=${idPublicidad}"> Eliminar </a> 
-                                <a href="consultarPublicidad.action?idPublicidad=${idPublicidad}"> Editar </a>
+                                <a metodo="eliminarPublicidad.action" nombre="idPublicidad" ide="${idPublicidad}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -40,24 +40,5 @@
             </s:else>
 
         </div>
-        <div id="altas">
-            <h1>Alta de Publicidad.</h1>
-            <s:form action="guardarPublicidad" method="post" name="" enctype="multipart/form-data">
-                <s:textfield label="Detalle" name="publicidad.detalle"/>
-                <s:file label="Seleccione un archivo" name="archivoPublicidad"/>
-                <s:submit value="Guardar"/>
-            </s:form>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Publicidad.</h1>
-            <s:form action="editarPublicidad" method="post" name="" enctype="multipart/form-data">
-                <s:hidden name="publicidad.idPublicidad" value="%{publicidad.idPublicidad}"/>
-                <s:textfield label="Detalle" name="publicidad.detalle" value="%{publicidad.detalle}"/>
-                <s:file label="Seleccione un archivo" name="archivoPublicidad"/>
-                <s:hidden name="publicidad.status" value="%{publicidad.status}"/>
-                <s:submit value="Actualizar"/>
-            </s:form>
-        </div>
-        Imagen:<img src="<s:property value="archivoPublicidadFileName"/>" alt=""/>
     </body>
 </html>

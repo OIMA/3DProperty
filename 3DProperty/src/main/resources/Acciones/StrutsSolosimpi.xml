@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="tablaCatalogoFotos" extends="struts-default, json-default">
     <action name="testCatalogoFotos" class="CatalogoFotos" method="consultarTodos">
-        <result>/test/TestCatalogoFotos.jsp</result>
+        <result>/TestCatalogoFotos.jsp</result>
     </action>
     <action name="eliminarCatalogoFotos" class="CatalogoFotos" method="eliminar">
         <result type="redirectAction">testCatalogoFotos</result>
@@ -25,10 +25,10 @@
         <result type="redirectAction">testCategoria</result>
     </action>
     <action name="consultarCategoria" class="Categoria" method="consultarUnico">
-        <result >/test/TestCategoria.jsp</result>
+        <result >/roles/Administrador/PanelAdministrador.jsp</result>
     </action>
     <action name="guardarCategoria" class="Categoria" method="guardar">
-        <result type="redirectAction">testCategoria</result>
+        <result type="json"></result>
     </action>
     <action name="editarCategoria" class="Categoria" method="editar">
         <result type="redirectAction">testCategoria</result>
@@ -50,6 +50,9 @@
     </action>
     <action name="guardarCodigoPostal" class="CodigoPostal" method="guardar">
         <result type="redirectAction">testCodigoPostal</result>
+    </action>
+    <action name="guardarCodigoPostalJson" class="CodigoPostal" method="guardar">
+        <result type="json"></result>
     </action>
     <action name="editarCodigoPostal" class="CodigoPostal" method="editar">
         <result type="redirectAction">testCodigoPostal</result>
@@ -73,6 +76,9 @@
         <result type="redirectAction">testColonia</result>
     </action>
     <action name="consultarColoniasJson" class="Colonia" method="consultarTodos">
+        <result type="json"></result>
+    </action>
+    <action name="guardarColoniaJson" class="Colonia" method="guardar">
         <result type="json"></result>
     </action>
 </package>
@@ -100,6 +106,9 @@
         <result type="json"></result>
     </action>
     <action name="consultarContratosJson" class="Contrato" method="consultarTodos">
+        <result type="json"></result>
+    </action>
+    <action name="guardarContratoJson" class="Contrato" method="guardar">
         <result type="json"></result>
     </action>
 </package>
@@ -132,7 +141,7 @@
         <result >/test/TestDisenio.jsp</result>
     </action>
     <action name="guardarDisenio" class="Disenio" method="guardar">
-        <result>/test/TestDisenio.jsp</result>
+        <result>/roles/Administrador/PanelAdministrador.jsp</result>
     </action>
     <action name="editarDisenio" class="Disenio" method="editar">
         <result type="redirectAction">testDisenio</result>
@@ -215,6 +224,10 @@
     <action name="editarLocalidad" class="Localidad" method="editar">
         <result type="redirectAction">testLocalidad</result>
     </action>
+    <action name="guardarLocalidadJson" class="Localidad" method="guardar">
+        <result type="json"></result>
+    </action>
+    
 </package>
 
 <package name="tablaMensaje" extends="struts-default">
@@ -269,6 +282,9 @@
     <action name="guardarPais" class="Pais" method="guardar">
         <result type="redirectAction">testPais</result>
     </action>
+    <action name="guardarPaisJson" class="Pais" method="guardar">
+        <result type="json"></result>
+    </action>
     <action name="editarPais" class="Pais" method="editar">
         <result type="redirectAction">testPais</result>
     </action>
@@ -293,9 +309,13 @@
     <action name="consultarPropiedadesJson" class="Propiedad" method="consultarTodos">
         <result type="json"></result>
     </action>
+    <action name="guardarPropiedadJson" class="Propiedad" method="guardar">
+        <result type="json"></result>
+    </action>
+    
 </package>
 
-<package name="tablaPublicidad" extends="struts-default">
+<package name="tablaPublicidad" extends="struts-default, json-default">
     <action name="testPublicidad" class="Publicidad" method="consultarTodos">
         <result>/test/TestPublicidad.jsp</result>
     </action>
@@ -322,7 +342,10 @@
             <param name="excludeMethods">input,back,cancel,browse</param>
         </interceptor-ref>-->
             
-        <result>/test/TestPublicidad.jsp</result>
+        <result>/roles/Administrador/PanelAdministrador.jsp</result>
+    </action>
+    <action name="guardarPublicidadJson" class="Publicidad" method="guardar">
+        <result type="json"></result>
     </action>
     <action name="editarPublicidad" class="Publicidad" method="editar">
         <result type="redirectAction">testPublicidad</result>
@@ -367,6 +390,9 @@
         <result type="json"></result>
     </action> 
     <action name="consultarDiseniadoresJson" class="Usuario" method="consultarDiseniadores">
+        <result type="json"></result>
+    </action>
+    <action name="guardarUsuarioJson" class="Usuario" method="guardar">
         <result type="json"></result>
     </action>
 </package>
@@ -432,5 +458,8 @@
     </action>
     <action name="obtenerListaClaveJson" class="Busqueda" method="filtrarPalabrasClave">
         <result type="json"></result>
+    </action>
+    <action name="testURL" class="Navegacion" method="index">
+        <result>/test/TestURL.jsp</result>
     </action>
 </package>

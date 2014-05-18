@@ -11,6 +11,10 @@
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>
         </property>
+        <property column="VIEWPOINT" name="viewpoint" not-null="false" type="java.lang.String">
+            <meta attribute="use-in-tostring">true</meta>
+            <meta attribute="use-in-equals">true</meta>
+        </property>
         <property column="RUTA_SKYBOX" name="rutaSkybox" not-null="false" type="java.lang.String">
             <meta attribute="use-in-tostring">true</meta>
             <meta attribute="use-in-equals">true</meta>

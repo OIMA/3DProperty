@@ -139,6 +139,7 @@ public class Disenio implements Serializable {
     }
 
     public void setViewpoint(String viewpoint) {
+        System.out.println("ViewPoint "+viewpoint);
         this.viewpoint = viewpoint;
     }
 

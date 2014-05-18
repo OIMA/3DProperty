@@ -1,0 +1,56 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="windows-1252" %>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <h1>Alta de Contratos.</h1>
+                <s:url id="usuarioURL" action="consultarUsuariosContratoJSON"/>
+                <s:url id="propiedadURL" action="consultarPropiedadesContratoJSON"/>
+                <s:form id="contratoForm" action="guardarContrato" method="post" name="">
+                    <sj:select 
+                        href="%{usuarioURL}" 
+                        id="usuario" 
+                        name="contrato.idUsuario.idUsuario" 
+                        list="listaUsuario" 
+                        listKey="idUsuario" 
+                        listValue="nombre" 
+                        headerKey="-1"
+                        headerValue="Seleccione un Usuario"
+                        label="Usuario"
+                        cssClas="form-control"
+                        />
+                    <sj:select 
+                        href="%{propiedadURL}" 
+                        id="propiedad" 
+                        name="contrato.idPropiedad.idPropiedad" 
+                        list="listaPropiedad" 
+                        listKey="idPropiedad" 
+                        listValue="nombre" 
+                        headerKey="-1"
+                        headerValue="Seleccione una Propiedad"
+                        label="Propiedad"
+                        cssClas="form-control"
+                        />
+                    <s:textfield label="Descripcion" name="contrato.descripcion" cssClas="form-control"/>
+                    <s:textfield label="Fecha" name="contrato.fecha" cssClas="form-control"/>
+                    <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                    <s:url id="contratoURL" action="guardarContratoJson"/> 
+                    <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo el contrato</b></h4></center></div><br/>
+                    <sj:submit
+
+                        href="%{contratoURL}" 
+                        value="Guardar" 
+                        targets="target"
+                        cssClass="btn btn-primary"
+                        onCompleteTopics="mostrarMensaje"
+                        />
+                    <div id ="target"></div>
+                </s:form>
+            </div>
+            <div class="col-md-4 column">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,7 @@
     <body>
         <div id="consultas">
             <s:if test="listaColonia.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -28,8 +29,7 @@
                             <td>${nombre}</td>
                             <td>${idCodigoPostal.numero}</td>
                             <td>
-                                <a href="eliminarColonia.action?idColonia=${idColonia}"> Eliminar </a> 
-                                <a href="consultarColonia.action?idColonia=${idColonia}"> Editar </a>
+                                <a metodo="eliminarColonia.action" nombre="idColonia" ide="${idColonia}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -39,47 +39,6 @@
                 <h1>No hay datos en Colonia.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Colonias.</h1>
-            <s:if test="listaCodigoPostal.size>0">
-                <s:form action="guardarColonia" method="post" name="">
-                    <s:textfield label="Nombre" name="colonia.nombre" value=""/>
-                    <s:select 
-                        name="colonia.idCodigoPostal.idCodigoPostal" 
-                        list="listaCodigoPostal"
-                        listKey="%{idCodigoPostal}"
-                        listValue="%{numero}"
-                        label="Codigo Postal"
-                        />
-                    <s:submit value="Guardar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testCodigoPostal.action">Codigos Postales</a>.
-            </s:else>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Codigo Postal.</h1>
-            <s:if test="listaCodigoPostal.size>0">    
-                <s:form action="editarColonia" method="post" name="">
-                    <s:hidden name="colonia.idColonia" value="%{colonia.idColonia}"/>
-                    <s:textfield label="Nombre" name="colonia.nombre" value="%{colonia.nombre}"/>
-                    <s:select 
-                        name="colonia.idCodigoPostal.idCodigoPostal" 
-                        list="listaCodigoPostal"
-                        listKey="%{idCodigoPostal}"
-                        listValue="%{numero}"
-                        value="%{colonia.idCodigoPostal.idCodigoPostal}"
-                        label="Codigo Postal"
-                        />
-                    <s:hidden name="colonia.status" value="%{colonia.status}"/>
-                    <s:submit value="Actualizar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testCodigoPostal.action">Codigos Postales</a>.
-            </s:else>
         </div>
     </body>
 </html>

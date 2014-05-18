@@ -23,6 +23,7 @@
         <s:url id="categoriaURL" action="consultarCategoriasJson"/> 
         <div id="consultas">
             <s:if test="listaPropiedades.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -70,8 +71,7 @@
                             <td>${idColonia.idCodigoPostal.idLocalidad.idEstado.idPais.nombre}</td>
                             <td>${idCategoria.nombre}</td>
                             <td>
-                                <a href="eliminarPropiedad.action?idPropiedad=${idPropiedad}"> Eliminar </a> 
-                                <a href="consultarPropiedad.action?idPropiedad=${idPropiedad}"> Editar </a>
+                                <a metodo="eliminarPropiedad.action" nombre="idPropiedad" ide="${idPropiedad}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -81,108 +81,6 @@
                 <h1>No hay datos en Propiedad.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Propiedades.</h1>
-            <s:form id="altaPropiedad" action="guardarPropiedad" method="post" name="" theme="bootstrap">
-                    <s:textfield label="Nombre" name="propiedad.nombre" value=""/>
-                    <s:textfield label="Descripción" name="propiedad.descripcion" value=""/>
-                    <s:textfield label="Extensión" name="propiedad.extension" value=""/>
-                    <s:textfield label="No. de Baños" name="propiedad.noBanios" value=""/>
-                    <s:textfield label="No. de Habitaciones" name="propiedad.noHabitaciones" value=""/>
-                    <s:textfield label="No. de Pisos" name="propiedad.noPisos" value=""/>
-                    <s:textfield label="Color 1" name="propiedad.color1" value=""/>
-                    <s:textfield label="Color 2" name="propiedad.color2" value=""/>
-                    <s:textfield label="Fecha de Construcción" name="propiedad.fechaConstruccion" value=""/>
-                    <s:textfield label="Tipo de Fachada" name="propiedad.tipoFachada" value=""/>
-                    <s:textfield label="Calle" name="propiedad.calle" value=""/>
-                    <s:textfield label="No. Exterior" name="propiedad.noExterior" value=""/>
-                    <s:textfield label="No. Interior" name="propiedad.noInterior" value=""/>
-                    <sj:select 
-                        href="%{paisURL}" 
-                        id="pais" 
-                        onChangeTopics="recargarEstados,recargarLocalidades,recargarCodigosPostales,recargarColonias" 
-                        name="idPais" 
-                        list="listaPais" 
-                        listKey="idPais" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione un Pais"
-                        label="Pais"
-                        />
-
-                    <sj:select 
-                        href="%{estadoURL}" 
-                        id="estado" 
-                        reloadTopics="recargarEstados"
-                        onChangeTopics="recargarLocalidades,recargarCodigosPostales,recargarColonias"
-                        name="idEstado"
-                        formIds="altaPropiedad"
-                        list="listaEstado"
-                        listKey="idEstado" 
-                        listValue="nombre" 
-                        headerKey="-1" 
-                        headerValue="Seleccione un Estado"
-                        label="Estado"
-                        /> 
-                    
-                    <sj:select 
-                        href="%{localidadURL}" 
-                        id="localidad" 
-                        reloadTopics="recargarLocalidades"
-                        onChangeTopics="recargarCodigosPostales,recargarColonias"
-                        name="idLocalidad"
-                        formIds="altaPropiedad"
-                        list="listaLocalidad"
-                        listKey="idLocalidad" 
-                        listValue="nombre"
-                        headerKey="-1" 
-                        headerValue="Seleccione una Localidad"
-                        label="Localidad"
-                        />
-                    
-                    <sj:select 
-                        href="%{codigoPostalURL}" 
-                        id="codigoPostal" 
-                        reloadTopics="recargarCodigosPostales"
-                        onChangeTopics="recargarColonias"
-                        name="idCodigoPostal"
-                        formIds="altaPropiedad"
-                        list="listaCodigoPostal"
-                        listKey="idCodigoPostal" 
-                        listValue="numero" 
-                        headerKey="-1" 
-                        headerValue="Seleccione un Codigo Postal" 
-                        label="Codigo Postal"
-                        />
-                    
-                    <sj:select 
-                        href="%{coloniaURL}" 
-                        id="colonia" 
-                        reloadTopics="recargarColonias" 
-                        name="propiedad.idColonia.idColonia"
-                        formIds="altaPropiedad"
-                        list="listaColonia"
-                        listKey="idColonia" 
-                        listValue="nombre"
-                        headerKey="-1" 
-                        headerValue="Seleccione una Colonia" 
-                        label="Colonia"
-                        />
-                    <sj:select 
-                        href="%{categoriaURL}" 
-                        id="categoria" 
-                        name="propiedad.idCategoria.idCategoria" 
-                        list="listaCategoria" 
-                        listKey="idCategoria" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione una Categoria"
-                        label="Categoria"
-                        />
-                    <s:submit value="Guardar"/>
-                    
-                </s:form>
         </div>
     </body>
 </html>

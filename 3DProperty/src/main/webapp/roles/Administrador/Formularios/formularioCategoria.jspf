@@ -5,20 +5,26 @@
         <div class="row clearfix">
             <div class="col-md-8 column">
                 <h1>Alta de Categoria.</h1>
-                <s:form theme="bootstrap" class="form-horizontal" role="form" action="guardarCategoria" method="post" name="">
+                <s:form id="formCategoria" theme="bootstrap" class="form-horizontal" role="form" action="" method="post" name="">
                     <label class="label label-primary">Nombre</label>
                     <s:textfield name="categoria.nombre" value="" cssClass="form-control"/>
                     <div class="form-group"></div>
                     <label class="label label-primary">Descripci&oacute;n</label>
                     <s:textarea name="categoria.descripcion" value="" cssClass="form-control" cols="" rows="10"></s:textarea>
                     <div class="form-group"></div>
-                    <s:submit value="Guardar" cssClass="btn btn-primary"/>
-                    <div class="alert alert-info alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>Elemento insertado correctamente.</strong> 
-                    </div>
+                    <s:hidden name="categoria.status" value="1"></s:hidden>
+                    <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                    <s:url id="categoriaURL" action="guardarCategoria"/> <br/>
+                    <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo la categoria</b></h4></center></div><br/>
+                    <sj:submit
+                        href="%{categoriaURL}" 
+                        value="Guardar" 
+                        targets="target"
+                        cssClass="btn btn-primary"
+                        onCompleteTopics="mostrarMensaje"
+                        />
                 </s:form>
-
+                <div id ="target"></div>
             </div>
             <div class="col-md-4 column">
                 <h3>

@@ -15,6 +15,7 @@
     <body>
         <div id="consultas">
             <s:if test="listaPais.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -27,8 +28,7 @@
                             <td>${idPais}</td>
                             <td>${nombre}</td>
                             <td>
-                                <a href="eliminarPais.action?idPais=${idPais}"> Eliminar </a> 
-                                <a href="consultarPais.action?idPais=${idPais}"> Editar </a>
+                                <a metodo="eliminarPais.action" nombre="idPais" ide="${idPais}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -38,22 +38,6 @@
                 <h1>No hay datos en Pais.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Pais.</h1>
-            <s:form action="guardarPais" method="post" name="">
-                <s:textfield label="Nombre" name="pais.nombre"/>
-                <s:submit value="Guardar"/>
-            </s:form>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Pais.</h1>
-            <s:form action="editarPais" method="post" name="">
-                <s:hidden name="pais.idPais" value="%{pais.idPais}"/>
-                <s:textfield label="Nombre" name="pais.nombre" value="%{pais.nombre}"/>
-                <s:hidden name="pais.status" value="%{pais.status}"/>
-                <s:submit value="Actualizar"/>
-            </s:form>
         </div>
     </body>
 </html>

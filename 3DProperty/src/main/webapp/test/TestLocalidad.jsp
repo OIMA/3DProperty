@@ -19,6 +19,7 @@
         <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
         <div id="consultas">
             <s:if test="listaLocalidad.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -32,8 +33,7 @@
                             <td>${nombre}</td>
                             <td>${idEstado.nombre}</td>
                             <td>
-                                <a href="eliminarLocalidad.action?idLocalidad=${idLocalidad}"> Eliminar </a> 
-                                <a href="consultarLocalidad.action?idLocalidad=${idLocalidad}"> Editar </a>
+                                <a metodo="eliminarLocalidad.action" nombre="idLocalidad" ide="${idLocalidad}" class="eliminacion" href="#"> Eliminar </a> 
                             </td>
                         </tr>
                     </s:iterator>
@@ -43,63 +43,6 @@
                 <h1>No hay datos en Localidad.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Localidades.</h1>
-            <s:if test="listaEstado.size>0">
-                <s:form id="formularioLocalidad" action="guardarLocalidad" method="post" name="">
-                    <s:textfield label="Nombre" name="localidad.nombre" value=""/>
-                    <sj:select 
-                        href="%{paisURL}" 
-                        id="pais" 
-                        onChangeTopics="recargarEstados" 
-                        name="idPais" 
-                        list="listaPais" 
-                        listKey="idPais" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione un Pais"
-                        />
-
-                    <sj:select 
-                        href="%{estadoURL}" 
-                        id="estado" 
-                        reloadTopics="recargarEstados"
-                        name="localidad.idEstado.idEstado"
-                        formIds="formularioLocalidad"
-                        list="listaEstado"
-                        listKey="idEstado" 
-                        listValue="nombre" 
-                        headerKey="-1" 
-                        headerValue="Seleccione un Estado" 
-                        />
-                    <s:submit value="Guardar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testEstado.action">Estados</a>.
-            </s:else>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Localidad.</h1>
-            <s:if test="listaEstado.size>0">    
-                <s:form action="editarLocalidad" method="post" name="">
-                    <s:hidden name="localidad.idLocalidad" value="%{localidad.idLocalidad}"/>
-                    <s:textfield label="Nombre" name="localidad.nombre" value="%{localidad.nombre}"/>
-                    <s:select 
-                        name="localidad.idEstado.idEstado" 
-                        list="listaEstado"
-                        listKey="%{idEstado}"
-                        listValue="%{nombre}"
-                        value="%{localidad.idEstado.idEstado}"
-                        />
-                    <s:hidden name="localidad.status" value="%{localidad.status}"/>
-                    <s:submit value="Actualizar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testEstado.action">Estados</a>.
-            </s:else>
         </div>
     </body>
 </html>

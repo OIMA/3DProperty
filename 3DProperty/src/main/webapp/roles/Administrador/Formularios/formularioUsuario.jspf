@@ -34,7 +34,8 @@
                             headerKey="-1"
                             headerValue="Seleccione un Pais"
                             cssClass="form-control"
-                            />
+                            label="Pais"
+                            /><br/>
 
                         <sj:select 
                             href="%{estadoURL}" 
@@ -49,7 +50,8 @@
                             headerKey="-1" 
                             headerValue="Seleccione un Estado" 
                             cssClass="form-control"
-                            /> 
+                            label="Estado"
+                            /> <br/>
 
                         <sj:select 
                             href="%{localidadURL}" 
@@ -64,7 +66,8 @@
                             headerKey="-1" 
                             headerValue="Seleccione una Localidad" 
                             cssClass="form-control"
-                            />
+                            label="Localidad"
+                            /><br/>
 
                         <sj:select 
                             href="%{codigoPostalURL}" 
@@ -79,7 +82,8 @@
                             headerKey="-1" 
                             headerValue="Seleccione un Codigo Postal" 
                             cssClass="form-control"
-                            />
+                            label="Codigo Postal"
+                            /><br/>
 
                         <sj:select 
                             href="%{coloniaURL}" 
@@ -93,7 +97,9 @@
                             headerKey="-1" 
                             headerValue="Seleccione una Colonia" 
                             cssClass="form-control"
-                            />
+                            label="Colonia"
+                            /><br/>
+                        <s:textfield label="Calle" cssClass="form-control" name="usuario.calle"/> <br/>
                         <s:textfield label="No. Exterior *" name="usuario.noExterior" cssClass="form-control"/> <br/>
                         <s:textfield label="Numero Interior" cssClass="form-control" name="usuario.noInterior"/> <br/>
                     </div>
@@ -103,9 +109,24 @@
                         <!--<s:textfield label="Telefono Movil *" cssClass="form-control"/> <br/>-->
                         <s:hidden name="" value="0"/>
                         <s:textfield label="E-Mail *" name="usuario.email" cssClass="form-control"/> <br/>
+                        <s:select label="Tipo de Usuario"
+                          list="#@java.util.LinkedHashMap@{'ROLE_ADMINISTRADOR':'Administrador','ROLE_DISENIADOR':'Diseñador','ROLE_CLIENTE':'Cliente'}"
+                          name="usuario.tipoUsuario" 
+                          cssClass="cc campo form-control"
+                          /><br/>
                         <div class="form-group">
-                            <button class="btn btn-block btn-lg btn-success disabled" type="submit" ><span class="glyphicon glyphicon-save"></span> Guardar</button>
-                            <button class="btn btn-block btn-xs btn-danger" type="button" ><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
+                            <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                            <s:url id="usuarioURL" action="guardarUsuarioJson"/> 
+                            <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo el usuario</b></h4></center></div><br/>
+                            <sj:submit
+
+                                href="%{usuarioURL}" 
+                                value="Guardar" 
+                                targets="target"
+                                cssClass="btn btn-primary"
+                                onCompleteTopics="mostrarMensaje"
+                                />
+                            <div id ="target"></div>
                         </div>
                     </div>
                 </s:form>

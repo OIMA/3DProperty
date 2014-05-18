@@ -58,7 +58,7 @@ public class ControlDisenio extends Controller implements ServletRequestAware {
 
         FileUtils.copyFile(archivoDisenio, fileToCreate);
         System.out.println("La nueva ruta es: " + fileToCreate.getAbsolutePath());
-
+        System.out.println("Disenio viewpoint "+disenio.getViewpoint());
         disenio.setRuta(archivoDisenioFileName);
         disenio.setStatus(Boolean.TRUE);
         servicioDisenio.guardar(disenio);

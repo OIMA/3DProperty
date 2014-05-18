@@ -4,11 +4,99 @@
     <div class="col-md-12 column">
         <div class="row clearfix">
             <div class="col-md-8 column">
-                
+                <h1>Alta de Codigo Postales.</h1>
+                <s:if test="listaLocalidad.size>0">
+                    <s:form id="formColonia" theme="bootstrap" class="form-horizontal" role="form" action="" method="post" name="">
+                        <s:textfield label="Nombre" name="colonia.nombre" value="" cssClass="form-control"/><br/>
+                        <s:hidden name="colonia.status" value="1"></s:hidden>
+                        <s:url id="paisURL" action="consultarPaisesJson"/> 
+                        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+                        <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
+                        <s:url id="codigoPostalURL" action="consultaCodigosPostalesPorLocalidadJson"/>
+                        <sj:select 
+                            href="%{paisURL}" 
+                            id="pais" 
+                            onChangeTopics="recargarEstados,recargarLocalidades,recargarCodigosPostales" 
+                            name="idPais" 
+                            list="listaPais" 
+                            listKey="idPais" 
+                            listValue="nombre" 
+                            headerKey="-1"
+                            headerValue="Seleccione un Pais"
+                            cssClass="cc campo form-control"
+                            label="Pais"
+                            /><br/>
 
+                        <sj:select 
+                            href="%{estadoURL}" 
+                            id="estado" 
+                            reloadTopics="recargarEstados"
+                            onChangeTopics="recargarLocalidades,recargarCodigosPostales"
+                            name="idEstado"
+                            formIds="formColonia"
+                            list="listaEstado"
+                            listKey="idEstado" 
+                            listValue="nombre" 
+                            headerKey="-1" 
+                            headerValue="Seleccione un Estado" 
+                            cssClass="cc campo form-control"
+                            label="Estado"
+                            /> <br/>
+
+                        <sj:select 
+                            href="%{localidadURL}" 
+                            id="localidad" 
+                            reloadTopics="recargarLocalidades"
+                            name="idLocalidad"
+                            onChangeTopics="recargarCodigosPostales"
+                            formIds="formColonia"
+                            list="listaLocalidad"
+                            listKey="idLocalidad" 
+                            listValue="nombre"
+                            headerKey="-1" 
+                            headerValue="Seleccione una Localidad" 
+                            cssClass="cc campo form-control"
+                            label="Localidad"
+                            /><br/>
+                        <sj:select 
+                            href="%{codigoPostalURL}" 
+                            id="codigoPostal" 
+                            reloadTopics="recargarCodigosPostales"
+                            name="colonia.idCodigoPostal.idCodigoPostal"
+                            formIds="formColonia"
+                            list="listaCodigoPostal"
+                            listKey="idCodigoPostal" 
+                            listValue="numero" 
+                            headerKey="-1" 
+                            headerValue="Seleccione un Codigo Postal" 
+                            cssClass="cc campo form-control"
+                            label="Codigo Postal"
+                            />
+                        <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                        <s:url id="coloniaURL" action="guardarColoniaJson"/> 
+                        <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo la colonia</b></h4></center></div><br/>
+                        <sj:submit
+
+                            href="%{coloniaURL}" 
+                            value="Guardar" 
+                            targets="target"
+                            cssClass="btn btn-primary"
+                            onCompleteTopics="mostrarMensaje"
+                            />
+                        <div id ="target"></div>
+                    </s:form>
+
+                </s:if>
+                <s:else>
+                    <div class="alert alert-danger">
+                        <h3>
+                            No hay datos en <a class="alert-link" href="testLocalidad.action">Localidades</a>.
+                        </h3>
+                    </div>
+                </s:else>
             </div>
             <div class="col-md-4 column">
-                
+
             </div>
         </div>
     </div>

@@ -6,20 +6,53 @@
             <div class="col-md-8 column">
                 <h1>Alta de Localidades.</h1>
                 <s:if test="listaEstado.size>0">
-                    <s:form theme="bootstrap" class="form-horizontal" role="form" action="guardarLocalidad" method="post" name="">
+                    <s:form id="formLocalidad" theme="bootstrap" class="form-horizontal" role="form" action="guardarLocalidad" method="post" name="">
                         <label class="label label-primary">Nombre de la localidad</label>
                         <s:textfield name="localidad.nombre" value="" cssClass="form-control"/>
                         <div class="form-group"></div>
-                        <label class="label label-primary">Nombre del estado al que pertenece</label>
-                        <s:select 
-                            name="localidad.idEstado.idEstado" 
+                        <s:hidden name="localidad.status" value="1"></s:hidden>
+                        <s:url id="paisURL" action="consultarPaisesJson"/> 
+                        <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+                        <sj:select 
+                            href="%{paisURL}" 
+                            id="pais" 
+                            onChangeTopics="recargarEstados" 
+                            name="idPais" 
+                            list="listaPais" 
+                            listKey="idPais" 
+                            listValue="nombre" 
+                            headerKey="-1"
+                            headerValue="Seleccione un Pais"
+                            cssClass="cc campo form-control"
+                            label="Pais"
+                            /><br/>
+
+                        <sj:select 
+                            href="%{estadoURL}" 
+                            id="estado" 
+                            reloadTopics="recargarEstados"
+                            name="localidad.idEstado.idEstado"
+                            formIds="formLocalidad"
                             list="listaEstado"
-                            listKey="%{idEstado}"
-                            listValue="%{nombre}"
-                            cssClass="form-control"
+                            listKey="idEstado" 
+                            listValue="nombre" 
+                            headerKey="-1" 
+                            headerValue="Seleccione un Estado" 
+                            cssClass="cc campo form-control"
+                            label="Estado"
+                            /> <br/>
+                        <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                        <s:url id="localidadURL" action="guardarLocalidadJson"/> 
+                        <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo la localidad</b></h4></center></div><br/>
+                        <sj:submit
+                            
+                            href="%{localidadURL}" 
+                            value="Guardar" 
+                            targets="target"
+                            cssClass="btn btn-primary"
+                            onCompleteTopics="mostrarMensaje"
                             />
-                        <div class="form-group"></div>
-                        <s:submit value="Guardar" cssClass="btn btn-primary"/>
+                        <div id ="target"></div>
                     </s:form>
                 </s:if>
                 <s:else>

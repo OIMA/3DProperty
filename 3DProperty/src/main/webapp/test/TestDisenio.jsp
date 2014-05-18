@@ -18,6 +18,7 @@
         <s:url id="propiedadURL" action="consultarPropiedadesJson"/>
         <div id="consultas">
             <s:if test="listaDisenio.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -33,12 +34,11 @@
                             <td>${idDisenio}</td>
                             <td>${ruta}</td>
                             <td>${skybox}</td>
-                            <td>${viewPoint}</td>
+                            <td>${viewpoint}</td>
                             <td>${noVisitas}</td>
                             <td>${idPropiedad.idPropiedad} : ${idPropiedad.nombre}</td>
                             <td>
-                                <a href="eliminarDisenio.action?idDisenio=${idDisenio}"> Eliminar </a> 
-                                <a href="consultarDisenio.action?idDisenio=${idDisenio}"> Editar </a>
+                                <a metodo="eliminarDisenio.action" nombre="idDisenio" ide="${idDisenio}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -49,26 +49,5 @@
             </s:else>
 
         </div>
-        <div id="altas">
-            <h1>Alta de Catalogo Fotos.</h1>
-            <s:form action="guardarDisenio" method="post" name="" enctype="multipart/form-data">
-                <s:textfield label="Skybox" name="disenio.skybox" value=""/>
-                <s:textfield label="View Point" name="disenio.viewpoint" value=""/>
-                <s:file label="Seleccione un archivo" name="archivoDisenio"/>
-                <sj:select 
-                        href="%{propiedadURL}" 
-                        id="propiedad" 
-                        name="disenio.idPropiedad.idPropiedad" 
-                        list="listaPropiedades" 
-                        listKey="idPropiedad" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione una Propiedad"
-                        label="Propiedad"
-                        />
-                <s:submit value="Guardar"/>
-            </s:form>
-        </div>
-        Imagen:<img src="<s:property value="archivoDisenioFileName"/>" alt=""/>
     </body>
 </html>

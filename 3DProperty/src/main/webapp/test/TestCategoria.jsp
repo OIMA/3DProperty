@@ -11,10 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Test</title>
+        
     </head>
     <body>
         <div id="consultas">
             <s:if test="listaCategoria.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <thead>
                     <tr>
@@ -30,8 +32,7 @@
                             <td>${nombre}</td>
                             <td>${descripcion}</td>
                             <td>
-                                <a href="eliminarCategoria.action?idCategoria=${idCategoria}"> Eliminar </a> 
-                                <a href="consultarCategoria.action?idCategoria=${idCategoria}"> Editar </a>
+                                <a metodo="eliminarCategoria.action" nombre="idCategoria" ide="${idCategoria}" class="eliminacion" href="#"> Eliminar </a> 
                             </td>
                         </tr>
                     </s:iterator>
@@ -41,24 +42,6 @@
                 <h1>No hay datos en Categoria.</h1>
             </s:else>
 
-        </div>
-        <div id="altas">
-            <h1>Alta de Categoria.</h1>
-            <s:form action="guardarCategoria" method="post" name="">
-                <s:textfield label="Nombre" name="categoria.nombre" value=""/>
-                <s:textfield label="Descripción" name="categoria.descripcion" value=""/>
-                <s:submit value="Guardar"/>
-            </s:form>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Categoria.</h1>
-            <s:form action="editarCategoria" method="post" name="">
-                <s:hidden name="categoria.idCategoria" value="%{categoria.idCategoria}"/>
-                <s:textfield label="Nombre" name="categoria.nombre" value="%{categoria.nombre}"/>
-                <s:textfield label="Descripción" name="categoria.descripcion" value="%{categoria.descripcion}"/>
-                <s:hidden name="categoria.status" value="%{categoria.status}"/>
-                <s:submit value="Actualizar"/>
-            </s:form>
         </div>
     </body>
 </html>

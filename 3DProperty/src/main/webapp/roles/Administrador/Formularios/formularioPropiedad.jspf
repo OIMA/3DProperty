@@ -5,10 +5,11 @@
         <div class="row clearfix">
             <div class="col-md-8 column">
                 <h1>Alta de Propiedades.</h1>
-                <s:form theme="bootstrap" class="form-horizontal" role="form" id="altaPropiedad" action="guardarPropiedad" method="post" name="">
+                <s:form id="propiedadForm" theme="bootstrap" class="form-horizontal" role="form" action="" method="post" name="">
                     <div class="form-group"></div>
                     <label class="label label-primary">Nombre de la propiedad</label>
                     <s:textfield name="propiedad.nombre" value="" cssClass="form-control"/>
+                    <s:hidden name="propiedad.status" value="1"></s:hidden>
                     <div class="form-group"></div>
                     <label class="label label-primary">Descripci&oacute;n de la propiedad</label>
                     <s:textfield name="propiedad.descripcion" value="" cssClass="form-control"/>
@@ -47,17 +48,23 @@
                     <s:textfield name="propiedad.noInterior" value="" cssClass="form-control"/>
                     <div class="form-group"></div>
                     <label class="label label-primary">Pa&iacute;s</label>
+                    <s:url id="paisURL" action="consultarPaisesJson"/> 
+                    <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
+                    <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
+                    <s:url id="codigoPostalURL" action="consultaCodigosPostalesPorLocalidadJson"/> 
+                    <s:url id="coloniaURL" action="consultaColoniasPorCodigoPostalJson"/>
+                    <s:url id="categoriaURL" action="consultarCategoriasJson"/> 
                     <sj:select 
                         href="%{paisURL}" 
                         id="pais" 
-                        onChangeTopics="recargarEstados" 
+                        onChangeTopics="recargarEstados,recargarLocalidades,recargarCodigosPostales,recargarColonias" 
                         name="idPais" 
                         list="listaPais" 
                         listKey="idPais" 
                         listValue="nombre" 
                         headerKey="-1"
                         headerValue="Seleccione un Pais"
-                         cssClass="form-control"
+                        cssClass="form-control"
                         />
                     <div class="form-group"></div>
                     <label class="label label-primary">Estado al que pertenece</label>
@@ -65,15 +72,15 @@
                         href="%{estadoURL}" 
                         id="estado" 
                         reloadTopics="recargarEstados"
-                        onChangeTopics="recargarLocalidades"
+                        onChangeTopics="recargarLocalidades,recargarCodigosPostales,recargarColonias"
                         name="idEstado"
-                        formIds="altaPropiedad"
+                        formIds="propiedadForm"
                         list="listaEstado"
                         listKey="idEstado" 
                         listValue="nombre" 
                         headerKey="-1" 
                         headerValue="Seleccione un Estado" 
-                         cssClass="form-control"
+                        cssClass="form-control"
                         /> 
                     <div class="form-group"></div>
                     <label class="label label-primary">Municipio</label>
@@ -81,15 +88,15 @@
                         href="%{localidadURL}" 
                         id="localidad" 
                         reloadTopics="recargarLocalidades"
-                        onChangeTopics="recargarCodigosPostales"
+                        onChangeTopics="recargarCodigosPostales,recargarColonias"
                         name="idLocalidad"
-                        formIds="altaPropiedad"
+                        formIds="propiedadForm"
                         list="listaLocalidad"
                         listKey="idLocalidad" 
                         listValue="nombre"
                         headerKey="-1" 
                         headerValue="Seleccione una Localidad"
-                         cssClass="form-control"
+                        cssClass="form-control"
                         />
                     <div class="form-group"></div>
                     <label class="label label-primary">C&oacute;digo postal</label>
@@ -99,13 +106,13 @@
                         reloadTopics="recargarCodigosPostales"
                         onChangeTopics="recargarColonias"
                         name="idCodigoPostal"
-                        formIds="altaPropiedad"
+                        formIds="propiedadForm"
                         list="listaCodigoPostal"
                         listKey="idCodigoPostal" 
                         listValue="numero" 
                         headerKey="-1" 
                         headerValue="Seleccione un Codigo Postal"
-                         cssClass="form-control"
+                        cssClass="form-control"
                         />
                     <div class="form-group"></div>
                     <label class="label label-primary">Colonia al que pertenece</label>
@@ -114,13 +121,13 @@
                         id="colonia" 
                         reloadTopics="recargarColonias" 
                         name="propiedad.idColonia.idColonia"
-                        formIds="altaPropiedad"
+                        formIds="propiedadForm"
                         list="listaColonia"
                         listKey="idColonia" 
                         listValue="nombre"
                         headerKey="-1" 
                         headerValue="Seleccione una Colonia"
-                         cssClass="form-control"
+                        cssClass="form-control"
                         />
                     <div class="form-group"></div>
                     <label class="label label-primary">Categor&iacute;a al que pertenece</label>
@@ -133,10 +140,21 @@
                         listValue="nombre" 
                         headerKey="-1"
                         headerValue="Seleccione una Categoria"
-                         cssClass="form-control"
+                        cssClass="form-control"
                         />
                     <div class="form-group"></div>
-                    <s:submit value="Guardar" cssClass="btn btn-primary"/>
+                    <script src="<%=request.getContextPath()%>/js/Mensajesjs.js"></script>
+                    <s:url id="propiedadURL" action="guardarPropiedadJson"/> 
+                    <div id="mensajeRespuesta" class="alert alert-info" style="display: none;"><center><h4><b>Se guardo la propiedad</b></h4></center></div><br/>
+                    <sj:submit
+
+                        href="%{propiedadURL}" 
+                        value="Guardar" 
+                        targets="target"
+                        cssClass="btn btn-primary"
+                        onCompleteTopics="mostrarMensaje"
+                        />
+                    <div id ="target"></div>
                 </s:form>
 
             </div>

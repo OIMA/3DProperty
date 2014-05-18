@@ -20,6 +20,7 @@
             <s:url id="estadoURL" action="consultaEstadosPorPaisJson"/>
             <s:url id="localidadURL" action="consultaLocalidadesPorEstadoJson"/>
             <s:if test="listaCodigoPostal.size>0">
+                <script src="<%=request.getContextPath()%>/js/Eliminar.js"></script>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -33,8 +34,7 @@
                             <td>${numero}</td>
                             <td>${idLocalidad.nombre}</td>
                             <td>
-                                <a href="eliminarCodigoPostal.action?idCodigoPostal=${idCodigoPostal}"> Eliminar </a> 
-                                <a href="consultarCodigoPostal.action?idCodigoPostal=${idCodigoPostal}"> Editar </a>
+                                <a metodo="eliminarCodigoPostal.action" nombre="idCodigoPostal" ide="${idCodigoPostal}" class="eliminacion" href="#"> Eliminar </a>
                             </td>
                         </tr>
                     </s:iterator>
@@ -42,79 +42,6 @@
             </s:if>
             <s:else>
                 <h1>No hay datos en Codigo Postal.</h1>
-            </s:else>
-
-        </div>
-        <div id="altas">
-            <h1>Alta de Codigo Postales.</h1>
-            <s:if test="listaLocalidad.size>0">
-                <s:form id="formularioCodigoPostal" action="guardarCodigoPostal" method="post" name="">
-                    <s:textfield label="Número" name="codigoPostal.numero" value=""/>
-                    <sj:select 
-                        href="%{paisURL}" 
-                        id="pais" 
-                        onChangeTopics="recargarEstados,recargarLocalidades" 
-                        name="idPais" 
-                        list="listaPais" 
-                        listKey="idPais" 
-                        listValue="nombre" 
-                        headerKey="-1"
-                        headerValue="Seleccione un Pais"
-                        />
-
-                    <sj:select 
-                        href="%{estadoURL}" 
-                        id="estado" 
-                        reloadTopics="recargarEstados"
-                        onChangeTopics="recargarLocalidades"
-                        name="idEstado"
-                        formIds="formularioCodigoPostal"
-                        list="listaEstado"
-                        listKey="idEstado" 
-                        listValue="nombre" 
-                        headerKey="-1" 
-                        headerValue="Seleccione un Estado" 
-                        /> 
-
-                    <sj:select 
-                        href="%{localidadURL}" 
-                        id="localidad" 
-                        reloadTopics="recargarLocalidades"
-                        name="codigoPostal.idLocalidad.idLocalidad"
-                        formIds="formularioCodigoPostal"
-                        list="listaLocalidad"
-                        listKey="idLocalidad" 
-                        listValue="nombre"
-                        headerKey="-1" 
-                        headerValue="Seleccione una Localidad" 
-                        />
-                    <s:submit value="Guardar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testLocalidad.action">Localidades</a>.
-            </s:else>
-        </div>
-        <div id="modificaciones">
-            <h1>Editar Codigo Postal.</h1>
-            <s:if test="listaLocalidad.size>0">    
-                <s:form action="editarCodigoPostal" method="post" name="">
-                    <s:hidden name="codigoPostal.idCodigoPostal" value="%{codigoPostal.idCodigoPostal}"/>
-                    <s:textfield label="Número" name="codigoPostal.numero" value="%{codigoPostal.numero}"/>
-                    <s:select 
-                        name="codigoPostal.idLocalidad.idLocalidad" 
-                        list="listaLocalidad"
-                        listKey="%{idLocalidad}"
-                        listValue="%{nombre}"
-                        value="%{codigoPostal.idLocalidad.idLocalidad}"
-                        label="Localidad"
-                        />
-                    <s:hidden name="codigoPostal.status" value="%{codigoPostal.status}"/>
-                    <s:submit value="Actualizar"/>
-                </s:form>
-            </s:if>
-            <s:else>
-                No Datos en <a href="testLocalidad.action">Localidades</a>.
             </s:else>
         </div>
     </body>
