@@ -62,7 +62,7 @@ public class ControlChat extends Controller implements SessionAware {
     }
     
     public String consultarMensajesNoLeidosPorIdUsuario() throws Exception{
-        idUsuario = ((Usuario)session.get("usuarioSession")).getIdUsuario();
+//        idUsuario = ((Usuario)session.get("usuarioSession")).getIdUsuario();
         String orderBy[] = {"desc","idMensaje"};
         String campos[] = {"idDestinatario.idUsuario","statusLeido"};
         Object objetos[] = {idUsuario,Boolean.FALSE};

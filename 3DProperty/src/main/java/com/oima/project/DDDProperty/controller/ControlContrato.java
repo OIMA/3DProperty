@@ -23,6 +23,7 @@ public class ControlContrato extends Controller{
     private List<Usuario> listaUsuario;
     private List<Propiedad> listaPropiedad;
     private Long idContrato;
+    private Long idUsuario;
     private String term;
 
     public String guardar() throws Exception {
@@ -44,6 +45,11 @@ public class ControlContrato extends Controller{
     public String consultarTodos() throws Exception {
         System.out.println("Consulta todas las contratos");
         listaContrato = servicioContrato.consultarTodos(Contrato.class);
+        return SUCCESS;
+    }
+    
+    public String consultarContratoPorIdUsuario() throws Exception {
+        listaContrato = servicioContrato.consultarPorCampoEspecifico("idUsuario.idUsuario", idUsuario, "equal", null);
         return SUCCESS;
     }
 
@@ -128,6 +134,14 @@ public class ControlContrato extends Controller{
      */
     public void setListaPropiedad(List<Propiedad> listaPropiedad) {
         this.listaPropiedad = listaPropiedad;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
 }

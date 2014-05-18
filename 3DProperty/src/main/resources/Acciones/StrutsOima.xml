@@ -4,7 +4,7 @@
 <!--<action name="catalogoConsultaAdmin" class="CatalogoConsulta" method="consultaCatalogosConsulta">name la accion, class la accion declarada en struts, method el metodo de la clase en java
     <result>/Vistas/Formularios/CatalogoConsultasAdmin.jsp</result>Pagina a redirigir
 </action>-->
-<package name="test" extends="struts-default">
+<package name="test" extends="struts-default, json-default">
 <!--    <action name="buscarPorCategoria" class="Navegacion" method="index">
         <result>/roles/UsuarioGeneral/PorCategoria.jsp</result>
     </action>
@@ -70,6 +70,9 @@
     </action>
     <action name="registrarse" class="Usuario" method="registro">
         <result>/roles/UsuarioGeneral/Registro.jsp</result>
+    </action>
+    <action name="contratoPorId" class="Contrato" method="consultarContratoPorIdUsuario">
+        <result type="json"></result>
     </action>
 </package>
 

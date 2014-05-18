@@ -14,7 +14,7 @@
         <anonymous username="Invitado" granted-authority="ROLE_GUEST"></anonymous>
 
 
-        <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/LoginSucessfull.action"
+        <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/index.action"
                     authentication-failure-url="/IndexError.action" />
         <logout logout-success-url="/index.action" />
     </http>
