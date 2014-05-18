@@ -49,6 +49,10 @@ public class ServicioMensaje {
         return (List<Mensaje>) query.consultaPorCampoEspecifico(campo, contenido, predicado, Mensaje.class, orderBy);
     }
     
+    public List<Mensaje> consultaPorCampoEspecifico(String[] campo, Object[] contenido, String[] predicado, String[] orderBy) throws Exception{
+        return (List<Mensaje>) query.consultaPorCampoEspecifico(campo, contenido, predicado, Mensaje.class, orderBy);
+    }
+    
     /**
      * @return the query
      */

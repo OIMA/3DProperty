@@ -358,7 +358,7 @@
         <result >/test/TestUsuario.jsp</result>
     </action>
     <action name="guardarUsuario" class="Usuario" method="guardar">
-        <result type="redirectAction">testUsuario</result>
+        <result>index.jsp</result>
     </action>
     <action name="editarUsuario" class="Usuario" method="editar">
         <result type="redirectAction">testUsuario</result>
@@ -413,6 +413,9 @@
         <result>/test/TestChat.jsp</result>
     </action>
     <action name="consultarMensajesJSON" class="Chat" method="consultarMensajesPorIdUsuario">
+        <result type="json"></result>
+    </action>
+    <action name="consultarMensajesNoLeidosJSON" class="Chat" method="consultarMensajesNoLeidosPorIdUsuario">
         <result type="json"></result>
     </action>
     <action name="marcarMensaje" class="Chat" method="marcarMensaje">

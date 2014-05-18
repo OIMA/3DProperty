@@ -10,7 +10,12 @@
     <body>
         <%--<%@include file="includes/PanelAdministrador.jsp" %>--%>
         <div id="wrapper">
+            <sec:authorize ifAnyGranted="ROLE_GUEST">
             <%@include file="inc/Navigator.jsp" %>
+            </sec:authorize>
+            <sec:authorize ifAnyGranted="ROLE_CLIENTE">
+                <%@include file="inc/UserNav.jspf" %>
+            </sec:authorize>
             <%--<%@include file="includes/PanelAdministrador.jsp" %>--%>
 
 
@@ -80,7 +85,7 @@
                             </ul>
                             <div class="row clearfix">
                                 <div class="row clearfix">
-                                    <div class="col-md-8 column text-center">
+                                    <div class="col-md-12 column text-center">
                                         <h3 class="text-center text-danger">
                                             <!--                                            3DProperty & Tourism-->
                                         </h3><img alt="740x140" src="images/3DProperty2.png" />
@@ -93,7 +98,7 @@
                                             </small>
                                         </p>
                                     </div>
-                                    <div class="col-md-4 column">
+<!--                                    <div class="col-md-4 column">
                                         <sec:authorize ifAnyGranted="ROLE_GUEST">
                                             <form role="form" method="post" action="<c:url value='j_spring_security_check' />">
                                                 <div class="form-group">
@@ -102,22 +107,22 @@
                                                 <div class="form-group">
                                                     <label >Contrase&ntilde;a</label><input type="password" class="form-control" name="j_password" />
                                                 </div>
-                                                <!--                                            <div class="form-group">
+                                                                                            <div class="form-group">
                                                                                                 <label for="exampleInputFile">File input</label><input type="file" id="exampleInputFile" />
                                                                                                 <p class="help-block">
                                                                                                     Example block-level help text here.
                                                                                                 </p>
-                                                                                            </div>-->
-                                                <!--<div class="checkbox">-->
-                                                <!--<label><input type="checkbox" /> Check me out</label>-->
-                                                <!--</div>--> 
+                                                                                            </div>
+                                                <div class="checkbox">
+                                                <label><input type="checkbox" /> Check me out</label>
+                                                </div> 
                                                 <button type="submit" class="btn btn-default">Iniciar</button>
                                             </form>
                                         </sec:authorize>
                                         <sec:authorize ifAnyGranted="ROLE_CLIENTE">
                                             Bienvenido: ${usuarioSession.nombreUsuario}
                                         </sec:authorize>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 column">
@@ -184,10 +189,11 @@
             <!-- /#wrapper -->
         </div>
         <%@include file="inc/scripts.jsp" %>
-        <script type="text/javascript" src="js/Navigation.js"></script>
+        <!--<script type="text/javascript" src="js/Navigation.js"></script>-->
         <footer class="footer" style="background-color:#c2c2c2">
             Este es el pie de pagina y se esta trabajando en ello
         </footer>
+        <script src="<%=request.getContextPath()%>/js/actualizarIndex.js"></script>
     </body>
 
 </html>

@@ -16,7 +16,7 @@
 
         <form-login login-page="/Login.action" always-use-default-target="true" default-target-url="/LoginSucessfull.action"
                     authentication-failure-url="/IndexError.action" />
-        <logout logout-success-url="/Index.action" />
+        <logout logout-success-url="/index.action" />
     </http>
     <authentication-manager>
         <authentication-provider>

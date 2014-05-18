@@ -68,7 +68,7 @@
     <action name="PanelDiseniador" class="ControlDiseniador" method="consultarDatos">
         <result>/roles/Diseniador/PanelDiseniador.jsp</result>
     </action>
-    <action name="registro" class="Usuario" method="guardar">
+    <action name="registrarse" class="Usuario" method="registro">
         <result>/roles/UsuarioGeneral/Registro.jsp</result>
     </action>
 </package>

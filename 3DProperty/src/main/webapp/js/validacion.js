@@ -1,16 +1,16 @@
 function combo(cadena)
 {
-    return cadena != -1;
+    return cadena !== -1;
 }
 
 function esCURP(cadena)
 {
-    return /^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$/.test(cadena);
+    return (/^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$/.test(cadena) || cadena==='');
 }
 
 function esRFC(cadena)
 {
-    return /^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))/.test(cadena);
+    return (/^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))/.test(cadena) || cadena==='');
 }
 
 function fechaFormato(cadena)
@@ -121,22 +121,25 @@ function pruebaFormulario(cadena, element)
 
 $(document).ready(function()
 {
-    $(".vf").click(function (event)
+    $(".vf").click(function(event)
     {
+        event.preventDefault();
         var bandera = false;
+        var campo;
         var inputs = $(".form").find('input');
         $.each(inputs, function(index, element)
         {
+            campo = element;
             var classList = $(element).attr('class').split(/\s+/);
-            if ($.inArray('campo',classList)>=0) 
+            if ($.inArray('campo', classList) >= 0)
             {
-                $.each(classList, function(index, item) 
+                $.each(classList, function(index, item)
                 {
                     if (item === 'nn')
                     {
                         bandera = noNull(element.value);
                         if (!bandera) {
-                            alert('Campo '+element.name+' es nulo');
+                            alert('Campo ' + element.name + ' es nulo');
                             return false;
                         }
                     }
@@ -144,7 +147,7 @@ $(document).ready(function()
                     {
                         bandera = soloLetras(element.value);
                         if (!bandera) {
-                            alert('Solo letras '+element.value+' invalidos');
+                            alert('Solo letras ' + element.value + ' invalidos');
                             return false;
                         }
                     }
@@ -152,7 +155,7 @@ $(document).ready(function()
                     {
                         bandera = soloNumeros(element.value);
                         if (!bandera) {
-                            alert('Solo numeros'+element.value+' invalidos');
+                            alert('Solo numeros' + element.value + ' invalidos');
                             return false;
                         }
                     }
@@ -168,7 +171,7 @@ $(document).ready(function()
                     {
                         bandera = fechaFormato(element.value);
                         if (!bandera) {
-                            alert('Fecha '+element.value+' invalida');
+                            alert('Fecha ' + element.value + ' invalida');
                             return false;
                         }
                     }
@@ -204,10 +207,14 @@ $(document).ready(function()
             }
         });
         alert(bandera);
-        if (!bandera) 
-            event.preventDefault();
+        if (!bandera){
+            campo.parent().attr('class','form-group has-error');
+        }else{
+            campo.parent().attr('class','form-group has-success');
+        }
+//            event.preventDefault();
     });
-    
+
     $('.campo').blur(function()
     {
         var cadena = $(this).val();

@@ -14,7 +14,7 @@
 
         <%@include file="../inc/Header.jsp" %>
         <%@include file="../inc/scripts.jsp" %>
-        <script src="js/Chat.js"></script>
+        <script src="<%=request.getContextPath()%>/js/Chat.js"></script>
     </head>
     <body>
         ${usuarioSession.idUsuario}<!--si aparece un numero hay sesion-->
@@ -110,7 +110,7 @@
                     href="%{guardarMensajeURL}" 
                     value="Enviar Mensaje" 
                     button="true"
-                    targets="hidenMensajes"
+                    targets="hiddenMensajes"
                     />
                 <div id="hiddenMensajes"></div>
             </s:form>

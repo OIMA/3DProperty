@@ -37,7 +37,7 @@ public class ControlSesion extends Controller implements SessionAware {
     }
 
     /**
-     * @param session the session to set
+     * @param map
      */
     @Override
     public void setSession(Map<String, Object> map) {

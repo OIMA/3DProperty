@@ -4,6 +4,7 @@ $.subscribe('autocompleteChange', function(event, data) {
     if (ui.item.key) {
         message = '( ' + ui.item.key + ' ) ' + message;
     }
+    
     $.post("consultarPropiedadesPorUsuarioJson.action", {idUsuario: ui.item.key}, function(data)
     {
         var contratoList = data.contratoList;

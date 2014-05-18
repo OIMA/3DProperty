@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.oima.project.DDDProperty.model.dto;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,6 +51,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Usuario.findByIdColonia", query = "SELECT u FROM Usuario u WHERE u.idColonia = :idColonia"),
     @NamedQuery(name = "Usuario.findByStatus", query = "SELECT u FROM Usuario u WHERE u.status = :status")})
 public class Usuario implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -197,6 +201,30 @@ public class Usuario implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public void setFechaNacimiento(String fN) {
+        System.out.println(fN+"<----------------------------------------");
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYYY");
+            this.fechaNacimiento = formatter.parse(fN);
+        } catch (ParseException ex) {
+            try {
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
+                this.fechaNacimiento = formatter.parse(fN);
+            } catch (ParseException eix) {
+                try {
+                    SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-YYYY");
+                    this.fechaNacimiento = formatter.parse(fN);
+                } catch (ParseException exw) {
+                    try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/YYYY");
+                        this.fechaNacimiento = formatter.parse(fN);
+                    } catch (ParseException eixew) {
+                    }
+                }
+            }
+        }
+    }
+
     public String getRfc() {
         return rfc;
     }
@@ -285,5 +313,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "com.oima.project.DDDProperty.model.dto.Usuario[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }

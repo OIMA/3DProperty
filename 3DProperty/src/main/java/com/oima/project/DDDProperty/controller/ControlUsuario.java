@@ -23,11 +23,16 @@ public class ControlUsuario extends Controller {
     private List<Colonia> listaColonia;
 
     private String mensajeRetorno;
+    
+    public String registro(){
+        usuario= new Usuario();
+        return SUCCESS;
+    }
 
     public String guardar() throws Exception {
+        System.out.println(usuario.getFechaNacimiento()+"<----------------------------------------");
         usuario.setStatus(Boolean.TRUE);
         servicioUsuario.guardar(usuario);
-        consultarTodos();
         return SUCCESS;
     }
 

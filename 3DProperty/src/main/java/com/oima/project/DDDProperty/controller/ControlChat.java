@@ -61,6 +61,19 @@ public class ControlChat extends Controller implements SessionAware {
         return SUCCESS;
     }
     
+    public String consultarMensajesNoLeidosPorIdUsuario() throws Exception{
+        idUsuario = ((Usuario)session.get("usuarioSession")).getIdUsuario();
+        String orderBy[] = {"desc","idMensaje"};
+        String campos[] = {"idDestinatario.idUsuario","statusLeido"};
+        Object objetos[] = {idUsuario,Boolean.FALSE};
+        String predicados[] = {"equal","equal"};
+        mensajeList = servicioMensaje.consultaPorCampoEspecifico("idRemitente.idUsuario", idUsuario, "equal", orderBy);
+//        mensajeRecibidosList = servicioMensaje.consultaPorCampoEspecifico("idDestinatario.idUsuario", idUsuario, "equal", orderBy);
+       
+        mensajeRecibidosList = servicioMensaje.consultaPorCampoEspecifico(campos,objetos, predicados, orderBy);
+        return SUCCESS;
+    }
+    
     public String guardarMensaje() throws Exception{
         System.out.println("Id Destinatario"+idUsuario);
         System.out.println("Id Remitente "+mensaje.getIdRemitente().getIdUsuario());
